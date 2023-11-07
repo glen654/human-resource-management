@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #1289A7;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.SignUpFormController">
+   <children>
+      <AnchorPane layoutX="284.0" layoutY="98.0" prefHeight="605.0" prefWidth="633.0" style="-fx-background-color: white;">
+         <children>
+            <TextField layoutX="187.0" layoutY="174.0" prefHeight="36.0" prefWidth="233.0" promptText="User Id" />
+            <TextField layoutX="187.0" layoutY="278.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter UserName" />
+            <TextField layoutX="54.0" layoutY="377.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter Password" />
+            <TextField layoutX="353.0" layoutY="377.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter Password" />
+            <Label layoutX="187.0" layoutY="145.0" text="User ID">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="186.0" layoutY="254.0" text="Username">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="350.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="353.0" layoutY="350.0" text="Confirm Password">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="261.0" layoutY="92.0" text="Sign Up" textFill="#12cbc4">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="157.0" layoutY="476.0" prefHeight="46.0" prefWidth="313.0" style="-fx-background-color: #1abc9c;" text="Sign Up" textFill="#f5f0f0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Label layoutX="176.0" layoutY="539.0" text="Already have an account?" />
+            <JFXButton layoutX="353.0" layoutY="535.0" text="Sign In" textFill="#e40ab8">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <ImageView layoutX="275.0" layoutY="22.0">
+               <image>
+                  <Image url="@../assets/icons8-employee-50.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
