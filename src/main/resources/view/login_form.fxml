@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #1289A7;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #1289A7;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.LoginFormController">
    <children>
       <AnchorPane layoutX="284.0" layoutY="98.0" prefHeight="605.0" prefWidth="633.0" style="-fx-background-color: white;">
          <children>
@@ -39,7 +39,7 @@
                </font>
             </JFXButton>
             <Label layoutX="168.0" layoutY="548.0" text="Don't have an account?" />
-            <JFXButton layoutX="330.0" layoutY="544.0" text="Sign Up" textFill="#e40ab8">
+            <JFXButton layoutX="330.0" layoutY="544.0" onAction="#btnSignUpPageOnAction" text="Sign Up" textFill="#e40ab8">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>

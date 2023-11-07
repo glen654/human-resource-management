@@ -1,17 +1,27 @@
 package lk.ijse.humanResourceManagement.controller;
 
+
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.humanResourceManagement.dto.LoginDto;
 import lk.ijse.humanResourceManagement.model.LoginModel;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class LoginFormController {
     public TextField txtUsername;
     public TextField txtPassword;
+    public AnchorPane rootNode;
+
 
     public void btnSignInOnAction(ActionEvent actionEvent) {
         String userName = txtUsername.getText();
@@ -58,4 +68,13 @@ public class LoginFormController {
         }
     }
 
+    public void btnSignUpPageOnAction(ActionEvent actionEvent) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/signUp_form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage primaryStage =(Stage) this.rootNode.getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("SignUp Form");
+    }
 }
