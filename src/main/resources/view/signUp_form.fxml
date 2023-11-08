@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,16 +14,13 @@
    <children>
       <AnchorPane layoutX="284.0" layoutY="98.0" prefHeight="605.0" prefWidth="633.0" style="-fx-background-color: white;">
          <children>
-            <TextField fx:id="txtId" layoutX="187.0" layoutY="174.0" prefHeight="36.0" prefWidth="233.0" promptText="User Id" />
-            <TextField fx:id="txtUsername" layoutX="54.0" layoutY="276.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter UserName" />
-            <TextField fx:id="txtPassword" layoutX="54.0" layoutY="377.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter Password" />
-            <TextField fx:id="txtConfirmPassword" layoutX="353.0" layoutY="377.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter Password" />
-            <Label layoutX="187.0" layoutY="152.0" text="User ID">
+            <TextField fx:id="txtPosition" layoutX="54.0" layoutY="276.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter Position" />
+            <Label layoutX="54.0" layoutY="173.0" text="First Name">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="53.0" layoutY="254.0" text="Username">
+            <Label layoutX="53.0" layoutY="254.0" text="Position">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -64,12 +62,21 @@
                   <Image url="@../assets/icons8-employee-50.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtPosition" layoutX="354.0" layoutY="276.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter Position" />
-            <Label layoutX="354.0" layoutY="254.0" text="Position">
+            <TextField fx:id="txtUsername" layoutX="354.0" layoutY="276.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter Username" />
+            <Label layoutX="354.0" layoutY="254.0" text="Username">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
+            <TextField fx:id="txtFirstName" layoutX="54.0" layoutY="196.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter Firstname" />
+            <TextField fx:id="txtLastName" layoutX="353.0" layoutY="196.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter Lastname" />
+            <Label layoutX="353.0" layoutY="173.0" text="Last Name">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="txtPassword" layoutX="54.0" layoutY="377.0" prefHeight="36.0" prefWidth="233.0" promptText="Enter Password" />
+            <PasswordField fx:id="txtConfirmPassword" layoutX="354.0" layoutY="377.0" prefHeight="36.0" prefWidth="233.0" promptText="Confirm Password" />
          </children>
       </AnchorPane>
    </children>

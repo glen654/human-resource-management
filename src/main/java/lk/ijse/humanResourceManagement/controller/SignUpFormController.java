@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -16,22 +17,26 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class SignUpFormController {
-    public TextField txtId;
-    public TextField txtUsername;
-    public TextField txtPassword;
-    public TextField txtConfirmPassword;
-    public TextField txtPosition;
+  
     public AnchorPane rootNode;
+    public TextField txtFirstName;
+    public TextField txtLastName;
+    public TextField txtPosition;
+    public PasswordField txtPassword;
+    public PasswordField txtConfirmPassword;
+    public TextField txtUsername;
 
     private SignUpModel signUpModel = new SignUpModel();
     @FXML
     void btnSignUpOnAction(ActionEvent event) {
-        String id = txtId.getText();
-        String userName = txtUsername.getText();
-        String password = txtPassword.getText();
+        String firstName = txtFirstName.getText();
+        String lastName = txtLastName.getText();
         String position = txtPosition.getText();
+        String userName = txtUsername.getText();
+        String password = txtConfirmPassword.getText();
 
-        var dto = new SignUpDto(id, position, userName, password);
+
+        var dto = new SignUpDto(firstName, lastName, position, userName,password);
 
         try {
             boolean isSaved = signUpModel.saveUser(dto);
@@ -46,7 +51,8 @@ public class SignUpFormController {
     }
 
     private void clearFields() {
-        txtId.setText("");
+        txtFirstName.setText("");
+        txtLastName.setText("");
         txtUsername.setText("");
         txtPassword.setText("");
         txtConfirmPassword.setText("");

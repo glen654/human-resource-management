@@ -12,13 +12,14 @@ public class SignUpModel {
     public boolean saveUser(SignUpDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO user VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO user VALUES(?, ?, ?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
-        pstm.setString(1, dto.getTxtId());
-        pstm.setString(2, dto.getTxtUsername());
-        pstm.setString(3, dto.getTxtPassword());
-        pstm.setString(4, dto.getPosition());
+        pstm.setString(1, dto.getFirstName());
+        pstm.setString(2, dto.getLastName());
+        pstm.setString(3, dto.getPosition());
+        pstm.setString(4, dto.getUserName());
+        pstm.setString(5, dto.getConfirmPassword());
 
         boolean isSaved = pstm.executeUpdate() > 0;
 

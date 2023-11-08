@@ -2,11 +2,13 @@ CREATE DATABASE humanResourceManagement;
 
 USE humanResourceManagement;
 
-CREATE TABLE user(
-                     user_id VARCHAR(5) PRIMARY KEY,
-                     position VARCHAR(25) NOT NULL,
-                     userName VARCHAR(20) NOT NULL,
+create table user(
+                     first_name VARCHAR(20) NOT NULL ,
+                     last_name VARCHAR(20) NOT NULL ,
+                     position VARCHAR(25) NOT NULL ,
+                     user_name VARCHAR(25) PRIMARY KEY ,
                      password VARCHAR(25) NOT NULL
+
 );
 
 CREATE TABLE department(

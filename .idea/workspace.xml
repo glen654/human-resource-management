@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="completed the login and created the signup from">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/SignUpDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/SignUpModel.java" afterDir="false" />
+    <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="completed signup form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LoginFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SignUpFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SignUpFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/SignUpDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/SignUpDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/LoginModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/SignUpModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/SignUpModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/signUp_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/signUp_form.fxml" afterDir="false" />
     </list>
@@ -75,7 +77,11 @@
       <workItem from="1699334701866" duration="4147000" />
       <workItem from="1699366235944" duration="3909000" />
       <workItem from="1699374784614" duration="161000" />
-      <workItem from="1699375105550" duration="1732000" />
+      <workItem from="1699375105550" duration="1894000" />
+      <workItem from="1699419501069" duration="2130000" />
+      <workItem from="1699421902596" duration="31000" />
+      <workItem from="1699422086060" duration="1072000" />
+      <workItem from="1699423240540" duration="2332000" />
     </task>
     <task id="LOCAL-00001" summary="completed the login and created the signup from">
       <option name="closed" value="true" />
@@ -85,15 +91,35 @@
       <option name="project" value="LOCAL" />
       <updated>1699338896144</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="completed signup form">
+      <option name="closed" value="true" />
+      <created>1699377557714</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699377557714</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="completed the login and created the signup from" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed the login and created the signup from" />
+    <MESSAGE value="completed signup form" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed signup form" />
   </component>
 </project>
