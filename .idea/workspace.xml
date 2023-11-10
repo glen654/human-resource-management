@@ -4,16 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="completed signup form">
+    <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="completed signup form and created dashboard form and controller">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-attendance-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-back-48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-checklist-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-department-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-department-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-employee-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-employees-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-interviews-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-leave-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-log-out-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-performance-goal-48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-plus-48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-salary-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-search-24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-training-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/icons8-user-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LoginFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SignUpFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SignUpFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/SignUpDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/SignUpDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/LoginModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/SignUpModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/SignUpModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/signUp_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/signUp_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +94,12 @@
       <workItem from="1699419501069" duration="2130000" />
       <workItem from="1699421902596" duration="31000" />
       <workItem from="1699422086060" duration="1072000" />
-      <workItem from="1699423240540" duration="2332000" />
+      <workItem from="1699423240540" duration="3723000" />
+      <workItem from="1699451969684" duration="2552000" />
+      <workItem from="1699505422722" duration="248000" />
+      <workItem from="1699509636870" duration="642000" />
+      <workItem from="1699621995752" duration="208000" />
+      <workItem from="1699629535987" duration="2679000" />
     </task>
     <task id="LOCAL-00001" summary="completed the login and created the signup from">
       <option name="closed" value="true" />
@@ -99,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699377557714</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="completed signup form and created dashboard form and controller">
+      <option name="closed" value="true" />
+      <created>1699427029639</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699427029639</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +146,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="completed the login and created the signup from" />
     <MESSAGE value="completed signup form" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed signup form" />
+    <MESSAGE value="completed signup form and created dashboard form and controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed signup form and created dashboard form and controller" />
   </component>
 </project>

@@ -25,7 +25,7 @@ public class LoginFormController {
     public PasswordField txtPassword;
 
 
-    public void btnSignInOnAction(ActionEvent actionEvent) {
+    public void btnSignInOnAction(ActionEvent actionEvent) throws IOException {
         String userName = txtUsername.getText();
         String password = txtPassword.getText();
 
@@ -38,7 +38,13 @@ public class LoginFormController {
 
             if(loginDto != null){
                 clearFields();
-                new Alert(Alert.AlertType.CONFIRMATION,"Login Successful").show();
+                Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
+
+                Scene scene = new Scene(rootNode);
+
+                Stage primaryStage =(Stage) this.rootNode.getScene().getWindow();
+                primaryStage.setScene(scene);
+                primaryStage.setTitle("Human Resource Management System");
             }else{
                 clearFields();
                 new Alert(Alert.AlertType.INFORMATION,"Username or Password incorrect").show();
