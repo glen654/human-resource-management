@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.EmployeeAddController">
+   <children>
+      <Label layoutX="10.0" layoutY="6.0" prefHeight="61.0" prefWidth="208.0" text="New Employee">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="10.0" layoutY="59.0" prefHeight="18.0" prefWidth="193.0" text="Fill out these information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtFirstName" layoutX="500.0" layoutY="128.0" prefHeight="38.0" prefWidth="180.0" promptText="FirstName" />
+      <TextField fx:id="txtLastName" layoutX="715.0" layoutY="128.0" prefHeight="38.0" prefWidth="180.0" promptText="LastName" />
+      <DatePicker fx:id="txtDateOfBirth" layoutX="49.0" layoutY="210.0" prefHeight="38.0" prefWidth="339.0" promptText="Date Of Birth" />
+      <TextField fx:id="txtId" layoutX="53.0" layoutY="128.0" prefHeight="38.0" prefWidth="180.0" promptText="Employee Id" />
+      <TextField fx:id="txtContact" layoutX="500.0" layoutY="210.0" prefHeight="38.0" prefWidth="180.0" promptText="Contact" />
+      <TextField fx:id="txtEmail" layoutX="500.0" layoutY="293.0" prefHeight="38.0" prefWidth="180.0" promptText="Email" />
+      <ComboBox fx:id="txtGender" layoutX="715.0" layoutY="210.0" prefHeight="38.0" prefWidth="180.0" promptText="Gender">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <ComboBox fx:id="txtDepartment" layoutX="715.0" layoutY="293.0" prefHeight="38.0" prefWidth="180.0" promptText="Department">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <TextArea fx:id="txtQualification" layoutX="53.0" layoutY="360.0" prefHeight="279.0" prefWidth="405.0" promptText="Qualifications" />
+      <TextArea fx:id="txtHistory" layoutX="500.0" layoutY="360.0" prefHeight="279.0" prefWidth="405.0" promptText="Employee History" />
+      <JFXButton buttonType="RAISED" layoutX="886.0" layoutY="656.0" onAction="#btnSaveOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #2ecc71;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField fx:id="txtSalary" layoutX="49.0" layoutY="293.0" prefHeight="38.0" prefWidth="180.0" promptText="Salary" />
+   </children>
+</AnchorPane>

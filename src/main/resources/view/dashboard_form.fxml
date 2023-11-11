@@ -30,7 +30,7 @@
                   <Image url="@../assets/icons8-employee-64.png" />
                </image>
             </ImageView>
-            <JFXButton buttonType="RAISED" layoutX="21.0" layoutY="119.0" prefHeight="72.0" prefWidth="260.0" text="Department" textFill="#f2ebeb">
+            <JFXButton buttonType="RAISED" layoutX="21.0" layoutY="119.0" onAction="#btnDepartmentOnAction" prefHeight="72.0" prefWidth="260.0" text="Department" textFill="#f2ebeb">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -172,7 +172,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="84.0" layoutY="43.0" prefHeight="22.0" prefWidth="107.0" textFill="#f8f3f3" />
+            <Label fx:id="txtUserName" layoutX="84.0" layoutY="43.0" prefHeight="22.0" prefWidth="107.0" textFill="#f8f3f3" />
             <JFXButton buttonType="RAISED" layoutX="709.0" layoutY="14.0" onAction="#btnLogOutOnAction" prefHeight="54.0" prefWidth="161.0" style="-fx-background-color: #c0392b;" text="       Log Out" textFill="#f8f1f1">
                <font>
                   <Font name="System Bold Italic" size="13.0" />

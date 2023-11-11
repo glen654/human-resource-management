@@ -13,30 +13,28 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class EmployeeFormController {
-
-    public Label txtUserName;
+public class DepartmentController {
     @FXML
-    private TableColumn<?, ?> colContact;
-
-    @FXML
-    private TableColumn<?, ?> colFirstName;
+    private TableColumn<?, ?> colDesc;
 
     @FXML
     private TableColumn<?, ?> colId;
 
     @FXML
-    private TableColumn<?, ?> colLastName;
+    private TableColumn<?, ?> colName;
 
     @FXML
     private AnchorPane rootNode;
 
     @FXML
-    private TableView<?> tblEmployee;
+    private TableView<?> tblDepartment;
+
+    @FXML
+    private Label txtUserName;
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/employee_add.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/department_add.fxml"));
 
         Scene scene = new Scene(rootNode);
 
