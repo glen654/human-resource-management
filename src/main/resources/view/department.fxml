@@ -5,11 +5,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane fx:id="rootNode" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.DepartmentController">
    <children>
@@ -63,14 +63,6 @@
             </Label>
          </children>
       </AnchorPane>
-      <TableView fx:id="tblDepartment" layoutX="68.0" layoutY="359.0" prefHeight="406.0" prefWidth="1086.0">
-        <columns>
-          <TableColumn fx:id="colId" prefWidth="177.0" text="Department ID" />
-          <TableColumn fx:id="colName" prefWidth="241.0" text="Department Name" />
-            <TableColumn fx:id="colDesc" prefWidth="387.0" text="Description" />
-            <TableColumn prefWidth="143.0" />
-        </columns>
-      </TableView>
       <JFXButton buttonType="RAISED" layoutX="1050.0" layoutY="310.0" onAction="#btnAddOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #26de81;" text="  Add" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -97,5 +89,15 @@
             <Image url="@../assets/icons8-plus-48.png" />
          </image>
       </ImageView>
+      <TableView fx:id="tblDepartment" layoutX="29.0" layoutY="364.0" prefHeight="420.0" prefWidth="1154.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="212.0" text="Department ID" />
+          <TableColumn fx:id="colName" prefWidth="302.0" text="Department Name" />
+            <TableColumn fx:id="colDesc" prefWidth="362.0" text="Description" />
+            <TableColumn fx:id="colUpdateAction" prefWidth="139.0" text="Update" />
+            <TableColumn fx:id="colDeleteAction" prefWidth="139.0" text="Delete" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtSearchId" layoutX="665.0" layoutY="312.0" prefHeight="43.0" prefWidth="259.0" promptText="Enter Department ID" />
    </children>
 </AnchorPane>

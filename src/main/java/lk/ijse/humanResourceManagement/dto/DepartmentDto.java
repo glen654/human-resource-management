@@ -1,9 +1,9 @@
 package lk.ijse.humanResourceManagement.dto;
 
 public class DepartmentDto {
-    private String id;
-    private String name;
-    private String desc;
+    private  String id;
+    private  String name;
+    private  String desc;
 
     public DepartmentDto() {
     }
