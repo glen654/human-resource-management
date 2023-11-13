@@ -2,19 +2,18 @@ CREATE DATABASE humanResourceManagement;
 
 USE humanResourceManagement;
 
-create table user(
-                     first_name VARCHAR(20) NOT NULL ,
-                     last_name VARCHAR(20) NOT NULL ,
-                     position VARCHAR(25) NOT NULL ,
-                     user_name VARCHAR(25) PRIMARY KEY ,
+CREATE TABLE user(
+                     first_name VARCHAR(20) PRIMARY KEY ,
+                     last_name VARCHAR(25) NOT NULL ,
+                     position VARCHAR(25) NOT NULL,
+                     userName VARCHAR(20) NOT NULL,
                      password VARCHAR(25) NOT NULL
-
 );
 
 CREATE TABLE department(
                            department_id VARCHAR(5) PRIMARY KEY,
                            departmentName VARCHAR(20) NOT NULL,
-                           description VARCHAR(25) NOT NULL
+                           description VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE employee(
@@ -25,7 +24,11 @@ CREATE TABLE employee(
                          emp_qualification VARCHAR(500) NOT NULL,
                          emp_history VARCHAR(500) NOT NULL,
                          department_id VARCHAR(5),
-                         FOREIGN KEY (department_id) REFERENCES department(department_id)
+                         date_of_birth DATE NOT NULL ,
+                         gender ENUM('Male','Female') NOT NULL,
+                         email VARCHAR(50) NOT NULL ,
+                         salary DOUBLE(12,2) NOT NULL,
+                         FOREIGN KEY (department_id) REFERENCES department(department_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE attendance(
@@ -34,7 +37,7 @@ CREATE TABLE attendance(
                            clockInTime TIME NOT NULL,
                            clockOutTime TIME NOT NULL,
                            emp_id VARCHAR(10),
-                           FOREIGN KEY (emp_id) REFERENCES employee(emp_id)
+                           FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE performanceReview(
@@ -43,7 +46,7 @@ CREATE TABLE performanceReview(
                                   comments VARCHAR(100) NOT NULL,
                                   ratings ENUM ('Average','Good','Excellent') NOT NULL,
                                   reviewDate DATE,
-                                  FOREIGN KEY (emp_id) REFERENCES employee(emp_id)
+                                  FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE leaveRequest(
@@ -54,7 +57,7 @@ CREATE TABLE leaveRequest(
                              endDate DATE NOT NULL,
                              status ENUM ('Approved','Not Approved') NOT NULL,
                              requestDate DATE NOT NULL,
-                             FOREIGN KEY (emp_id) REFERENCES employee(emp_id)
+                             FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE compensationAndBenefits(
@@ -64,7 +67,7 @@ CREATE TABLE compensationAndBenefits(
                                         bonus DOUBLE(12,2) NOT NULL,
                                         benefits VARCHAR(100) NOT NULL,
                                         status ENUM ('Approved','Not Approved') NOT NULL,
-                                        FOREIGN KEY (emp_id) REFERENCES employee(emp_id)
+                                        FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE exitInterview(
@@ -74,7 +77,7 @@ CREATE TABLE exitInterview(
                               feedBack VARCHAR(50) NOT NULL,
                               interviewer VARCHAR(20) NOT NULL,
                               interviewDate DATE NOT NULL,
-                              FOREIGN KEY (emp_id) REFERENCES employee(emp_id)
+                              FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE trainingProgram(
@@ -91,8 +94,8 @@ CREATE TABLE trainingEnrollment(
                                    program_id VARCHAR(10),
                                    enrollmentDate DATE NOT NULL,
                                    status ENUM('Completed','Incompleted') NOT NULL,
-                                   FOREIGN KEY (emp_id) REFERENCES employee(emp_id),
-                                   FOREIGN KEY (program_id) REFERENCES trainingProgram(program_id)
+                                   FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE,
+                                   FOREIGN KEY (program_id) REFERENCES trainingProgram(program_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE onboardingChecklist(
@@ -108,6 +111,6 @@ CREATE TABLE employeeOnboardingChecklist(
                                             checklist_id VARCHAR(10),
                                             dueDate DATE NOT NULL,
                                             status ENUM('Completed','Incompleted') NOT NULL,
-                                            FOREIGN KEY (emp_id) REFERENCES employee(emp_id),
-                                            FOREIGN KEY (checklist_id) REFERENCES onboardingChecklist(checklist_id)
+                                            FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE,
+                                            FOREIGN KEY (checklist_id) REFERENCES onboardingChecklist(checklist_id) ON UPDATE CASCADE ON DELETE CASCADE
 );

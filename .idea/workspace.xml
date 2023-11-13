@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="completed department details delete">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentUpdateFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/departmentUpdate_form.fxml" afterDir="false" />
+    <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="completed department function">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/EmployeeDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/tm/EmployeeTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/EmployeeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentAddController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeAddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/LoginModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/employee_add.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/employee_add.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +95,10 @@
       <workItem from="1699789751556" duration="2668000" />
       <workItem from="1699795467346" duration="9335000" />
       <workItem from="1699834645853" duration="4549000" />
-      <workItem from="1699852246720" duration="1130000" />
+      <workItem from="1699852246720" duration="2209000" />
+      <workItem from="1699855099440" duration="6290000" />
+      <workItem from="1699876105935" duration="1255000" />
+      <workItem from="1699883059725" duration="1390000" />
     </task>
     <task id="LOCAL-00001" summary="completed the login and created the signup from">
       <option name="closed" value="true" />
@@ -149,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699839180416</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="completed department function">
+      <option name="closed" value="true" />
+      <created>1699853437306</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699853437306</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +190,7 @@
     <MESSAGE value="completed employee interfaces and department interfaces and save department" />
     <MESSAGE value="completed department details search" />
     <MESSAGE value="completed department details delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed department details delete" />
+    <MESSAGE value="completed department function" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed department function" />
   </component>
 </project>

@@ -12,7 +12,7 @@ public class LoginModel {
     public LoginDto searchUser(String userName,String password) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection ();
 
-        String sql = "SELECT * FROM user WHERE user_name = ? AND password = ?";
+        String sql = "SELECT * FROM user WHERE userName = ? AND password = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1,userName);
@@ -22,7 +22,7 @@ public class LoginModel {
 
         if(resultSet.next()){
             LoginDto loginDto = new LoginDto();
-            loginDto.setUserName(resultSet.getString("user_name"));
+            loginDto.setUserName(resultSet.getString("userName"));
             loginDto.setPassword(resultSet.getString("password"));
 
             return loginDto;
