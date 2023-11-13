@@ -47,7 +47,7 @@ public class DepartmentModel {
         return depList;
     }
 
-    public DepartmentDto searchCustomer(String id) throws SQLException {
+    public DepartmentDto searchDepartment(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection ();
 
         String sql = "SELECT * FROM department WHERE department_id = ?";
@@ -66,5 +66,29 @@ public class DepartmentModel {
             dto = new DepartmentDto(dep_id,dep_name,dep_desc);
         }
         return dto;
+    }
+
+    public boolean deleteDepartment(String id) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "DELETE FROM department WHERE department_id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1,id);
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public boolean updateDepartment(DepartmentDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE department SET departmentName = ? , description = ? WHERE department_id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1,dto.getName());
+        pstm.setString(2, dto.getDesc());
+        pstm.setString(3, dto.getId());
+
+        return pstm.executeUpdate() > 0;
     }
 }

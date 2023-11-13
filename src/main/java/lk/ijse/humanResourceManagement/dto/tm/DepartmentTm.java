@@ -2,6 +2,7 @@ package lk.ijse.humanResourceManagement.dto.tm;
 
 
 import com.jfoenix.controls.JFXButton;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 
 public class DepartmentTm {
@@ -11,26 +12,6 @@ public class DepartmentTm {
 
     private JFXButton btnUpdate;
     private JFXButton btnDelete;
-
-    {
-
-        btnUpdate = new JFXButton("Update");
-        btnDelete = new JFXButton("Delete");
-
-        // Set button styles
-        btnUpdate.setCursor(javafx.scene.Cursor.HAND);
-        btnUpdate.setStyle("-fx-background-color: #e74c3c; -fx-text-fill: #ffffff");
-
-        btnDelete.setCursor(javafx.scene.Cursor.HAND);
-        btnDelete.setStyle("-fx-background-color: #ff0000; -fx-text-fill: #ffffff");
-
-        btnUpdate.setPrefWidth(100);
-        btnUpdate.setPrefHeight(30);
-        btnDelete.setPrefWidth(100);
-        btnDelete.setPrefHeight(30);
-
-
-    }
 
 
     public DepartmentTm() {

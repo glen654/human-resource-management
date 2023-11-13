@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,6 +24,7 @@ import lk.ijse.humanResourceManagement.model.DepartmentModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public class DepartmentController {
     public TextField txtSearchId;
@@ -93,16 +95,14 @@ public class DepartmentController {
         String id = txtSearchId.getText();
 
         try {
-            DepartmentDto departmentDto = depModel.searchCustomer(id);
+            DepartmentDto departmentDto = depModel.searchDepartment(id);
 
             if (departmentDto != null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/department_details.fxml"));
                 Parent rootNode = loader.load();
 
-                // Get the controller instance
                 DepartmentDetailsController detailsController = loader.getController();
 
-                // Call the non-static method on the controller instance
                 detailsController.searchDepartmentDetails(departmentDto);
 
                 Scene scene = new Scene(rootNode);
@@ -128,11 +128,116 @@ public class DepartmentController {
         setCellValueFactory();
         loadAllDepartments();
         tableListener();
+
+        colDeleteAction.setCellFactory(column -> {
+            TableCell<DepartmentTm, JFXButton> cell = new TableCell<>() {
+                final JFXButton deleteButton = new JFXButton("Delete");
+
+                {
+                    deleteButton.setOnAction(event -> {
+                        DepartmentTm department = getTableView().getItems().get(getIndex());
+                        handleDeleteAction(department.getId());
+                    });
+                }
+
+                @Override
+                protected void updateItem(JFXButton item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty || item == null) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(deleteButton);
+                        setButtonStyles(deleteButton);
+                    }
+                }
+            };
+
+            return cell;
+        });
+
+        colUpdateAction.setCellFactory(column -> {
+            TableCell<DepartmentTm, JFXButton> cell = new TableCell<>() {
+                final JFXButton updateButton = new JFXButton("Update");
+
+                {
+                    updateButton.setOnAction(event -> {
+
+                        DepartmentTm department = getTableView().getItems().get(getIndex());
+                        try {
+                            DepartmentAddController depAdd = new DepartmentAddController();
+                            openAddForm(department);
+                            depAdd.setDepartmentData(department);
+                            depAdd.handleUpdateAction(event);
+                            btnAddOnAction(event);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+                }
+
+                @Override
+                protected void updateItem(JFXButton item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty || item == null) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(updateButton);
+                        setButtonStyles(updateButton);
+                    }
+                }
+            };
+
+            return cell;
+        });
+
+
     }
+
+    private void openAddForm(DepartmentTm department) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/department_add.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = new Stage();
+        stage.setTitle("Human Resource Management System");
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    private void setButtonStyles(JFXButton deleteButton) {
+        deleteButton.setStyle("-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;");
+        deleteButton.setCursor(Cursor.HAND);
+        colDeleteAction.setStyle("-fx-alignment: CENTER;");
+        deleteButton.setMaxWidth(100.0);
+    }
+
+    private void handleDeleteAction(String id) {
+        try {
+            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+
+            if (type.orElse(no) == yes) {
+                boolean deleted = depModel.deleteDepartment(id);
+                if (deleted) {
+                    loadAllDepartments();
+                    new Alert(Alert.AlertType.CONFIRMATION, "Department Deleted Successfully").show();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     private void tableListener() {
         tblDepartment.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
-//            System.out.println(newValue);
             setData(newValue);
         });
     }
@@ -147,12 +252,24 @@ public class DepartmentController {
             List<DepartmentDto> dtoList = depModel.loadAllDepartments();
 
             for (DepartmentDto dto : dtoList) {
+                JFXButton updateButton = new JFXButton("Update");
+                JFXButton deleteButton = new JFXButton("Delete");
+
+                updateButton.setStyle("-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-weight: bold;");
+                deleteButton.setStyle("-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;");
+                updateButton.setCursor(Cursor.HAND);
+                deleteButton.setCursor(Cursor.HAND);
+                colUpdateAction.setStyle("-fx-alignment: CENTER;");
+                colDeleteAction.setStyle("-fx-alignment: CENTER;");
+                updateButton.setMaxWidth(100.0);
+                deleteButton.setMaxWidth(100.0);
+
                 obList.add(new DepartmentTm(
                         dto.getId(),
                         dto.getName(),
                         dto.getDesc(),
-                        new JFXButton("Update"),
-                        new JFXButton("Delete")
+                        updateButton,
+                        deleteButton
 
                 ));
             }
@@ -171,6 +288,7 @@ public class DepartmentController {
         colDeleteAction.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("btnDelete"));
 
     }
+
 
     private void clearFields() {
         txtSearchId.setText("");
