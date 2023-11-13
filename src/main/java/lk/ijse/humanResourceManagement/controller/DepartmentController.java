@@ -162,20 +162,10 @@ public class DepartmentController {
 
                 {
                     updateButton.setOnAction(event -> {
-
                         DepartmentTm department = getTableView().getItems().get(getIndex());
-                        try {
-                            DepartmentAddController depAdd = new DepartmentAddController();
-                            openAddForm(department);
-                            depAdd.setDepartmentData(department);
-                            depAdd.handleUpdateAction(event);
-                            btnAddOnAction(event);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
+                        openUpdateForm(department);
                     });
                 }
-
                 @Override
                 protected void updateItem(JFXButton item, boolean empty) {
                     super.updateItem(item, empty);
@@ -184,7 +174,7 @@ public class DepartmentController {
                         setGraphic(null);
                     } else {
                         setGraphic(updateButton);
-                        setButtonStyles(updateButton);
+                        setButtonStylesUpdate(updateButton);
                     }
                 }
             };
@@ -195,16 +185,22 @@ public class DepartmentController {
 
     }
 
-    private void openAddForm(DepartmentTm department) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/department_add.fxml"));
+    private void openUpdateForm(DepartmentTm department) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/departmentUpdate_form.fxml"));
+            Parent rootNode = loader.load();
 
-        Scene scene = new Scene(rootNode);
+            DepartmentUpdateFormController updateFormController = loader.getController();
+            updateFormController.setDepartmentData(department);
 
-        Stage stage = new Stage();
-        stage.setTitle("Human Resource Management System");
-
-        stage.setScene(scene);
-        stage.show();
+            Scene scene = new Scene(rootNode);
+            Stage stage = new Stage();
+            stage.setTitle("Update Department");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -215,6 +211,12 @@ public class DepartmentController {
         deleteButton.setMaxWidth(100.0);
     }
 
+    private void setButtonStylesUpdate(JFXButton updateButton) {
+        updateButton.setStyle("-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-weight: bold;");
+        updateButton.setCursor(Cursor.HAND);
+        colUpdateAction.setStyle("-fx-alignment: CENTER;");
+        updateButton.setMaxWidth(100.0);
+    }
     private void handleDeleteAction(String id) {
         try {
             ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);

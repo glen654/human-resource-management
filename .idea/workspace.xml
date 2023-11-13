@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="completed department details search">
+    <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="completed department details delete">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentUpdateFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/departmentUpdate_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentAddController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/tm/DepartmentTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/tm/DepartmentTm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/DepartmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/DepartmentModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +90,8 @@
       <workItem from="1699765604905" duration="9329000" />
       <workItem from="1699789751556" duration="2668000" />
       <workItem from="1699795467346" duration="9335000" />
-      <workItem from="1699834645853" duration="4132000" />
+      <workItem from="1699834645853" duration="4549000" />
+      <workItem from="1699852246720" duration="1130000" />
     </task>
     <task id="LOCAL-00001" summary="completed the login and created the signup from">
       <option name="closed" value="true" />
@@ -141,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699792372675</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="completed department details delete">
+      <option name="closed" value="true" />
+      <created>1699839180416</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699839180416</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +174,7 @@
     <MESSAGE value="completed dashboard ui and employee ui" />
     <MESSAGE value="completed employee interfaces and department interfaces and save department" />
     <MESSAGE value="completed department details search" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed department details search" />
+    <MESSAGE value="completed department details delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed department details delete" />
   </component>
 </project>
