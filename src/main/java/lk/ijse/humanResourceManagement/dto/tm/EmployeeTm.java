@@ -2,56 +2,44 @@ package lk.ijse.humanResourceManagement.dto.tm;
 
 import com.jfoenix.controls.JFXButton;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class EmployeeTm {
-    private String empId;
+    private String id;
     private String firstName;
     private String lastName;
-    private int empContact;
-    private String empQualification;
-    private String empHistory;
-    private String departmentId;
-    private Date dateOfBirth;
+    private int contact;
+    private String qualification;
+    private String history;
+    private String depId;
+    private LocalDate dateOfBirth;
     private String gender;
     private String email;
     private double salary;
-
     private String jobRole;
+
     private JFXButton btnUpdate;
     private JFXButton btnDelete;
 
-    {
-        btnUpdate = new JFXButton("Update");
-        btnDelete = new JFXButton("Delete");
-    }
 
     public EmployeeTm() {
     }
 
-    public EmployeeTm(String empId, String firstName, String lastName, int empContact, String empQualification, String empHistory, String departmentId, Date dateOfBirth, String gender, String email, double salary, String jobRole, JFXButton btnUpdate, JFXButton btnDelete) {
-        this.empId = empId;
+    public EmployeeTm(String id,String firstName,String jobRole,String depId, JFXButton updateButton ,JFXButton deleteButton) {
+        this.id = id;
         this.firstName = firstName;
-        this.lastName = lastName;
-        this.empContact = empContact;
-        this.empQualification = empQualification;
-        this.empHistory = empHistory;
-        this.departmentId = departmentId;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.email = email;
-        this.salary = salary;
         this.jobRole = jobRole;
-        this.btnUpdate = btnUpdate;
-        this.btnDelete = btnDelete;
+        this.depId = depId;
+        this.btnUpdate = updateButton;
+        this.btnDelete = deleteButton;
     }
 
-    public String getEmpId() {
-        return empId;
+    public String getId() {
+        return id;
     }
 
-    public void setEmpId(String empId) {
-        this.empId = empId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -70,43 +58,43 @@ public class EmployeeTm {
         this.lastName = lastName;
     }
 
-    public int getEmpContact() {
-        return empContact;
+    public int getContact() {
+        return contact;
     }
 
-    public void setEmpContact(int empContact) {
-        this.empContact = empContact;
+    public void setContact(int contact) {
+        this.contact = contact;
     }
 
-    public String getEmpQualification() {
-        return empQualification;
+    public String getQualification() {
+        return qualification;
     }
 
-    public void setEmpQualification(String empQualification) {
-        this.empQualification = empQualification;
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
     }
 
-    public String getEmpHistory() {
-        return empHistory;
+    public String getHistory() {
+        return history;
     }
 
-    public void setEmpHistory(String empHistory) {
-        this.empHistory = empHistory;
+    public void setHistory(String history) {
+        this.history = history;
     }
 
-    public String getDepartmentId() {
-        return departmentId;
+    public String getDepId() {
+        return depId;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    public void setDepId(String depId) {
+        this.depId = depId;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -161,13 +149,13 @@ public class EmployeeTm {
     @Override
     public String toString() {
         return "EmployeeTm{" +
-                "empId='" + empId + '\'' +
+                "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", empContact=" + empContact +
-                ", empQualification='" + empQualification + '\'' +
-                ", empHistory='" + empHistory + '\'' +
-                ", departmentId='" + departmentId + '\'' +
+                ", contact=" + contact +
+                ", qualification='" + qualification + '\'' +
+                ", history='" + history + '\'' +
+                ", depId='" + depId + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", gender='" + gender + '\'' +
                 ", email='" + email + '\'' +

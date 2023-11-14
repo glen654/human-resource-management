@@ -2,8 +2,6 @@ package lk.ijse.humanResourceManagement.dto.tm;
 
 
 import com.jfoenix.controls.JFXButton;
-import javafx.scene.Cursor;
-import javafx.scene.control.Button;
 
 public class DepartmentTm {
     private String id;
@@ -14,7 +12,7 @@ public class DepartmentTm {
     private JFXButton btnDelete;
 
 
-    public DepartmentTm() {
+    public DepartmentTm(String id, String firstName, String lastName, String depId, JFXButton updateButton, JFXButton deleteButton) {
     }
 
     public DepartmentTm(String id, String name, String desc, JFXButton btnUpdate, JFXButton btnDelete) {

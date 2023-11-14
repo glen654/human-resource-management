@@ -120,8 +120,9 @@ public class EmployeeAddController {
             boolean isSaved = empModel.saveEmployee(dto);
 
             if (isSaved) {
+                clearFields();
                 new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved Successfully!").show();
-                //clearFields();
+
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

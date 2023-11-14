@@ -18,6 +18,7 @@ import javafx.scene.layout.Background;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import lk.ijse.humanResourceManagement.dto.DepartmentDto;
+import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.tm.DepartmentTm;
 import lk.ijse.humanResourceManagement.model.DepartmentModel;
 
@@ -35,13 +36,13 @@ public class DepartmentController {
     private TableColumn<DepartmentTm,JFXButton> colUpdateAction;
 
     @FXML
-    private TableColumn<?, ?> colDesc;
+    private TableColumn<EmployeeDto, String> colDesc;
 
     @FXML
-    private TableColumn<?, ?> colId;
+    private TableColumn<EmployeeDto, String> colId;
 
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableColumn<EmployeeDto, String> colName;
 
     @FXML
     private AnchorPane rootNode;

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -64,13 +65,12 @@
       </AnchorPane>
       <TableView fx:id="tblEmployee" layoutX="58.0" layoutY="352.0" prefHeight="402.0" prefWidth="1102.0">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="109.0" text="ID" />
-          <TableColumn fx:id="colFirstName" prefWidth="218.0" text="First Name" />
-            <TableColumn fx:id="colLastName" prefWidth="238.0" text="Last Name" />
-            <TableColumn fx:id="colContact" prefWidth="258.0" text="Contact" />
-            <TableColumn prefWidth="142.0" text="C2" />
-            <TableColumn prefWidth="136.0" text="C2" />
-            <TableColumn prefWidth="184.0" text="C2" />
+          <TableColumn fx:id="colId" prefWidth="129.0" text="ID" />
+          <TableColumn fx:id="colFirstName" prefWidth="220.0" text="First Name" />
+            <TableColumn fx:id="colJobRole" prefWidth="200.0" text="Job Role" />
+            <TableColumn fx:id="colDepartment" prefWidth="233.0" text="Department" />
+            <TableColumn fx:id="colUpdateAction" prefWidth="156.0" text="Update" />
+            <TableColumn fx:id="colDeleteAction" prefWidth="162.0" text="Delete" />
         </columns>
       </TableView>
       <JFXButton buttonType="RAISED" layoutX="1035.0" layoutY="291.0" onAction="#btnAddOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #26de81;" text=" Add" textFill="WHITE">
@@ -99,5 +99,6 @@
             <Image url="@../assets/icons8-search-24.png" />
          </image>
       </ImageView>
+      <TextField fx:id="txtSearchId" layoutX="674.0" layoutY="293.0" prefHeight="43.0" prefWidth="231.0" promptText="Enter Employee ID" />
    </children>
 </AnchorPane>

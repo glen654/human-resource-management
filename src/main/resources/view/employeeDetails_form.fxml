@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.EmployeeDetailsFormController">
+   <children>
+      <ImageView fitHeight="122.0" fitWidth="118.0" layoutX="14.0" layoutY="14.0">
+         <image>
+            <Image url="@../assets/icons8-employee-94.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblName" layoutX="127.0" layoutY="81.0" prefHeight="48.0" prefWidth="298.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="211.0" text="Employee ID:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblId" layoutX="161.0" layoutY="203.0" prefHeight="35.0" prefWidth="133.0" />
+      <Label layoutX="404.0" layoutY="211.0" text="FirstName:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblFirstName" layoutX="504.0" layoutY="203.0" prefHeight="35.0" prefWidth="133.0" />
+      <Label layoutX="695.0" layoutY="211.0" text="LastName:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblLastName" layoutX="789.0" layoutY="203.0" prefHeight="35.0" prefWidth="133.0" />
+      <Label layoutX="48.0" layoutY="279.0" text="BirthDate:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="404.0" layoutY="281.0" text="Contact:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblBirthDay" layoutX="132.0" layoutY="271.0" prefHeight="35.0" prefWidth="133.0" />
+      <Label fx:id="lblContact" layoutX="477.0" layoutY="273.0" prefHeight="35.0" prefWidth="133.0" />
+      <Label layoutX="695.0" layoutY="288.0" text="Gender:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblGender" layoutX="766.0" layoutY="280.0" prefHeight="35.0" prefWidth="133.0" />
+      <Label layoutX="404.0" layoutY="348.0" text="Email:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEmail" layoutX="463.0" layoutY="338.0" prefHeight="35.0" prefWidth="212.0" />
+      <Label layoutX="403.0" layoutY="414.0" text="Department:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDepartment" layoutX="509.0" layoutY="406.0" prefHeight="35.0" prefWidth="133.0" />
+      <Label layoutX="49.0" layoutY="347.0" text="JobRole: ">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblJobRole" layoutX="120.0" layoutY="338.0" prefHeight="35.0" prefWidth="223.0" />
+      <Label layoutX="49.0" layoutY="414.0" text="Salary:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSalary" layoutX="116.0" layoutY="406.0" prefHeight="35.0" prefWidth="190.0" />
+      <Label layoutX="73.0" layoutY="506.0" text="Qualification:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblQualification" alignment="TOP_LEFT" layoutX="73.0" layoutY="540.0" prefHeight="221.0" prefWidth="338.0" />
+      <Label layoutX="610.0" layoutY="506.0" text="History:">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblHistory" alignment="TOP_LEFT" layoutX="611.0" layoutY="531.0" prefHeight="221.0" prefWidth="338.0" />
+   </children>
+</AnchorPane>

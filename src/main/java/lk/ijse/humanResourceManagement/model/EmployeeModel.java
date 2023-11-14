@@ -1,36 +1,43 @@
 package lk.ijse.humanResourceManagement.model;
 
 import lk.ijse.humanResourceManagement.db.DbConnection;
+import lk.ijse.humanResourceManagement.dto.DepartmentDto;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeModel {
     public boolean saveEmployee(EmployeeDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+        String empId = dto.getId();
+        if(empId != null) {
+            String sql = "INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement pstm = connection.prepareStatement(sql);
 
-        pstm.setString(1, dto.getEmpId());
-        pstm.setString(2, dto.getFirstName());
-        pstm.setString(3, dto.getLastName());
-        pstm.setInt(4,dto.getEmpContact());
-        pstm.setString(5, dto.getEmpQualification());
-        pstm.setString(6,dto.getEmpHistory());
-        pstm.setString(7, dto.getDepartmentId());
-        pstm.setDate(8,dto.getDateOfBirth());
-        pstm.setString(9, dto.getGender());
-        pstm.setString(10,dto.getEmail());
-        pstm.setDouble(11,dto.getSalary());
-        pstm.setString(12,dto.getJobRole());
+            pstm.setString(1, dto.getId());
+            pstm.setString(2, dto.getFirstName());
+            pstm.setString(3, dto.getLastName());
+            pstm.setInt(4, dto.getContact());
+            pstm.setString(5, dto.getQualification());
+            pstm.setString(6, dto.getHistory());
+            pstm.setString(7, dto.getDepId());
+            pstm.setDate(8, Date.valueOf(dto.getDateOfBirth()));
+            pstm.setString(9, dto.getGender());
+            pstm.setString(10, dto.getEmail());
+            pstm.setDouble(11, dto.getSalary());
+            pstm.setString(12, dto.getJobRole());
 
-        boolean isSaved = pstm.executeUpdate() > 0;
+            boolean isSaved = pstm.executeUpdate() > 0;
 
-        return isSaved;
+            return isSaved;
+        }else{
+            System.out.println("empId is null");
+            return false;
+        }
     }
 
     public String generateNextOrderId() throws SQLException {
@@ -56,5 +63,58 @@ public class EmployeeModel {
         } else {
             return "E001";
         }
+    }
+
+    public List<EmployeeDto> loadAllEmployee() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT emp_id,firstName,job_role,department_id FROM employee";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+
+        List<EmployeeDto> empList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+        while (resultSet.next()) {
+               String empId = resultSet.getString(1);
+               String first_name = resultSet.getString(2);
+               String jobRole = resultSet.getString(3);
+               String dep_id = resultSet.getString(4);
+
+               EmployeeDto employeeDto = new EmployeeDto(empId,first_name,jobRole,dep_id);
+               empList.add(employeeDto);
+        }
+
+        return empList;
+    }
+
+    public EmployeeDto searchEmployee(String id) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection ();
+
+        String sql = "SELECT * FROM employee WHERE emp_id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setString(1, id);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        EmployeeDto dto = null;
+
+        if(resultSet.next()) {
+            String emp_id = resultSet.getString(1);
+            String first_name = resultSet.getString(2);
+            String last_name = resultSet.getString(3);
+            int contact = resultSet.getInt(4);
+            String qualification = resultSet.getString(5);
+            String history = resultSet.getString(6);
+            String dep_id = resultSet.getString(7);
+            LocalDate dob = resultSet.getDate(8).toLocalDate();
+            String gender = resultSet.getString(9);
+            String email = resultSet.getString(10);
+            double salary = resultSet.getDouble(11);
+            String jobRole = resultSet.getString(12);
+
+            dto = new EmployeeDto(emp_id,first_name,last_name,contact,qualification,history,dep_id,dob,gender,email,salary,jobRole);
+        }
+        return dto;
     }
 }

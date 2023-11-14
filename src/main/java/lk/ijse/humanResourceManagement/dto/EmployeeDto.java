@@ -1,35 +1,37 @@
 package lk.ijse.humanResourceManagement.dto;
 
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class EmployeeDto {
-    private String empId;
-    private String firstName;
-    private String lastName;
-    private int empContact;
-    private String empQualification;
-    private String empHistory;
-    private String departmentId;
-    private Date dateOfBirth;
-    private String gender;
-    private String email;
-    private double salary;
+   private String id;
+   private String firstName;
+   private String lastName;
+   private int contact;
+   private String qualification;
+   private String history;
+   private String depId;
+   private LocalDate dateOfBirth;
+   private String gender;
+   private String email;
+   private double salary;
+   private String jobRole;
 
-    private String jobRole;
-
-    public EmployeeDto(String id, String firstName, String lastName, int contact, String qualification, String history, String depId, LocalDate dob, String gender, String email, double salary, String role) {
+    public EmployeeDto(String empId, String first_name, String jobRole, String dep_id) {
+        this.id = empId;
+        this.firstName = first_name;
+        this.jobRole = jobRole;
+        this.depId = dep_id;
     }
 
-    public EmployeeDto(String empId, String firstName, String lastName, int empContact, String empQualification, String empHistory, String departmentId, Date dateOfBirth, String gender, String email, double salary, String jobRole) {
-        this.empId = empId;
+    public EmployeeDto(String id, String firstName, String lastName, int contact, String qualification, String history, String depId, LocalDate dateOfBirth, String gender, String email, double salary, String jobRole) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.empContact = empContact;
-        this.empQualification = empQualification;
-        this.empHistory = empHistory;
-        this.departmentId = departmentId;
+        this.contact = contact;
+        this.qualification = qualification;
+        this.history = history;
+        this.depId = depId;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.email = email;
@@ -37,12 +39,12 @@ public class EmployeeDto {
         this.jobRole = jobRole;
     }
 
-    public String getEmpId() {
-        return empId;
+    public String getId() {
+        return id;
     }
 
-    public void setEmpId(String empId) {
-        this.empId = empId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -61,43 +63,43 @@ public class EmployeeDto {
         this.lastName = lastName;
     }
 
-    public int getEmpContact() {
-        return empContact;
+    public int getContact() {
+        return contact;
     }
 
-    public void setEmpContact(int empContact) {
-        this.empContact = empContact;
+    public void setContact(int contact) {
+        this.contact = contact;
     }
 
-    public String getEmpQualification() {
-        return empQualification;
+    public String getQualification() {
+        return qualification;
     }
 
-    public void setEmpQualification(String empQualification) {
-        this.empQualification = empQualification;
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
     }
 
-    public String getEmpHistory() {
-        return empHistory;
+    public String getHistory() {
+        return history;
     }
 
-    public void setEmpHistory(String empHistory) {
-        this.empHistory = empHistory;
+    public void setHistory(String history) {
+        this.history = history;
     }
 
-    public String getDepartmentId() {
-        return departmentId;
+    public String getDepId() {
+        return depId;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    public void setDepId(String depId) {
+        this.depId = depId;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -136,13 +138,13 @@ public class EmployeeDto {
     @Override
     public String toString() {
         return "EmployeeDto{" +
-                "empId='" + empId + '\'' +
+                "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", empContact=" + empContact +
-                ", empQualification='" + empQualification + '\'' +
-                ", empHistory='" + empHistory + '\'' +
-                ", departmentId='" + departmentId + '\'' +
+                ", contact=" + contact +
+                ", qualification='" + qualification + '\'' +
+                ", history='" + history + '\'' +
+                ", depId='" + depId + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", gender='" + gender + '\'' +
                 ", email='" + email + '\'' +
