@@ -1,7 +1,6 @@
 package lk.ijse.humanResourceManagement.model;
 
 import lk.ijse.humanResourceManagement.db.DbConnection;
-import lk.ijse.humanResourceManagement.dto.DepartmentDto;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 
 import java.sql.*;
@@ -81,7 +80,7 @@ public class EmployeeModel {
                String jobRole = resultSet.getString(3);
                String dep_id = resultSet.getString(4);
 
-               EmployeeDto employeeDto = new EmployeeDto(empId,first_name,jobRole,dep_id);
+               EmployeeDto employeeDto = new EmployeeDto( empId,first_name,jobRole,dep_id);
                empList.add(employeeDto);
         }
 
@@ -117,4 +116,51 @@ public class EmployeeModel {
         }
         return dto;
     }
+
+    public boolean deleteEmployee(String id) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "DELETE FROM employee WHERE emp_id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1,id);
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public boolean updateEmployee(EmployeeDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE employee SET emp_contact = ? , salary = ? , job_role = ? , email = ? , emp_qualification = ? , emp_history = ? WHERE emp_id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setInt(1,dto.getContact());
+        pstm.setDouble(2, dto.getSalary());
+        pstm.setString(3, dto.getJobRole());
+        pstm.setString(4, dto.getEmail());
+        pstm.setString(5,dto.getQualification());
+        pstm.setString(6,dto.getHistory());
+        pstm.setString(7,dto.getId());
+
+        return pstm.executeUpdate() > 0;
+    }
+
+
+    public int getEmployeeCount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT COUNT(*) FROM employee";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        if(resultSet.next()){
+            return resultSet.getInt(1);
+        }
+
+            return 0;
+    }
+
+
+
 }

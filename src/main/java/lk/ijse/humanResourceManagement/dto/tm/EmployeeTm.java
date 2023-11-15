@@ -21,11 +21,18 @@ public class EmployeeTm {
     private JFXButton btnUpdate;
     private JFXButton btnDelete;
 
-
-    public EmployeeTm() {
+    public EmployeeTm(String lastName,int salary,String email,String history,String qualification,int contact,String firstName, String jobRole){
+        this.lastName = lastName;
+        this.salary = salary;
+        this.email = email;
+        this.history = history;
+        this.qualification = qualification;
+        this.contact = contact;
+        this.firstName = firstName;
+        this.jobRole = jobRole;
     }
 
-    public EmployeeTm(String id,String firstName,String jobRole,String depId, JFXButton updateButton ,JFXButton deleteButton) {
+    public EmployeeTm(String id, String firstName, String jobRole, String depId, JFXButton updateButton , JFXButton deleteButton) {
         this.id = id;
         this.firstName = firstName;
         this.jobRole = jobRole;
@@ -33,6 +40,7 @@ public class EmployeeTm {
         this.btnUpdate = updateButton;
         this.btnDelete = deleteButton;
     }
+
 
     public String getId() {
         return id;

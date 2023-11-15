@@ -2,15 +2,19 @@ package lk.ijse.humanResourceManagement.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.humanResourceManagement.dto.DepartmentDto;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.model.DepartmentModel;
 import lk.ijse.humanResourceManagement.model.EmployeeModel;
 
+import javax.mail.MessagingException;
+import java.awt.image.BufferedImage;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -127,7 +131,23 @@ public class EmployeeAddController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
+        String employeeData = "ID: " + dto.getId() + "Name: " + dto.getFirstName() + " " + dto.getLastName();
+        WritableImage qrCodeImage = createQRCode(employeeData, 300, 300);
+
+        // Send email with QR code
+        try {
+            EmailSender.sendEmail(dto.getEmail(), "Employee Data", "Attached is the QR code for the employee data.", qrCodeImage, "qrcode.png");
+        } catch (MessagingException e) {
+            new Alert(Alert.AlertType.ERROR, "Error sending email: " + e.getMessage()).show();
+        }
     }
+    private WritableImage createQRCode(String data, int width, int height) {
+        BufferedImage bufferedImage = QRCodeGeneratorClass.CodeGenerator.generateQRCode(data, width, height);
+        return SwingFXUtils.toFXImage(bufferedImage, null);
+    }
+
+
 
     private void clearFields() {
         txtId.setText("");

@@ -196,7 +196,7 @@ public class DepartmentController {
 
             Scene scene = new Scene(rootNode);
             Stage stage = new Stage();
-            stage.setTitle("Update Department");
+            stage.setTitle("Human Resource Management System");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

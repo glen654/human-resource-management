@@ -39,6 +39,16 @@ public class EmployeeDto {
         this.jobRole = jobRole;
     }
 
+    public EmployeeDto(int contact, String email, String history, String jobRole, String qualification, double salary) {
+        this.contact = contact;
+        this.email = email;
+        this.history = history;
+        this.jobRole = jobRole;
+        this.qualification = qualification;
+        this.salary = salary;
+    }
+
+
     public String getId() {
         return id;
     }

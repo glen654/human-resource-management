@@ -5,12 +5,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.DepartmentUpdateFormController">
    <children>
-      <Label layoutX="24.0" layoutY="24.0" prefHeight="57.0" prefWidth="293.0" text="Update Deaprtment">
+      <Label layoutX="83.0" layoutY="24.0" prefHeight="57.0" prefWidth="293.0" text="Update Deaprtment">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>
@@ -26,6 +28,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label layoutX="25.0" layoutY="81.0" prefHeight="16.0" prefWidth="265.0" text="Update Your Data" />
+      <Label layoutX="83.0" layoutY="73.0" prefHeight="16.0" prefWidth="265.0" text="Update Your Data" />
+      <ImageView layoutX="11.0" layoutY="25.0">
+         <image>
+            <Image url="@../assets/icons8-department-64.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

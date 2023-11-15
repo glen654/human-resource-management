@@ -56,9 +56,9 @@
                   <Image url="@../assets/icons8-department-64.png" />
                </image>
             </ImageView>
-            <Label fx:id="txtUserName" layoutX="78.0" layoutY="28.0" prefHeight="37.0" prefWidth="86.0" textFill="WHITE">
+            <Label fx:id="txtUserName" layoutX="78.0" layoutY="28.0" prefHeight="37.0" prefWidth="86.0" text="glenalloy" textFill="WHITE">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
          </children>
