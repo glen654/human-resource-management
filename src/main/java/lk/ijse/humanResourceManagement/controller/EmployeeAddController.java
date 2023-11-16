@@ -72,7 +72,7 @@ public class EmployeeAddController {
 
     private void generateNextEmployeeId() {
         try {
-            String empId = empModel.generateNextOrderId();
+            String empId = empModel.generateNextEmployeeId();
             txtId.setText(empId);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.ReviewAddController">
+   <children>
+      <Label layoutX="93.0" layoutY="21.0" prefHeight="61.0" prefWidth="396.0" text="New Performance Review">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="73.0" prefHeight="18.0" prefWidth="193.0" text="Fill out these information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="80.0" fitWidth="73.0" layoutX="14.0" layoutY="17.0">
+         <image>
+            <Image url="@../assets/icons8-performance-goal-48.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtReviewId" layoutX="87.0" layoutY="172.0" prefHeight="45.0" prefWidth="245.0" promptText="Review ID" />
+      <DatePicker fx:id="txtDateOfBirth" layoutX="772.0" layoutY="172.0" prefHeight="45.0" prefWidth="371.0" promptText="Review Date" />
+      <TextArea fx:id="txtComments" layoutX="515.0" layoutY="298.0" prefHeight="307.0" prefWidth="515.0" promptText="Comments" />
+      <JFXButton buttonType="RAISED" layoutX="1059.0" layoutY="638.0" onAction="#btnSaveOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #2ecc71;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ComboBox fx:id="cmbEmpId" layoutX="515.0" layoutY="172.0" prefHeight="45.0" prefWidth="217.0" promptText="Employee ID" />
+      <ComboBox fx:id="cmbRating" layoutX="87.0" layoutY="292.0" prefHeight="45.0" prefWidth="217.0" promptText="Rating" />
+   </children>
+</AnchorPane>

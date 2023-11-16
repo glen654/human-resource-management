@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.ReviewUpdateFormController">
+   <children>
+      <Label layoutX="25.0" layoutY="22.0" prefHeight="61.0" prefWidth="499.0" text="      Update Performance Review Of ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="77.0" layoutY="74.0" prefHeight="18.0" prefWidth="193.0" text="Fill out these information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="54.0" fitWidth="55.0" layoutX="14.0" layoutY="22.0">
+         <image>
+            <Image url="@../assets/icons8-performance-goal-48.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtReviewId" layoutX="97.0" layoutY="182.0" prefHeight="45.0" prefWidth="245.0" promptText="Review ID" />
+      <DatePicker fx:id="txtDate" layoutX="782.0" layoutY="182.0" prefHeight="45.0" prefWidth="371.0" promptText="Review Date" />
+      <ComboBox fx:id="cmbRating" layoutX="97.0" layoutY="302.0" prefHeight="45.0" prefWidth="217.0" promptText="Rating" />
+      <TextArea fx:id="txtComments" layoutX="525.0" layoutY="302.0" prefHeight="307.0" prefWidth="515.0" promptText="Comments" />
+      <JFXButton buttonType="RAISED" layoutX="1069.0" layoutY="648.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #e67e22;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField fx:id="txtEmpId" layoutX="514.0" layoutY="182.0" prefHeight="45.0" prefWidth="245.0" promptText="Employee ID" />
+      <Label fx:id="lblReviewId" layoutX="514.0" layoutY="38.0" prefHeight="31.0" prefWidth="172.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -39,7 +39,7 @@ public class EmployeeModel {
         }
     }
 
-    public String generateNextOrderId() throws SQLException {
+    public String generateNextEmployeeId() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "SELECT emp_id FROM employee ORDER BY emp_id DESC LIMIT 1";

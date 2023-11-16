@@ -134,5 +134,15 @@ public class DashboardController {
         departmentBarChart.getData().add(series);
     }
 
+    @FXML
+    void btnPerformanceOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/performanceReview_form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage primaryStage =(Stage) this.rootNode.getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Human Resource Management System");
+    }
 
 }

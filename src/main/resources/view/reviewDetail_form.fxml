@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.ReviewDetailController">
+   <children>
+      <Label layoutX="13.0" layoutY="36.0" prefHeight="75.0" prefWidth="504.0" text="       Performance Review Details Of">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="54.0" fitWidth="48.0" layoutX="24.0" layoutY="36.0">
+         <image>
+            <Image url="@../assets/icons8-performance-goal-48.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="72.0" layoutY="159.0" prefHeight="16.0" prefWidth="84.0" text="Review ID:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="72.0" layoutY="250.0" prefHeight="18.0" prefWidth="113.0" text="Employee ID:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="72.0" layoutY="445.0" prefHeight="18.0" prefWidth="113.0" text="Review Date:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="72.0" layoutY="344.0" prefHeight="16.0" prefWidth="84.0" text="Rating:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="511.0" layoutY="150.0" prefHeight="18.0" prefWidth="94.0" text="Comments">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblReviewId" layoutX="163.0" layoutY="150.0" prefHeight="36.0" prefWidth="204.0" />
+      <Label fx:id="lblEmpId" layoutX="177.0" layoutY="241.0" prefHeight="36.0" prefWidth="204.0" />
+      <Label fx:id="lblRating" layoutX="135.0" layoutY="335.0" prefHeight="36.0" prefWidth="204.0" />
+      <Label fx:id="lblDate" layoutX="177.0" layoutY="436.0" prefHeight="36.0" prefWidth="204.0" />
+      <Label fx:id="lblComment" alignment="TOP_LEFT" layoutX="511.0" layoutY="168.0" prefHeight="218.0" prefWidth="270.0" />
+      <Label fx:id="lblRId" layoutX="504.0" layoutY="56.0" prefHeight="36.0" prefWidth="121.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

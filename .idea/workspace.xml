@@ -4,27 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="Employee search and loading to table complete">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmailSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeUpdateFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/QRCodeGeneratorClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/employeeUpdate_form.fxml" afterDir="false" />
+    <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="still trying employee update and email">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/PerformanceReviewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/ReviewAddController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/ReviewDetailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/ReviewUpdateFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/ReviewDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/tm/ReviewTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/ReviewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/performanceReview_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/reviewAdd_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/reviewDetail_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/reviewUpdate_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeAddController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/EmployeeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/EmployeeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/tm/EmployeeTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/tm/EmployeeTm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/DepartmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/DepartmentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LoginFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/EmployeeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/EmployeeModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/department.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/department.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/departmentUpdate_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/departmentUpdate_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/department_add.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/department_add.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/employee_add.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/employee_add.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,28 +50,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/glen/Documents/1st-Semester-Final-Project-master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/glen/Documents/1st-Semester-Final-Project-master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -116,7 +113,12 @@
       <workItem from="1699937914872" duration="10089000" />
       <workItem from="1699963465987" duration="1186000" />
       <workItem from="1699968067026" duration="8543000" />
-      <workItem from="1700006825820" duration="10340000" />
+      <workItem from="1700006825820" duration="10717000" />
+      <workItem from="1700027934667" duration="641000" />
+      <workItem from="1700029491689" duration="256000" />
+      <workItem from="1700036279064" duration="446000" />
+      <workItem from="1700111571622" duration="7646000" />
+      <workItem from="1700139642787" duration="9803000" />
     </task>
     <task id="LOCAL-00001" summary="completed the login and created the signup from">
       <option name="closed" value="true" />
@@ -198,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699931291462</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="still trying employee update and email">
+      <option name="closed" value="true" />
+      <created>1700017915062</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700017915062</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +237,7 @@
     <MESSAGE value="completed department function" />
     <MESSAGE value="Employee Save Completed" />
     <MESSAGE value="Employee search and loading to table complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Employee search and loading to table complete" />
+    <MESSAGE value="still trying employee update and email" />
+    <option name="LAST_COMMIT_MESSAGE" value="still trying employee update and email" />
   </component>
 </project>
