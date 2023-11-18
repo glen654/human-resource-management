@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.LeaveRequestAddController">
+   <children>
+      <Label layoutX="87.0" layoutY="16.0" prefHeight="61.0" prefWidth="208.0" text="Leave Reuqest">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="14.0" layoutY="29.0">
+         <image>
+            <Image url="@../assets/icons8-leave-64.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="87.0" layoutY="68.0" prefHeight="18.0" prefWidth="193.0" text="Fill out these information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtRequestId" layoutX="63.0" layoutY="138.0" prefHeight="38.0" prefWidth="180.0" promptText="Request ID" />
+      <DatePicker fx:id="txtStartDate" layoutX="59.0" layoutY="220.0" prefHeight="38.0" prefWidth="339.0" promptText="Start Date" />
+      <DatePicker fx:id="txtEndDate" layoutX="59.0" layoutY="289.0" prefHeight="38.0" prefWidth="339.0" promptText="End Date" />
+      <DatePicker fx:id="txtRequestDate" layoutX="59.0" layoutY="373.0" prefHeight="38.0" prefWidth="339.0" promptText="Request Date" />
+      <ComboBox fx:id="cmbStatus" layoutX="706.0" layoutY="138.0" prefHeight="38.0" prefWidth="180.0" promptText="Status">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <ComboBox fx:id="cmbLeaveType" layoutX="500.0" layoutY="289.0" prefHeight="38.0" prefWidth="283.0" promptText="Leave Type">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <ComboBox fx:id="cmbEmpId" layoutX="500.0" layoutY="138.0" prefHeight="38.0" prefWidth="180.0" promptText="Employee ID">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <JFXButton buttonType="RAISED" layoutX="870.0" layoutY="448.0" onAction="#btnSaveOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #2ecc71;" text="Save" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

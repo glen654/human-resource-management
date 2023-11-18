@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="2000.0" prefWidth="2000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.LeaveRequestFormController">
+   <children>
+      <AnchorPane layoutX="-12.0" layoutY="-10.0" prefHeight="247.0" prefWidth="2052.0" style="-fx-background-color: #273c75;">
+         <children>
+            <JFXButton buttonType="RAISED" layoutX="1753.0" layoutY="26.0" onAction="#btnLogOutOnAction" prefHeight="54.0" prefWidth="161.0" style="-fx-background-color: #c0392b;" text="   Log Out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="1564.0" layoutY="26.0" onAction="#btnBackOnAction" prefHeight="54.0" prefWidth="161.0" style="-fx-background-color: #006266;" text="  Back" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <ImageView layoutX="1571.0" layoutY="29.0">
+               <image>
+                  <Image url="@../assets/icons8-back-48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="56.0" fitWidth="64.0" layoutX="1753.0" layoutY="25.0">
+               <image>
+                  <Image url="@../assets/icons8-log-out-64.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="739.0" layoutY="136.0" prefHeight="84.0" prefWidth="502.0" text="Leave Request" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <ImageView layoutX="763.0" layoutY="146.0">
+               <image>
+                  <Image url="@../assets/icons8-leave-64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="24.0" layoutY="24.0">
+         <image>
+            <Image url="@../assets/icons8-user-64.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="txtUserName" layoutX="90.0" layoutY="40.0" prefHeight="33.0" prefWidth="92.0" text="glenalloy" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblLeaveRequest" layoutX="49.0" layoutY="411.0" prefHeight="549.0" prefWidth="1828.0">
+        <columns>
+          <TableColumn fx:id="colRequestId" prefWidth="153.6666717529297" text="Request ID" />
+          <TableColumn fx:id="colEmpId" prefWidth="206.3333282470703" text="Employee ID" />
+            <TableColumn fx:id="colLeaveType" prefWidth="284.6666717529297" text="Leave Type" />
+            <TableColumn fx:id="colStartDate" prefWidth="206.33331298828125" text="Start Date" />
+            <TableColumn fx:id="colEndDate" prefWidth="230.6666259765625" text="End Date" />
+            <TableColumn fx:id="colStatus" prefWidth="230.3333740234375" text="Status" />
+            <TableColumn fx:id="colRequestDate" prefWidth="220.3333740234375" text="Request Date" />
+            <TableColumn fx:id="colUpdate" prefWidth="146.333251953125" text="Update" />
+            <TableColumn fx:id="colDelete" prefWidth="143.666748046875" text="Delete" />
+        </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" layoutX="1767.0" layoutY="344.0" onAction="#btnAddOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #26de81;" text=" Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="1652.0" layoutY="344.0" onAction="#btnSearchOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #fed330;" text="  Search" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField fx:id="txtSearchId" layoutX="1409.0" layoutY="348.0" prefHeight="43.0" prefWidth="231.0" promptText="Enter Request ID" />
+      <ImageView layoutX="1655.0" layoutY="353.0">
+         <image>
+            <Image url="@../assets/icons8-search-24.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="29.0" layoutX="1773.0" layoutY="349.0">
+         <image>
+            <Image url="@../assets/icons8-plus-48.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

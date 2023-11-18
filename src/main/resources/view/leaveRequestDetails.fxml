@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="rootNode" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.LeaveRequestDetailsController">
+   <children>
+      <Label layoutX="14.0" layoutY="20.0" prefHeight="75.0" prefWidth="305.0" text="       Leave Request Of">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="14.0" layoutY="26.0">
+         <image>
+            <Image url="@../assets/icons8-leave-64.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbltxtEmpId" layoutX="329.0" layoutY="29.0" prefHeight="57.0" prefWidth="154.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="154.0" prefHeight="18.0" prefWidth="95.0" text="Request ID:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="214.0" prefHeight="18.0" prefWidth="112.0" text="Employee ID:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="282.0" prefHeight="18.0" prefWidth="112.0" text="Leave Type:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="349.0" prefHeight="18.0" prefWidth="95.0" text="Start Date:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="414.0" prefHeight="18.0" prefWidth="95.0" text="End Date:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="481.0" prefHeight="18.0" prefWidth="95.0" text="Status:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="538.0" prefHeight="18.0" prefWidth="125.0" text="Request Date:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRequestId" layoutX="179.0" layoutY="147.0" prefHeight="34.0" prefWidth="207.0" />
+      <Label fx:id="lblStartDate" layoutX="173.0" layoutY="341.0" prefHeight="34.0" prefWidth="207.0" />
+      <Label fx:id="lblLeaveType" layoutX="179.0" layoutY="274.0" prefHeight="34.0" prefWidth="207.0" />
+      <Label fx:id="lblEmpId" layoutX="189.0" layoutY="206.0" prefHeight="34.0" prefWidth="207.0" />
+      <Label fx:id="lblEndDate" layoutX="157.0" layoutY="406.0" prefHeight="34.0" prefWidth="207.0" />
+      <Label fx:id="lblStatus" layoutX="141.0" layoutY="473.0" prefHeight="34.0" prefWidth="207.0" />
+      <Label fx:id="lblRequestDate" layoutX="199.0" layoutY="530.0" prefHeight="34.0" prefWidth="207.0" />
+   </children>
+</AnchorPane>

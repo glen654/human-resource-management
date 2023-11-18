@@ -112,31 +112,39 @@ public class DashboardController {
             departmentEmployeeCount = depModel.getDepartmentCount();
             employeeCount = empModel.getEmployeeCount();
         } catch (SQLException e) {
-            // Handle the exception (show an alert, log the error, etc.)
             e.printStackTrace();
             return;
         }
 
-        // Clear existing data in the chart
         departmentBarChart.getData().clear();
 
-        // Populate the bar chart with data
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Employee Data");
 
-        // Assuming you have a specific department ID for this count
-        String departmentId = "Department ID"; // Replace with the actual department ID
+        String departmentId = "Department ID";
         String employeeId = "Employee ID";
 
         series.getData().add(new XYChart.Data<>(departmentId, departmentEmployeeCount));
         series.getData().add(new XYChart.Data<>(employeeId, employeeCount));
-        // Set up the bar chart
+
         departmentBarChart.getData().add(series);
     }
 
     @FXML
     void btnPerformanceOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/performanceReview_form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage primaryStage =(Stage) this.rootNode.getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Human Resource Management System");
+    }
+
+
+    @FXML
+    void btnLeaveRequestOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/leaveRequest_form.fxml"));
 
         Scene scene = new Scene(rootNode);
 
