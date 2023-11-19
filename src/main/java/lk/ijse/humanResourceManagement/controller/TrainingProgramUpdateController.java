@@ -4,26 +4,27 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.humanResourceManagement.dto.EmployeeDto;
+import javafx.stage.Stage;
 import lk.ijse.humanResourceManagement.dto.ProgramDto;
+import lk.ijse.humanResourceManagement.dto.ReviewDto;
+import lk.ijse.humanResourceManagement.dto.tm.ProgramTm;
 import lk.ijse.humanResourceManagement.model.ProgramModel;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class TrainingProgramAddController {
+public class TrainingProgramUpdateController {
     @FXML
     private ComboBox<String> cmbTrainers;
+
+    @FXML
+    private Label lblpName;
 
     @FXML
     private AnchorPane rootNode;
@@ -44,24 +45,10 @@ public class TrainingProgramAddController {
 
     public void initialize(){
         loadTrainers();
-        generateNextProgramId();
     }
 
-    private void loadTrainers() {
-        List<String> trainers = Arrays.asList("Mr.Samarawickrama", "Mr.Rajapaksha", "Mr.Ranaweera","Mrs.Wijethunga");
-        ObservableList<String> trainerList = FXCollections.observableArrayList(trainers);
-        cmbTrainers.setItems(trainerList);
-    }
-    private void generateNextProgramId() {
-        try {
-            String program_Id = programModel.generateNextProgramId();
-            txtProgramId.setText(program_Id);
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-    }
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
+    void btnUpdateOnAction(ActionEvent event) {
         if(validateProgram()){
             String program_id = txtProgramId.getText();
             String name = txtProgramName.getText();
@@ -69,21 +56,22 @@ public class TrainingProgramAddController {
             String trainers = cmbTrainers.getValue();
             String duration = txtDuration.getText();
 
-            var dto = new ProgramDto(program_id,name,description,trainers,duration);
-
+            ProgramDto updatedProgram = new ProgramDto(program_id,name,description,trainers,duration);
             try {
-                boolean isSaved = programModel.saveProgram(dto);
+                boolean isUpdated = programModel.updateProgram(updatedProgram);
 
-                if(isSaved){
-                    clearFields();
-                    new Alert(Alert.AlertType.CONFIRMATION,"Program Save Successfully").show();
-                }else{
-                    new Alert(Alert.AlertType.ERROR,"Program can not Save").show();
+                if (isUpdated) {
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.close();
+                    new Alert(Alert.AlertType.INFORMATION, "Program updated successfully").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Failed to update Program").show();
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
+
     }
 
     public boolean validateProgram(){
@@ -131,11 +119,18 @@ public class TrainingProgramAddController {
         return true;
     }
 
-    public void clearFields(){
-        txtProgramId.setText("");
-        txtProgramName.setText("");
-        txtDuration.setText("");
-        txtDescription.setText("");
-        cmbTrainers.setValue(null);
+    public void setProgramData(ProgramTm program) {
+        lblpName.setText(program.getName());
+        txtProgramId.setText(program.getProgram_id());
+        txtProgramName.setText(program.getName());
+        txtDescription.setText(program.getDescription());
+        cmbTrainers.setValue(program.getTrainers());
+        txtDuration.setText(program.getDuration());
+    }
+
+    private void loadTrainers() {
+        List<String> trainers = Arrays.asList("Mr.Samarawickrama", "Mr.Rajapaksha", "Mr.Ranaweera","Mrs.Wijethunga");
+        ObservableList<String> trainerList = FXCollections.observableArrayList(trainers);
+        cmbTrainers.setItems(trainerList);
     }
 }

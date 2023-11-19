@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="rootNode" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.TrainingProgramUpdateController">
+   <children>
+      <Label layoutX="79.0" layoutY="14.0" prefHeight="61.0" prefWidth="255.0" text="Training Program ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="79.0" layoutY="66.0" prefHeight="18.0" prefWidth="193.0" text="Fill out these information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="14.0" layoutY="20.0">
+         <image>
+            <Image url="@../assets/icons8-training-64.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="-88.0" layoutY="12.0" text="Label" />
+      <Label fx:id="lblpName" layoutX="326.0" layoutY="20.0" prefHeight="49.0" prefWidth="181.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtProgramId" layoutX="79.0" layoutY="149.0" prefHeight="38.0" prefWidth="180.0" promptText="Program ID" />
+      <TextField fx:id="txtProgramName" layoutX="392.0" layoutY="149.0" prefHeight="38.0" prefWidth="255.0" promptText="Program Name" />
+      <TextField fx:id="txtDuration" layoutX="681.0" layoutY="149.0" prefHeight="38.0" prefWidth="255.0" promptText="Duration" />
+      <ComboBox fx:id="cmbTrainers" layoutX="78.0" layoutY="231.0" prefHeight="38.0" prefWidth="226.0" promptText="Trainers">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <TextArea fx:id="txtDescription" layoutX="392.0" layoutY="211.0" prefHeight="200.0" prefWidth="543.0" promptText="Description" />
+      <JFXButton buttonType="RAISED" layoutX="872.0" layoutY="448.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #e67e22;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>
