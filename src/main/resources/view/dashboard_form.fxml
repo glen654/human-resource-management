@@ -110,7 +110,7 @@
                   <Blend />
                </effect>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="26.0" layoutY="854.0" prefHeight="72.0" prefWidth="260.0" text="       Training Programs" textFill="#f2ebeb">
+            <JFXButton buttonType="RAISED" layoutX="26.0" layoutY="854.0" onAction="#btnTrainingProgramOnAction" prefHeight="72.0" prefWidth="260.0" text="       Training Programs" textFill="#f2ebeb">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
