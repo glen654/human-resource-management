@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.checklistAddFormController">
+   <children>
+      <Label layoutX="78.0" layoutY="14.0" prefHeight="61.0" prefWidth="313.0" text="OnBoardingChecklist">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="66.0" prefHeight="18.0" prefWidth="193.0" text="Fill out these information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="14.0" layoutY="23.0">
+         <image>
+            <Image url="@../assets/icons8-checklist-64.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtChecklistId" layoutX="85.0" layoutY="148.0" prefHeight="38.0" prefWidth="180.0" promptText="Checklist ID" />
+      <TextField fx:id="txtTask" layoutX="414.0" layoutY="148.0" prefHeight="38.0" prefWidth="255.0" promptText="Task" />
+      <DatePicker fx:id="txtDueDate" layoutX="85.0" layoutY="237.0" prefHeight="38.0" prefWidth="304.0" promptText="DueDate" />
+      <ComboBox fx:id="cmbStatus" layoutX="701.0" layoutY="148.0" prefHeight="38.0" prefWidth="223.0" promptText="Status" />
+      <JFXButton buttonType="RAISED" layoutX="867.0" layoutY="448.0" onAction="#btnSaveOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #2ecc71;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

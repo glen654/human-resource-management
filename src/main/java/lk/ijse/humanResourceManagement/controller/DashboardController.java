@@ -163,4 +163,14 @@ public class DashboardController {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Human Resource Management System");
     }
+    @FXML
+    void btnChecklistOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/onboardingChecklist_form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage primaryStage =(Stage) this.rootNode.getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Human Resource Management System");
+    }
 }

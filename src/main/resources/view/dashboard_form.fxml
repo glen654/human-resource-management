@@ -66,7 +66,7 @@
                   <Blend />
                </effect>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="9.0" layoutY="393.0" prefHeight="72.0" prefWidth="285.0" text="          OnboardingChecklist" textFill="#f2ebeb">
+            <JFXButton buttonType="RAISED" layoutX="9.0" layoutY="393.0" onAction="#btnChecklistOnAction" prefHeight="72.0" prefWidth="285.0" text="          OnboardingChecklist" textFill="#f2ebeb">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

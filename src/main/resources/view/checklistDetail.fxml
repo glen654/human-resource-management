@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="rootNode" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.ChecklistDetailController">
+   <children>
+      <Label layoutX="24.0" layoutY="24.0" prefHeight="75.0" prefWidth="458.0" text="       ONBoardingTask Details Of">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTask" layoutX="472.0" layoutY="44.0" prefHeight="36.0" prefWidth="121.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="14.0" layoutY="30.0">
+         <image>
+            <Image url="@../assets/icons8-checklist-64.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="82.0" layoutY="164.0" prefHeight="18.0" prefWidth="105.0" text="Checklist ID:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="82.0" layoutY="253.0" prefHeight="18.0" prefWidth="105.0" text="Task Name:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="82.0" layoutY="362.0" prefHeight="18.0" prefWidth="105.0" text="Due Date:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="82.0" layoutY="477.0" prefHeight="18.0" prefWidth="105.0" text="Status:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblChecklistId" layoutX="187.0" layoutY="155.0" prefHeight="36.0" prefWidth="204.0" />
+      <Label fx:id="lblOnboardingTask" layoutX="177.0" layoutY="244.0" prefHeight="36.0" prefWidth="204.0" />
+      <Label fx:id="lblDuedate" layoutX="167.0" layoutY="353.0" prefHeight="36.0" prefWidth="204.0" />
+      <Label fx:id="lblStatus" layoutX="143.0" layoutY="468.0" prefHeight="36.0" prefWidth="204.0" />
+   </children>
+</AnchorPane>
