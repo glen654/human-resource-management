@@ -17,7 +17,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-
+import java.util.Properties;
 
 public class EmailSender implements Runnable{
     private String msg;
@@ -61,6 +61,7 @@ public class EmailSender implements Runnable{
         mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
         mimeMessage.setSubject(this.subject);
         mimeMessage.setText(this.msg);
+        setImage(qrCodeImage);
         Transport.send(mimeMessage);
 
         System.out.println("sent");

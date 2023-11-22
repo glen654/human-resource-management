@@ -1,5 +1,7 @@
 package lk.ijse.humanResourceManagement.controller;
 
+
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,11 +11,14 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.humanResourceManagement.db.DbConnection;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.ProgramDto;
 import lk.ijse.humanResourceManagement.model.EmployeeModel;
+import lk.ijse.humanResourceManagement.model.PlaceTrainingEnrollmentModel;
 import lk.ijse.humanResourceManagement.model.ProgramModel;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -47,6 +52,8 @@ public class TrainingProgramAddController {
     private ProgramModel programModel = new ProgramModel();
 
     private EmployeeModel employeeModel= new EmployeeModel();
+
+    private PlaceTrainingEnrollmentModel enrollmentModel = new PlaceTrainingEnrollmentModel();
     public void initialize(){
         loadTrainers();
         generateNextProgramId();
@@ -67,106 +74,102 @@ public class TrainingProgramAddController {
         }
     }
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
+     void btnSaveOnAction(ActionEvent event) {
         if(validateProgram()){
             String program_id = txtProgramId.getText();
             String name = txtProgramName.getText();
-            String description = txtDescription.getText();
+            String desc = txtDescription.getText();
             String trainers = cmbTrainers.getValue();
             String duration = txtDuration.getText();
             String emp_id = cmbEmpId.getValue();
 
-            var dto = new ProgramDto(program_id,name,description,trainers,duration,emp_id);
+            var dto = new ProgramDto(program_id,name,desc,trainers,duration,emp_id);
+
+            boolean isSaved = enrollmentModel.placeEnrollment(dto);
+
+            if(isSaved){
+                new Alert(Alert.AlertType.CONFIRMATION,"Program And Enrollment Saved").show();
+            }else {
+                new Alert(Alert.AlertType.ERROR,"Program not Enrollment Not Saved").show();
+            }
+        }
+    }
+
+
+     public boolean validateProgram(){
+            String program_id = txtProgramId.getText();
+
+            boolean isProgramIDValidated = Pattern.matches("[P][0-9]{3,}", program_id);
+            if (!isProgramIDValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Program ID!").show();
+                return false;
+            }
+
+            String name = txtProgramName.getText();
+
+            boolean isNameValidated = Pattern.matches("[A-Z][a-zA-Z\\s]+", name);
+            if (!isNameValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Program Name!").show();
+                return false;
+            }
+
+            String description = txtDescription.getText();
+
+            boolean isDescriptionValidated = Pattern.matches("[A-Z][a-zA-Z\\s]+", description);
+            if (!isDescriptionValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Description!").show();
+                return false;
+            }
+
+
+            String trainers = cmbTrainers.getValue();
+
+            boolean isTrainerValidated = Pattern.matches("Mr.Samarawickrama|Mr.Rajapaksha|Mr.Ranaweera|Mrs.Wijethunga", trainers);
+            if (!isTrainerValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Trainer!").show();
+                return false;
+            }
+
+            String duration = txtDuration.getText();
+
+            boolean isDurationValidated = Pattern.matches("[A-Z][a-zA-Z\\s\\d]+", duration);
+            if (!isDurationValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Duration!").show();
+                return false;
+            }
+
+            String emp_id = cmbEmpId.getValue();
+
+            boolean isEmpIDValidated = Pattern.matches("[E][0-9]{3,}", emp_id);
+            if (!isEmpIDValidated) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Employee ID!").show();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void loadAllEmployeeIds () {
+            ObservableList<String> obList = FXCollections.observableArrayList();
 
             try {
-                boolean isSaved = programModel.saveProgram(dto);
+                List<EmployeeDto> idList = employeeModel.loadAllEmployee();
 
-                if(isSaved){
-                    clearFields();
-                    new Alert(Alert.AlertType.CONFIRMATION,"Program Save Successfully").show();
-                }else{
-                    new Alert(Alert.AlertType.ERROR,"Program can not Save").show();
+                for (EmployeeDto dto : idList) {
+                    obList.add(dto.getId());
                 }
+
+                cmbEmpId.setItems(obList);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-    }
-
-    public boolean validateProgram(){
-        String program_id = txtProgramId.getText();
-
-        boolean isProgramIDValidated = Pattern.matches("[P][0-9]{3,}", program_id);
-        if (!isProgramIDValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Program ID!").show();
-            return false;
-        }
-
-        String name = txtProgramName.getText();
-
-        boolean isNameValidated = Pattern.matches("[A-Z][a-zA-Z\\s]+", name);
-        if (!isNameValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Program Name!").show();
-            return false;
-        }
-
-        String description = txtDescription.getText();
-
-        boolean isDescriptionValidated = Pattern.matches("[A-Z][a-zA-Z\\s]+", description);
-        if (!isDescriptionValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Description!").show();
-            return false;
-        }
-
-
-        String trainers = cmbTrainers.getValue();
-
-        boolean isTrainerValidated = Pattern.matches("Mr.Samarawickrama|Mr.Rajapaksha|Mr.Ranaweera|Mrs.Wijethunga", trainers);
-        if (!isTrainerValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Trainer!").show();
-            return false;
-        }
-
-        String duration = txtDuration.getText();
-
-        boolean isDurationValidated = Pattern.matches("[A-Z][a-zA-Z\\s\\d]+", duration);
-        if (!isDurationValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Duration!").show();
-            return false;
-        }
-
-        String emp_id = cmbEmpId.getValue();
-
-        boolean isEmpIDValidated = Pattern.matches("[E][0-9]{3,}", emp_id);
-        if (!isEmpIDValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Employee ID!").show();
-            return false;
-        }
-
-        return true;
-    }
-
-    private void loadAllEmployeeIds() {
-        ObservableList<String> obList = FXCollections.observableArrayList();
-
-        try {
-            List<EmployeeDto> idList = employeeModel.loadAllEmployee();
-
-            for (EmployeeDto dto : idList) {
-                obList.add(dto.getId());
-            }
-
-            cmbEmpId.setItems(obList);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        public void clearFields () {
+            txtProgramId.setText("");
+            txtProgramName.setText("");
+            txtDuration.setText("");
+            txtDescription.setText("");
+            cmbTrainers.setValue(null);
+            cmbEmpId.setValue(null);
         }
     }
-    public void clearFields(){
-        txtProgramId.setText("");
-        txtProgramName.setText("");
-        txtDuration.setText("");
-        txtDescription.setText("");
-        cmbTrainers.setValue(null);
-        cmbEmpId.setValue(null);
-    }
-}

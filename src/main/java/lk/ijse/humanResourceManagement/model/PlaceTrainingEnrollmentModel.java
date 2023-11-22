@@ -1,5 +1,7 @@
 package lk.ijse.humanResourceManagement.model;
 
+import lk.ijse.humanResourceManagement.controller.EnrollmentIdGenerator;
+import lk.ijse.humanResourceManagement.controller.TrainingProgramAddController;
 import lk.ijse.humanResourceManagement.db.DbConnection;
 import lk.ijse.humanResourceManagement.dto.ProgramDto;
 import lk.ijse.humanResourceManagement.dto.TrainingEnrollmentDto;
@@ -8,10 +10,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class PlaceTrainingEnrollmentModel {
-    private ProgramModel programModel = new ProgramModel();
-    private TrainingEnrollmentModel enrollmentModel = new TrainingEnrollmentModel();
+    private static ProgramModel programModel = new ProgramModel();
+    private static TrainingEnrollmentModel enrollmentModel = new TrainingEnrollmentModel();
 
-    public boolean placeEnrollment(ProgramDto programDto) {
+
+    public static boolean placeEnrollment(ProgramDto programDto) {
         String program_id = programDto.getProgram_id();
         String emp_id = programDto.getEmp_id();
         String name = programDto.getName();
@@ -27,7 +30,8 @@ public class PlaceTrainingEnrollmentModel {
 
             if (isProgramSaved) {
                 // Save the training enrollment details
-                boolean isSaved = enrollmentModel.saveTrainingEnrollment(emp_id, program_id, name);
+                String enrollmentId = EnrollmentIdGenerator.generateEnrollmentId();
+                boolean isSaved = enrollmentModel.saveTrainingEnrollment(enrollmentId,emp_id, program_id, name);
 
                 if (isSaved) {
                     // Commit the transaction if both program and enrollment are saved successfully
@@ -50,7 +54,6 @@ public class PlaceTrainingEnrollmentModel {
             try {
                 if (connection != null) {
                     connection.setAutoCommit(true);
-                    connection.close();
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);

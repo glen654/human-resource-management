@@ -6,6 +6,7 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.humanResourceManagement.dto.DepartmentDto;
@@ -63,6 +64,9 @@ public class EmployeeAddController {
 
     @FXML
     private TextField txtSalary;
+
+    @FXML
+    private ImageView imageView;
     private EmployeeModel empModel = new EmployeeModel();
    
     private DepartmentModel depModel = new DepartmentModel();
@@ -135,7 +139,7 @@ public class EmployeeAddController {
                     WritableImage qrCodeImage = createQRCode(employeeData, 300, 300);
 
                     EmailSender mail = new EmailSender();
-                    mail.setMsg("Message");
+                    mail.setMsg("Congradulations! " + txtFirstName.getText() + txtLastName.getText() + "you are successfully added to the HR Navigator System of our company.");
                     mail.setTo(dto.getEmail());
                     mail.setSubject("Subject");
                     mail.setImage(qrCodeImage);
@@ -153,7 +157,11 @@ public class EmployeeAddController {
 
     }
     private WritableImage createQRCode(String data, int width, int height) {
-        return QRCodeGeneratorClass.generateQRCode(data, width, height);
+        WritableImage qrCodeImage = QRCodeGeneratorClass.generateQRCode(data, width, height);
+
+        imageView.setImage(qrCodeImage);
+
+        return qrCodeImage;
     }
 
     public boolean validateEmployee(){
@@ -244,7 +252,7 @@ public class EmployeeAddController {
 
         String email = txtEmail.getText();
 
-        boolean isEmailValidated = Pattern.matches("[a-zA-Z0-9._+-]+@[a-zA-Z0-9-]+[a-zA-Z]{2,}", email);
+        boolean isEmailValidated = Pattern.matches("(^[a-zA-Z0-9_.-]+)@([a-zA-Z]+)([\\\\.])([a-zA-Z]+)$", email);
         if (!isEmailValidated) {
             new Alert(Alert.AlertType.ERROR, "Invalid Email Address!").show();
             return false;

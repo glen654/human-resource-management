@@ -233,7 +233,7 @@ public class EmployeeFormController {
                 boolean deleted = empModel.deleteEmployee(id);
                 if (deleted) {
                     loadAllEmployee();
-                    new Alert(Alert.AlertType.CONFIRMATION, "Department Deleted Successfully").show();
+                    new Alert(Alert.AlertType.CONFIRMATION, "Employee Deleted Successfully").show();
                 }
             }
         } catch (SQLException e) {
