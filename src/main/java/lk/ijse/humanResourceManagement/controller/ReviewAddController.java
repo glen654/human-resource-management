@@ -14,8 +14,11 @@ import lk.ijse.humanResourceManagement.model.ReviewModel;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class ReviewAddController {
     @FXML
@@ -42,26 +45,73 @@ public class ReviewAddController {
     }
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String reviewId = txtReviewId.getText();
-        String empId = cmbEmpId.getValue();
-        String comments = txtComments.getText();
-        String rating = cmbRating.getValue();
-        LocalDate date = txtDateOfBirth.getValue();
+       if(validateReview()){
+           String reviewId = txtReviewId.getText();
+           String empId = cmbEmpId.getValue();
+           String comments = txtComments.getText();
+           String rating = cmbRating.getValue();
+           LocalDate date = txtDateOfBirth.getValue();
 
-        var dto = new ReviewDto(reviewId,empId,comments,rating,date);
+           var dto = new ReviewDto(reviewId,empId,comments,rating,date);
 
-        try {
-            boolean isSaved = reviewModel.saveReview(dto);
+           try {
+               boolean isSaved = reviewModel.saveReview(dto);
 
-            if(isSaved) {
-                clearFields();
-                new Alert(Alert.AlertType.CONFIRMATION, "Review Saved Successfully").show();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+               if(isSaved) {
+                   clearFields();
+                   new Alert(Alert.AlertType.CONFIRMATION, "Review Saved Successfully").show();
+               }
+           } catch (SQLException e) {
+               throw new RuntimeException(e);
+           }
+       }
     }
 
+    public boolean validateReview(){
+        String id = txtReviewId.getText();
+
+        boolean isIDValidated = Pattern.matches("[R][0-9]{3,}", id);
+        if (!isIDValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Review ID!").show();
+            return false;
+        }
+
+        String emp_id = cmbEmpId.getValue();
+
+        boolean isEmpIDValidated = Pattern.matches("[E][0-9]{3,}", emp_id);
+        if (!isEmpIDValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Employee ID!").show();
+            return false;
+        }
+
+        String comments = txtComments.getText();
+
+        boolean isCommentsValidated = Pattern.matches("[A-Z][a-zA-Z\\s]+", comments);
+        if (!isCommentsValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Comments!").show();
+            return false;
+        }
+
+
+        String rating = cmbRating.getValue();
+
+        boolean isRatingValidated = Pattern.matches("Average|Good|Excellent", rating);
+        if (!isRatingValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Rating!").show();
+            return false;
+        }
+
+        LocalDate date = txtDateOfBirth.getValue();
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String formattedStartDate = date.format(formatter);
+        } catch (DateTimeParseException e) {
+            new Alert(Alert.AlertType.ERROR, "Invalid  Date!").show();
+            return false;
+        }
+
+        return true;
+    }
     private void loadRating() {
         List<String> rating = Arrays.asList("Average", "Good", "Excellent");
         ObservableList<String> ratingList = FXCollections.observableArrayList(rating);

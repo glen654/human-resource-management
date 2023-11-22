@@ -86,14 +86,15 @@ CREATE TABLE trainingProgram(
                                 description VARCHAR(50) NOT NULL,
                                 trainers VARCHAR(50) NOT NULL,
                                 duration VARCHAR(20) NOT NULL
+                                emp_id VARCHAR(10),
+                            FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE trainingEnrollment(
                                    enrollment_id VARCHAR(10) PRIMARY KEY,
                                    emp_id VARCHAR(10),
                                    program_id VARCHAR(10),
-                                   enrollmentDate DATE NOT NULL,
-                                   status ENUM('Completed','Incompleted') NOT NULL,
+                                   name VARCHAR(20) NOT NULL,
                                    FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE,
                                    FOREIGN KEY (program_id) REFERENCES trainingProgram(program_id) ON UPDATE CASCADE ON DELETE CASCADE
 );

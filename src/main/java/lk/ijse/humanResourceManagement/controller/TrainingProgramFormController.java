@@ -204,6 +204,7 @@ public class TrainingProgramFormController {
                         dto.getDescription(),
                         dto.getTrainers(),
                         dto.getDuration(),
+                        dto.getEmp_id(),
                         updateButton,
                         deleteButton
 

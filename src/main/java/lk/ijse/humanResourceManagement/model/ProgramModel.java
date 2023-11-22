@@ -17,7 +17,7 @@ public class ProgramModel {
     public boolean saveProgram(ProgramDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO trainingProgram VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO trainingProgram VALUES(?,?,?,?,?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getProgram_id());
@@ -25,7 +25,7 @@ public class ProgramModel {
         pstm.setString(3, dto.getDescription());
         pstm.setString(4, dto.getTrainers());
         pstm.setString(5, dto.getDuration());
-
+        pstm.setString(6,dto.getEmp_id());
         boolean isSaved = pstm.executeUpdate() > 0;
 
         return isSaved;
@@ -71,7 +71,8 @@ public class ProgramModel {
                     resultSet.getString(2),
                     resultSet.getString(3),
                     resultSet.getString(4),
-                    resultSet.getString(5)
+                    resultSet.getString(5),
+                    resultSet.getString(6)
             ));
         }
 
@@ -96,8 +97,9 @@ public class ProgramModel {
             String description = resultSet.getString(3);
             String trainers = resultSet.getString(4);
             String duration = resultSet.getString(5);
+            String emp_id = resultSet.getString(6);
 
-            dto = new ProgramDto(program_id,name,description,trainers,duration);
+            dto = new ProgramDto(program_id,name,description,trainers,duration,emp_id);
         }
         return dto;
     }
@@ -105,14 +107,15 @@ public class ProgramModel {
     public boolean updateProgram(ProgramDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE trainingProgram SET  name = ?, description = ?, trainers = ?, duration = ? WHERE program_id = ?";
+        String sql = "UPDATE trainingProgram SET  name = ?, description = ?, trainers = ?, duration = ?, emp_id = ? WHERE program_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1,dto.getName());
         pstm.setString(2,dto.getDescription());
         pstm.setString(3,dto.getTrainers());
         pstm.setString(4,dto.getDuration());
-        pstm.setString(5,dto.getProgram_id());
+        pstm.setString(5,dto.getEmp_id());
+        pstm.setString(6,dto.getProgram_id());
 
         return pstm.executeUpdate() > 0;
     }

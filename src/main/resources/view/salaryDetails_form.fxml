@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1104.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.SalaryDetailsFormController">
+   <children>
+      <AnchorPane layoutX="13.0" layoutY="14.0" prefHeight="1087.0" prefWidth="984.0">
+         <children>
+            <BorderPane layoutY="-2.0" prefHeight="50.0" prefWidth="975.0" style="-fx-background-color: #2980b9;">
+               <center>
+                  <Label text="Salary Slip" textFill="WHITE" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </center>
+            </BorderPane>
+            <BorderPane layoutY="47.0" prefHeight="35.0" prefWidth="975.0" style="-fx-background-color: #3498db;">
+               <center>
+                  <Label text="Company Information" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </center>
+            </BorderPane>
+            <ImageView fitHeight="59.0" fitWidth="200.0" layoutX="709.0" layoutY="85.0">
+               <image>
+                  <Image url="@../assets/logo-no-background.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="216.0" fitWidth="365.0" layoutX="584.0" layoutY="85.0">
+               <image>
+                  <Image url="@../assets/logo-color%20(copy).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="85.0" prefHeight="23.0" prefWidth="120.0" text="Company Name:" />
+            <Label layoutX="134.0" layoutY="79.0" prefHeight="35.0" prefWidth="155.0" text="Millenium Apperal">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="120.0" prefHeight="23.0" prefWidth="131.0" text="Company Address:" />
+            <Label layoutX="145.0" layoutY="114.0" prefHeight="35.0" prefWidth="155.0" text="Panadura">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="153.0" prefHeight="23.0" prefWidth="147.0" text="Company Phone No:" />
+            <Label layoutX="151.0" layoutY="147.0" prefHeight="35.0" prefWidth="155.0" text="0382231844">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="193.0" prefHeight="23.0" prefWidth="147.0" text="Company Email:" />
+            <Label layoutX="128.0" layoutY="187.0" prefHeight="35.0" prefWidth="171.0" text="Millenium@gmail.com">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <BorderPane layoutX="-2.0" layoutY="308.0" prefHeight="35.0" prefWidth="984.0" style="-fx-background-color: #3498db;">
+               <center>
+                  <Label text="Employee Informantion" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </center>
+            </BorderPane>
+            <Label layoutX="14.0" layoutY="359.0" prefHeight="23.0" prefWidth="120.0" text="Employee Name:" />
+            <Label layoutX="14.0" layoutY="396.0" prefHeight="23.0" prefWidth="147.0" text="Employee Contact:" />
+            <Label layoutX="14.0" layoutY="440.0" prefHeight="23.0" prefWidth="120.0" text="Employee Email:" />
+            <Label fx:id="lblEmpName" layoutX="126.0" layoutY="353.0" prefHeight="35.0" prefWidth="206.0">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEmpContact" layoutX="137.0" layoutY="390.0" prefHeight="35.0" prefWidth="222.0">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEmpEmail" layoutX="128.0" layoutY="434.0" prefHeight="35.0" prefWidth="240.0">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <BorderPane layoutY="482.0" prefHeight="35.0" prefWidth="984.0" style="-fx-background-color: #bdc3c7;">
+               <center>
+                  <Label text="Earnings" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </center>
+            </BorderPane>
+            <Label layoutX="20.0" layoutY="553.0" prefHeight="35.0" prefWidth="171.0" text="Basic Salary">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="843.0" layoutY="528.0" text="Amount">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblBasicSalary" alignment="CENTER" layoutX="800.0" layoutY="553.0" prefHeight="35.0" prefWidth="147.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="609.0" prefHeight="35.0" prefWidth="171.0" text="Over Time">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblOverTime" alignment="CENTER" layoutX="810.0" layoutY="609.0" prefHeight="35.0" prefWidth="147.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="670.0" prefHeight="35.0" prefWidth="171.0" text="Total Earnings">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotalEarnings" alignment="CENTER" layoutX="801.0" layoutY="670.0" prefHeight="35.0" prefWidth="147.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <BorderPane layoutX="2.0" layoutY="724.0" prefHeight="35.0" prefWidth="980.0" style="-fx-background-color: #bdc3c7;">
+               <center>
+                  <Label text="Deduction" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </center>
+            </BorderPane>
+            <Label layoutX="14.0" layoutY="810.0" prefHeight="35.0" prefWidth="171.0" text="EPF Deduction">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEpf" alignment="CENTER" layoutX="801.0" layoutY="810.0" prefHeight="35.0" prefWidth="147.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="843.0" layoutY="770.0" text="Amount">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="862.0" prefHeight="35.0" prefWidth="171.0" text="Tax Deduction">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDeduction" alignment="CENTER" layoutX="801.0" layoutY="862.0" prefHeight="35.0" prefWidth="147.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="918.0" prefHeight="35.0" prefWidth="171.0" text="Total Deduction">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotalDeduction" alignment="CENTER" layoutX="799.0" layoutY="918.0" prefHeight="35.0" prefWidth="147.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="983.0" prefHeight="35.0" prefWidth="171.0" text="Net Pay">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNetPay" alignment="CENTER" layoutX="801.0" layoutY="983.0" prefHeight="35.0" prefWidth="147.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

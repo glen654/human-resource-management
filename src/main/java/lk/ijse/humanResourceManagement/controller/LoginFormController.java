@@ -70,6 +70,6 @@ public class LoginFormController {
 
         Stage primaryStage =(Stage) this.rootNode.getScene().getWindow();
         primaryStage.setScene(scene);
-        primaryStage.setTitle("SignUp Form");
+        primaryStage.setTitle("Human Resource Management System");
     }
 }

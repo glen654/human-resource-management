@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.ProgramDto;
+import lk.ijse.humanResourceManagement.model.EmployeeModel;
 import lk.ijse.humanResourceManagement.model.ProgramModel;
 
 import java.sql.SQLException;
@@ -24,6 +25,9 @@ import java.util.regex.Pattern;
 public class TrainingProgramAddController {
     @FXML
     private ComboBox<String> cmbTrainers;
+
+    @FXML
+    private ComboBox<String> cmbEmpId;
 
     @FXML
     private AnchorPane rootNode;
@@ -42,9 +46,11 @@ public class TrainingProgramAddController {
 
     private ProgramModel programModel = new ProgramModel();
 
+    private EmployeeModel employeeModel= new EmployeeModel();
     public void initialize(){
         loadTrainers();
         generateNextProgramId();
+        loadAllEmployeeIds();
     }
 
     private void loadTrainers() {
@@ -68,8 +74,9 @@ public class TrainingProgramAddController {
             String description = txtDescription.getText();
             String trainers = cmbTrainers.getValue();
             String duration = txtDuration.getText();
+            String emp_id = cmbEmpId.getValue();
 
-            var dto = new ProgramDto(program_id,name,description,trainers,duration);
+            var dto = new ProgramDto(program_id,name,description,trainers,duration,emp_id);
 
             try {
                 boolean isSaved = programModel.saveProgram(dto);
@@ -128,14 +135,38 @@ public class TrainingProgramAddController {
             return false;
         }
 
+        String emp_id = cmbEmpId.getValue();
+
+        boolean isEmpIDValidated = Pattern.matches("[E][0-9]{3,}", emp_id);
+        if (!isEmpIDValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Employee ID!").show();
+            return false;
+        }
+
         return true;
     }
 
+    private void loadAllEmployeeIds() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        try {
+            List<EmployeeDto> idList = employeeModel.loadAllEmployee();
+
+            for (EmployeeDto dto : idList) {
+                obList.add(dto.getId());
+            }
+
+            cmbEmpId.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public void clearFields(){
         txtProgramId.setText("");
         txtProgramName.setText("");
         txtDuration.setText("");
         txtDescription.setText("");
         cmbTrainers.setValue(null);
+        cmbEmpId.setValue(null);
     }
 }

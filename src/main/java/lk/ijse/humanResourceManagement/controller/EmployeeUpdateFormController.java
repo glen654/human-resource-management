@@ -61,6 +61,7 @@ public class EmployeeUpdateFormController {
         }
     }
 
+
     public void setEmployeeData(EmployeeTm employee) {
        lblName.setText(employee.getFirstName());
        txtContact.setText(String.valueOf(employee.getContact()));

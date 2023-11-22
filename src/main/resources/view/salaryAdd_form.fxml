@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="rootNode" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.SalaryAddFormController">
+   <children>
+      <Label layoutX="78.0" layoutY="14.0" prefHeight="61.0" prefWidth="255.0" text="Salary">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="84.0" layoutY="66.0" prefHeight="18.0" prefWidth="193.0" text="Fill out these information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="14.0" layoutY="20.0">
+         <image>
+            <Image url="@../assets/icons8-salary-64.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtSalaryId" layoutX="84.0" layoutY="145.0" prefHeight="38.0" prefWidth="180.0" promptText="Salary ID" />
+      <ComboBox fx:id="cmbEmpId" layoutX="84.0" layoutY="231.0" prefHeight="38.0" prefWidth="187.0" promptText="Employee ID">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <TextField fx:id="txtBasicSalary" layoutX="380.0" layoutY="145.0" prefHeight="38.0" prefWidth="180.0" promptText="Basic Salary" />
+      <ComboBox fx:id="cmbStatus" layoutX="585.0" layoutY="231.0" prefHeight="38.0" prefWidth="226.0" promptText="Status">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <TextField fx:id="txtDeduction" layoutX="574.0" layoutY="145.0" prefHeight="38.0" prefWidth="180.0" promptText="Deducted Salary" />
+      <TextField fx:id="txtEpf" layoutX="380.0" layoutY="231.0" prefHeight="38.0" prefWidth="180.0" promptText="EPF" />
+      <JFXButton buttonType="RAISED" layoutX="878.0" layoutY="448.0" onAction="#btnSaveOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #2ecc71;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField fx:id="txtOverTime" layoutX="768.0" layoutY="145.0" prefHeight="38.0" prefWidth="180.0" promptText="OT" />
+   </children>
+</AnchorPane>

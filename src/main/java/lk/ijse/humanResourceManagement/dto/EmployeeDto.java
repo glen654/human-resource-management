@@ -48,6 +48,14 @@ public class EmployeeDto {
         this.salary = salary;
     }
 
+    public EmployeeDto(String empId, String firstName, String lastName, int empContact, String email) {
+        this.id = empId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.contact = empContact;
+        this.email = email;
+    }
+
 
     public String getId() {
         return id;

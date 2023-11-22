@@ -8,9 +8,11 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.ProgramDto;
 import lk.ijse.humanResourceManagement.dto.ReviewDto;
 import lk.ijse.humanResourceManagement.dto.tm.ProgramTm;
+import lk.ijse.humanResourceManagement.model.EmployeeModel;
 import lk.ijse.humanResourceManagement.model.ProgramModel;
 
 import java.sql.SQLException;
@@ -22,6 +24,9 @@ import java.util.regex.Pattern;
 public class TrainingProgramUpdateController {
     @FXML
     private ComboBox<String> cmbTrainers;
+
+    @FXML
+    private ComboBox<String> cmbEmpId;
 
     @FXML
     private Label lblpName;
@@ -43,8 +48,11 @@ public class TrainingProgramUpdateController {
 
     private ProgramModel programModel = new ProgramModel();
 
+    private EmployeeModel employeeModel = new EmployeeModel();
+
     public void initialize(){
         loadTrainers();
+        loadAllEmployeeIds();
     }
 
     @FXML
@@ -55,8 +63,9 @@ public class TrainingProgramUpdateController {
             String description = txtDescription.getText();
             String trainers = cmbTrainers.getValue();
             String duration = txtDuration.getText();
+            String emp_id = cmbEmpId.getValue();
 
-            ProgramDto updatedProgram = new ProgramDto(program_id,name,description,trainers,duration);
+            ProgramDto updatedProgram = new ProgramDto(program_id,name,description,trainers,duration,emp_id);
             try {
                 boolean isUpdated = programModel.updateProgram(updatedProgram);
 
@@ -116,6 +125,14 @@ public class TrainingProgramUpdateController {
             return false;
         }
 
+        String emp_id = cmbEmpId.getValue();
+
+        boolean isEmpIDValidated = Pattern.matches("[E][0-9]{3,}", emp_id);
+        if (!isEmpIDValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Employee ID!").show();
+            return false;
+        }
+
         return true;
     }
 
@@ -126,6 +143,22 @@ public class TrainingProgramUpdateController {
         txtDescription.setText(program.getDescription());
         cmbTrainers.setValue(program.getTrainers());
         txtDuration.setText(program.getDuration());
+    }
+
+    private void loadAllEmployeeIds() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        try {
+            List<EmployeeDto> idList = employeeModel.loadAllEmployee();
+
+            for (EmployeeDto dto : idList) {
+                obList.add(dto.getId());
+            }
+
+            cmbEmpId.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void loadTrainers() {

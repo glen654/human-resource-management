@@ -3,16 +3,15 @@ package lk.ijse.humanResourceManagement.controller;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
-
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.WritableImage;
 
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class QRCodeGeneratorClass {
-    public static QRCodeGeneratorClass CodeGenerator;
-
-    public static BufferedImage generateQRCode(String data, int width, int height) {
+    public static WritableImage generateQRCode(String data, int width, int height) {
         try {
             BitMatrix bitMatrix = new QRCodeWriter().encode(data, BarcodeFormat.QR_CODE, width, height);
             BufferedImage qrImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -23,7 +22,7 @@ public class QRCodeGeneratorClass {
                 }
             }
 
-            return qrImage;
+            return SwingFXUtils.toFXImage(qrImage, null);
         } catch (Exception e) {
             throw new RuntimeException("Error generating QR code", e);
         }

@@ -15,8 +15,11 @@ import lk.ijse.humanResourceManagement.model.ReviewModel;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class ReviewUpdateFormController {
     public DatePicker txtDate;
@@ -46,28 +49,75 @@ public class ReviewUpdateFormController {
     }
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        String review_id = txtReviewId.getText();
-        String emp_id = txtEmpId.getText();
-        String comment = txtComments.getText();
-        String rating = String.valueOf(cmbRating.getValue());
-        LocalDate date = txtDate.getValue();
+        if(validateReview()){
+            String review_id = txtReviewId.getText();
+            String emp_id = txtEmpId.getText();
+            String comment = txtComments.getText();
+            String rating = String.valueOf(cmbRating.getValue());
+            LocalDate date = txtDate.getValue();
 
-        ReviewDto updatedReview = new ReviewDto(review_id,emp_id,comment, rating,date);
-        try {
-            boolean isUpdated = reviewModel.updateReview(updatedReview);
+            ReviewDto updatedReview = new ReviewDto(review_id,emp_id,comment, rating,date);
+            try {
+                boolean isUpdated = reviewModel.updateReview(updatedReview);
 
-            if (isUpdated) {
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.close();
-                new Alert(Alert.AlertType.INFORMATION, "Review updated successfully").show();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Failed to update review").show();
+                if (isUpdated) {
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.close();
+                    new Alert(Alert.AlertType.INFORMATION, "Review updated successfully").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Failed to update review").show();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
+    public boolean validateReview(){
+        String id = txtReviewId.getText();
+
+        boolean isIDValidated = Pattern.matches("[R][0-9]{3,}", id);
+        if (!isIDValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Review ID!").show();
+            return false;
+        }
+
+        String emp_id = txtEmpId.getText();
+
+        boolean isEmpIDValidated = Pattern.matches("[E][0-9]{3,}", emp_id);
+        if (!isEmpIDValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Employee ID!").show();
+            return false;
+        }
+
+        String comments = txtComments.getText();
+
+        boolean isCommentsValidated = Pattern.matches("[A-Z][a-zA-Z\\s]+", comments);
+        if (!isCommentsValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Comments!").show();
+            return false;
+        }
+
+
+        String rating = cmbRating.getValue();
+
+        boolean isRatingValidated = Pattern.matches("Average|Good|Excellent", rating);
+        if (!isRatingValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Rating!").show();
+            return false;
+        }
+
+        LocalDate date = txtDate.getValue();
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String formattedStartDate = date.format(formatter);
+        } catch (DateTimeParseException e) {
+            new Alert(Alert.AlertType.ERROR, "Invalid  Date!").show();
+            return false;
+        }
+
+        return true;
+    }
     public void setReviewData(ReviewTm review) {
         lblReviewId.setText(review.getReviewId());
         txtReviewId.setText(review.getReviewId());

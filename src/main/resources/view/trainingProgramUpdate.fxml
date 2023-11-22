@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="rootNode" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.TrainingProgramUpdateController">
    <children>
       <Label layoutX="79.0" layoutY="14.0" prefHeight="61.0" prefWidth="255.0" text="Training Program ">
@@ -52,5 +51,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <ComboBox fx:id="cmbEmpId" layoutX="78.0" layoutY="320.0" prefHeight="38.0" prefWidth="226.0" promptText="Employee ID">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
    </children>
 </AnchorPane>
