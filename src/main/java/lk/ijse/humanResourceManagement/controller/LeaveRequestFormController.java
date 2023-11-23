@@ -290,7 +290,7 @@ public class LeaveRequestFormController {
                 ));
             }
             tblLeaveRequest.setItems(obList);
-
+            tblLeaveRequest.refresh();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

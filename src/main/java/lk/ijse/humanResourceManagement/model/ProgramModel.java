@@ -130,4 +130,19 @@ public class ProgramModel {
 
         return pstm.executeUpdate() > 0;
     }
+
+    public int getProgramCount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT COUNT(*) FROM trainingProgram";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        if(resultSet.next()){
+            return resultSet.getInt(1);
+        }
+
+        return 0;
+    }
 }

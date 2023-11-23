@@ -283,7 +283,7 @@ public class EmployeeFormController {
                 ));
             }
             tblEmployee.setItems(obList);
-
+            tblEmployee.refresh();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

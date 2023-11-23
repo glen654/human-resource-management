@@ -131,16 +131,21 @@ public class EmployeeModel {
     public boolean updateEmployee(EmployeeDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE employee SET emp_contact = ? , salary = ? , job_role = ? , email = ? , emp_qualification = ? , emp_history = ? WHERE emp_id = ?";
+        String sql = "UPDATE employee SET emp_id = ?, firstName = ?, lastName = ?, emp_contact = ?, emp_qualification = ?, emp_history = ?, department_id = ?, date_of_birth = ?, gender = ?, email = ?, salary = ?, job_role = ?  WHERE emp_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
-        pstm.setInt(1,dto.getContact());
-        pstm.setDouble(2, dto.getSalary());
-        pstm.setString(3, dto.getJobRole());
-        pstm.setString(4, dto.getEmail());
+        pstm.setString(1,dto.getId());
+        pstm.setString(2,dto.getFirstName());
+        pstm.setString(3,dto.getLastName());
+        pstm.setInt(4,dto.getContact());
         pstm.setString(5,dto.getQualification());
         pstm.setString(6,dto.getHistory());
-        pstm.setString(7,dto.getId());
+        pstm.setString(7,dto.getDepId());
+        pstm.setDate(8, Date.valueOf(dto.getDateOfBirth()));
+        pstm.setString(9,dto.getGender());
+        pstm.setString(10,dto.getEmail());
+        pstm.setString(11, String.valueOf(dto.getSalary()));
+        pstm.setString(12,dto.getJobRole());
 
         return pstm.executeUpdate() > 0;
     }

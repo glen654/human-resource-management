@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="2000.0" prefWidth="2000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.EnrollmentFormController">
+   <children>
+      <AnchorPane layoutY="-3.0" prefHeight="270.0" prefWidth="2018.0" style="-fx-background-color: #273c75;">
+         <children>
+            <Label fx:id="txtUserName" layoutX="78.0" layoutY="29.0" prefHeight="33.0" prefWidth="92.0" text="glenalloy" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="1567.0" layoutY="27.0" onAction="#btnBackOnAction" prefHeight="54.0" prefWidth="161.0" style="-fx-background-color: #006266;" text="  Back" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="1749.0" layoutY="26.0" onAction="#btnLogOutOnAction" prefHeight="54.0" prefWidth="161.0" style="-fx-background-color: #c0392b;" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <ImageView fitHeight="41.0" fitWidth="43.0" layoutX="1572.0" layoutY="35.0">
+               <image>
+                  <Image url="@../assets/icons8-back-48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="1755.0" layoutY="31.0">
+               <image>
+                  <Image url="@../assets/icons8-log-out-64.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="640.0" layoutY="135.0" prefHeight="99.0" prefWidth="654.0" text="Training Enrollment" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <ImageView layoutX="14.0" layoutY="13.0">
+               <image>
+                  <Image url="@../assets/icons8-user-64.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="700.0" layoutY="153.0">
+               <image>
+                  <Image url="@../assets/icons8-training-64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tblEnrollment" layoutX="25.0" layoutY="453.0" prefHeight="539.0" prefWidth="1866.0">
+         <columns>
+            <TableColumn fx:id="colEnrollmentId" prefWidth="205.0" text="Enrollment ID" />
+            <TableColumn fx:id="colEmployeeId" prefWidth="233.66668701171875" text="Employee ID" />
+            <TableColumn fx:id="colProgramId" prefWidth="422.33331298828125" text="Program ID" />
+            <TableColumn fx:id="colProgramName" prefWidth="325.0" text="Program Name" />
+            <TableColumn fx:id="colStatus" prefWidth="272.3333740234375" text="Status" />
+            <TableColumn fx:id="colUpdate" prefWidth="210.0" text="Update" />
+            <TableColumn fx:id="colDelete" prefWidth="195.0" text="Delete" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

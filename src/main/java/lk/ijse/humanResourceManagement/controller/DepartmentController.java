@@ -276,8 +276,9 @@ public class DepartmentController {
 
                 ));
             }
-            tblDepartment.setItems(obList);
 
+            tblDepartment.setItems(obList);
+            tblDepartment.refresh();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

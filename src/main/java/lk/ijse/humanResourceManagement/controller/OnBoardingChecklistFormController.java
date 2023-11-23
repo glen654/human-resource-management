@@ -165,7 +165,7 @@ public class OnBoardingChecklistFormController {
 
         colUpdate.setCellFactory(column -> {
             TableCell<ChecklistTm, JFXButton> cell = new TableCell<>() {
-                final JFXButton updateButton = new JFXButton("Incomplete");
+                final JFXButton updateButton = new JFXButton("Completed");
 
                 {
                     updateButton.setOnAction(event -> {

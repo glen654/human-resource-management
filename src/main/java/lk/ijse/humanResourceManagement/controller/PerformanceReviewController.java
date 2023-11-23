@@ -281,7 +281,7 @@ public class PerformanceReviewController {
                 ));
             }
             tblReview.setItems(obList);
-
+            tblReview.refresh();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

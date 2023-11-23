@@ -211,7 +211,7 @@ public class TrainingProgramFormController {
                 ));
             }
             tblProgram.setItems(obList);
-
+            tblProgram.refresh();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -291,6 +291,17 @@ public class TrainingProgramFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+
+    @FXML
+    void btnEnrollmentOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/enrollment_form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage primaryStage = (Stage) this.rootNode.getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Human Resource Management System");
     }
 
     private void clearFields() {

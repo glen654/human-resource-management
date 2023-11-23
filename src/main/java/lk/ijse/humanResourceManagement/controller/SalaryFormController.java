@@ -28,8 +28,11 @@ import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class SalaryFormController {
@@ -166,7 +169,7 @@ public class SalaryFormController {
                 ));
             }
             tblSalary.setItems(obList);
-
+            tblSalary.refresh();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -260,16 +263,21 @@ public class SalaryFormController {
 
     @FXML
     void btnReportOnAction(ActionEvent event) throws JRException, SQLException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/report/SalarySlip .jrxml");
+        String compensation_id = txtSalaryId.getText();
+
+        Connection connection = DbConnection.getInstance().getConnection();;
+
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/SalarySlipNew.jrxml");
         JasperDesign load = JRXmlLoader.load(resourceAsStream);
         JasperReport jasperReport = JasperCompileManager.compileReport(load);
 
-        JasperPrint jasperPrint =
-                JasperFillManager.fillReport(
-                        jasperReport, //compiled report
-                        null,
-                        DbConnection.getInstance().getConnection() //database connection
-                );
+        System.out.println("SQL Query: " + jasperReport.getQuery().getText());
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("compensation_id", compensation_id);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,connection);
+
 
         JasperViewer.viewReport(jasperPrint, false);
     }

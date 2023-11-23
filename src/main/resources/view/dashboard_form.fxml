@@ -4,7 +4,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
@@ -19,16 +18,122 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="2000.0" prefWidth="2000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.DashboardController">
    <children>
-      <AnchorPane layoutX="332.0" layoutY="12.0" prefHeight="1020.0" prefWidth="1570.0" style="-fx-background-color: #dfe6e9; -fx-background-radius: 50px;">
+      <AnchorPane fx:id="bar" layoutX="333.0" layoutY="15.0" prefHeight="1020.0" prefWidth="1535.0" style="-fx-background-color: #dfe6e9; -fx-background-radius: 50px;">
          <children>
-            <LineChart fx:id="requestLineChart" layoutX="764.0" layoutY="502.0" prefHeight="487.0" prefWidth="652.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
+            <AnchorPane layoutX="785.0" layoutY="522.0" prefHeight="458.0" prefWidth="569.0" style="-fx-background-color: #ced6e0; -fx-background-radius: 10px;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <BarChart fx:id="requestBarChart" layoutX="35.0" layoutY="45.0" prefHeight="369.0" prefWidth="500.0">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                  </BarChart>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="785.0" layoutY="113.0" prefHeight="376.0" prefWidth="569.0" style="-fx-background-color: #ced6e0; -fx-background-radius: 10px;">
+               <children>
+                  <BarChart fx:id="departmentBarChart" layoutX="26.0" layoutY="18.0" prefHeight="341.0" prefWidth="500.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <AnchorPane layoutX="53.0" layoutY="518.0" prefHeight="466.0" prefWidth="655.0" style="-fx-background-color: #ced6e0; -fx-background-radius: 10px;">
+               <children>
+                  <PieChart fx:id="employeePieChart" layoutX="52.0" layoutY="33.0" prefHeight="400.0" prefWidth="551.0" />
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <AnchorPane layoutX="394.0" layoutY="315.0" prefHeight="183.0" prefWidth="328.0" style="-fx-background-color: #ff7675; -fx-background-radius: 20px;">
+               <children>
+                  <Label layoutX="14.0" layoutY="23.0" text="Request">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblRequestCount" alignment="CENTER" layoutX="14.0" layoutY="124.0" prefHeight="29.0" prefWidth="85.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="264.0" layoutY="113.0">
+                     <image>
+                        <Image url="@../assets/icons8-leave-50.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="52.0" layoutY="315.0" prefHeight="183.0" prefWidth="328.0" style="-fx-background-color: #55efc4; -fx-background-radius: 20px;">
+               <children>
+                  <ImageView layoutX="250.0" layoutY="113.0">
+                     <image>
+                        <Image url="@../assets/icons8-department-50.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="14.0" layoutY="23.0" text="Departments">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDepartmentCount" alignment="CENTER" layoutX="20.0" layoutY="124.0" prefHeight="29.0" prefWidth="85.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="388.0" layoutY="113.0" prefHeight="183.0" prefWidth="328.0" style="-fx-background-color: #a29bfe; -fx-background-radius: 20px;">
+               <children>
+                  <Label layoutX="14.0" layoutY="23.0" text="Programs">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblProgramCount" alignment="CENTER" layoutX="14.0" layoutY="124.0" prefHeight="29.0" prefWidth="85.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="257.0" layoutY="113.0">
+                     <image>
+                        <Image url="@../assets/icons8-training-50.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="52.0" layoutY="113.0" prefHeight="183.0" prefWidth="328.0" style="-fx-background-color: #81ecec; -fx-background-radius: 20px;">
+               <children>
+                  <ImageView layoutX="249.0" layoutY="117.0">
+                     <image>
+                        <Image url="@../assets/icons8-employees-50.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="14.0" layoutY="22.0" text="Employees">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblEmployeeCount" alignment="CENTER" layoutX="11.0" layoutY="128.0" prefHeight="29.0" prefWidth="85.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="25.0" prefHeight="1000.0" prefWidth="311.0" style="-fx-background-color: black; -fx-background-radius: 50px;">
@@ -60,7 +165,7 @@
                   <Blend />
                </effect>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="38.0" layoutY="260.0" prefHeight="72.0" prefWidth="260.0" text=" Attendance" textFill="#f2ebeb">
+            <JFXButton buttonType="RAISED" layoutX="38.0" layoutY="273.0" onAction="#btnSalaryOnAction" prefHeight="72.0" prefWidth="260.0" text="Salary" textFill="#f2ebeb">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -71,7 +176,7 @@
                   <Blend />
                </effect>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="38.0" layoutY="350.0" onAction="#btnSalaryOnAction" prefHeight="72.0" prefWidth="260.0" text="Salary" textFill="#f2ebeb">
+            <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="379.0" onAction="#btnChecklistOnAction" prefHeight="72.0" prefWidth="285.0" text="             OnboardingChecklist" textFill="#f2ebeb">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -82,7 +187,7 @@
                   <Blend />
                </effect>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="442.0" onAction="#btnChecklistOnAction" prefHeight="72.0" prefWidth="285.0" text="             OnboardingChecklist" textFill="#f2ebeb">
+            <JFXButton buttonType="RAISED" layoutX="38.0" layoutY="491.0" onAction="#btnPerformanceOnAction" prefHeight="72.0" prefWidth="260.0" text="        Performance Review" textFill="#f2ebeb">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -93,7 +198,7 @@
                   <Blend />
                </effect>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="38.0" layoutY="533.0" onAction="#btnPerformanceOnAction" prefHeight="72.0" prefWidth="260.0" text="        Performance Review" textFill="#f2ebeb">
+            <JFXButton buttonType="RAISED" layoutX="38.0" layoutY="592.0" onAction="#btnLeaveRequestOnAction" prefHeight="72.0" prefWidth="260.0" text="   Leave Request" textFill="#f2ebeb">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -104,18 +209,7 @@
                   <Blend />
                </effect>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="38.0" layoutY="628.0" onAction="#btnLeaveRequestOnAction" prefHeight="72.0" prefWidth="260.0" text="   Leave Request" textFill="#f2ebeb">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-               <effect>
-                  <Blend />
-               </effect>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="38.0" layoutY="724.0" onAction="#btnTrainingProgramOnAction" prefHeight="72.0" prefWidth="260.0" text="       Training Programs" textFill="#f2ebeb">
+            <JFXButton buttonType="RAISED" layoutX="38.0" layoutY="689.0" onAction="#btnTrainingProgramOnAction" prefHeight="72.0" prefWidth="260.0" text="       Training Programs" textFill="#f2ebeb">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -131,32 +225,27 @@
                   <Image url="@../assets/icons8-department-64.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="54.0" fitWidth="53.0" layoutX="68.0" layoutY="269.0">
-               <image>
-                  <Image url="@../assets/icons8-attendance-64.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="65.0" layoutY="354.0">
+            <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="62.0" layoutY="277.0">
                <image>
                   <Image url="@../assets/icons8-salary-64.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="54.0" fitWidth="53.0" layoutX="58.0" layoutY="451.0">
+            <ImageView fitHeight="54.0" fitWidth="53.0" layoutX="59.0" layoutY="388.0">
                <image>
                   <Image url="@../assets/icons8-checklist-64.png" />
                </image>
             </ImageView>
-            <ImageView layoutX="58.0" layoutY="539.0">
+            <ImageView layoutX="61.0" layoutY="491.0">
                <image>
                   <Image url="@../assets/icons8-performance-goal-48.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="54.0" fitWidth="64.0" layoutX="53.0" layoutY="637.0">
+            <ImageView fitHeight="54.0" fitWidth="64.0" layoutX="54.0" layoutY="601.0">
                <image>
                   <Image url="@../assets/icons8-leave-64.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="47.0" fitWidth="53.0" layoutX="56.0" layoutY="737.0">
+            <ImageView fitHeight="47.0" fitWidth="53.0" layoutX="60.0" layoutY="702.0">
                <image>
                   <Image url="@../assets/icons8-training-64.png" />
                </image>
@@ -168,91 +257,6 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="342.0" layoutY="127.0" prefHeight="183.0" prefWidth="328.0" style="-fx-background-color: #81ecec; -fx-background-radius: 20px;">
-         <children>
-            <ImageView layoutX="249.0" layoutY="117.0">
-               <image>
-                  <Image url="@../assets/icons8-employees-50.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="14.0" layoutY="22.0" text="Employees">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblEmployeeCount" alignment="CENTER" layoutX="11.0" layoutY="128.0" prefHeight="29.0" prefWidth="85.0">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="346.0" layoutY="328.0" prefHeight="183.0" prefWidth="328.0" style="-fx-background-color: #55efc4; -fx-background-radius: 20px;">
-         <children>
-            <ImageView layoutX="250.0" layoutY="113.0">
-               <image>
-                  <Image url="@../assets/icons8-department-50.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="14.0" layoutY="23.0" text="Departments">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblDepartmentCount" alignment="CENTER" layoutX="20.0" layoutY="124.0" prefHeight="29.0" prefWidth="85.0">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="700.0" layoutY="127.0" prefHeight="183.0" prefWidth="328.0" style="-fx-background-color: #a29bfe; -fx-background-radius: 20px;">
-         <children>
-            <Label layoutX="14.0" layoutY="23.0" text="Programs">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblProgramCount" alignment="CENTER" layoutX="14.0" layoutY="124.0" prefHeight="29.0" prefWidth="85.0">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <ImageView layoutX="257.0" layoutY="113.0">
-               <image>
-                  <Image url="@../assets/icons8-training-50.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="700.0" layoutY="328.0" prefHeight="183.0" prefWidth="328.0" style="-fx-background-color: #ff7675; -fx-background-radius: 20px;">
-         <children>
-            <Label layoutX="14.0" layoutY="23.0" text="Request">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblRequestCount" alignment="CENTER" layoutX="14.0" layoutY="124.0" prefHeight="29.0" prefWidth="85.0">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <ImageView layoutX="264.0" layoutY="113.0">
-               <image>
-                  <Image url="@../assets/icons8-leave-50.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <PieChart fx:id="employeePieChart" layoutX="358.0" layoutY="525.0" prefHeight="487.0" prefWidth="691.0" />
-      <BarChart fx:id="departmentBarChart" layoutX="1093.0" layoutY="127.0" prefHeight="386.0" prefWidth="652.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </BarChart>
       <JFXButton buttonType="RAISED" layoutX="1717.0" layoutY="25.0" onAction="#btnLogOutOnAction" prefHeight="64.0" prefWidth="140.0" style="-fx-background-color: #c0392b; -fx-background-radius: 100px;" text="       Log Out" textFill="#f8f1f1">
          <font>
             <Font name="System Bold Italic" size="13.0" />

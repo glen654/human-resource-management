@@ -2,6 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -9,8 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.EmployeeUpdateFormController">
+<AnchorPane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.EmployeeUpdateFormController">
    <children>
       <ImageView fitHeight="107.0" fitWidth="105.0" layoutX="20.0" layoutY="22.0">
          <image>
@@ -22,13 +23,13 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtContact" layoutX="90.0" layoutY="179.0" prefHeight="44.0" prefWidth="301.0" promptText="Contact" />
-      <TextField fx:id="txtSalary" layoutX="539.0" layoutY="179.0" prefHeight="44.0" prefWidth="301.0" promptText="Salary" />
-      <TextField fx:id="txtJobRole" layoutX="90.0" layoutY="288.0" prefHeight="44.0" prefWidth="301.0" promptText="Job Role" />
-      <TextField fx:id="txtEmail" layoutX="539.0" layoutY="278.0" prefHeight="44.0" prefWidth="301.0" promptText="Email" />
-      <TextField fx:id="txtQualification" alignment="TOP_LEFT" layoutX="86.0" layoutY="389.0" prefHeight="253.0" prefWidth="333.0" promptText="Qualification" />
-      <TextField fx:id="txtHistory" alignment="TOP_LEFT" layoutX="523.0" layoutY="389.0" prefHeight="253.0" prefWidth="333.0" promptText="History" />
-      <JFXButton buttonType="RAISED" layoutX="879.0" layoutY="652.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #e67e22;" text="Update" textFill="WHITE">
+      <TextField fx:id="txtContact" layoutX="596.0" layoutY="236.0" prefHeight="44.0" prefWidth="228.0" promptText="Contact" />
+      <TextField fx:id="txtSalary" layoutX="86.0" layoutY="294.0" prefHeight="44.0" prefWidth="228.0" promptText="Salary" />
+      <TextField fx:id="txtJobRole" layoutX="340.0" layoutY="294.0" prefHeight="44.0" prefWidth="228.0" promptText="Job Role" />
+      <TextField fx:id="txtEmail" layoutX="596.0" layoutY="294.0" prefHeight="44.0" prefWidth="228.0" promptText="Email" />
+      <TextField fx:id="txtQualification" alignment="TOP_LEFT" layoutX="92.0" layoutY="379.0" prefHeight="253.0" prefWidth="468.0" promptText="Qualification" />
+      <TextField fx:id="txtHistory" alignment="TOP_LEFT" layoutX="602.0" layoutY="379.0" prefHeight="253.0" prefWidth="468.0" promptText="History" />
+      <JFXButton buttonType="RAISED" layoutX="1152.0" layoutY="648.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #e67e22;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
@@ -36,25 +37,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label layoutX="90.0" layoutY="163.0" text="Employee Contact">
-         <font>
-            <Font name="System Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="539.0" layoutY="163.0" text="Employee Salary">
-         <font>
-            <Font name="System Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="90.0" layoutY="270.0" text="Employee Job Role">
-         <font>
-            <Font name="System Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="539.0" layoutY="262.0" text="Employee Email">
-         <font>
-            <Font name="System Bold Italic" size="13.0" />
-         </font>
-      </Label>
+      <TextField fx:id="txtEmpId" layoutX="86.0" layoutY="171.0" prefHeight="44.0" prefWidth="228.0" promptText="Employee ID" />
+      <TextField fx:id="txtFirstName" layoutX="596.0" layoutY="165.0" prefHeight="44.0" prefWidth="228.0" promptText="firstName" />
+      <TextField fx:id="txtLastName" layoutX="854.0" layoutY="165.0" prefHeight="44.0" prefWidth="228.0" promptText="lastName" />
+      <ComboBox fx:id="cmbGender" layoutX="859.0" layoutY="236.0" prefHeight="44.0" prefWidth="219.0" promptText="Gender" />
+      <ComboBox fx:id="cmbDepatment" layoutX="859.0" layoutY="294.0" prefHeight="44.0" prefWidth="219.0" promptText="Department" />
+      <DatePicker fx:id="txtDateOfBirth" layoutX="83.0" layoutY="239.0" prefHeight="38.0" prefWidth="339.0" promptText="Date Of Birth" />
    </children>
 </AnchorPane>
