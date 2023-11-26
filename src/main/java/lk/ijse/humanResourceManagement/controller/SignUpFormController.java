@@ -48,7 +48,7 @@ public class SignUpFormController {
                     clearFields();
                 }
             } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                new Alert(Alert.AlertType.ERROR, "Account creation unsuccessfull").show();
             }
         }
     }
@@ -88,9 +88,17 @@ public class SignUpFormController {
 
         String password = txtPassword.getText();
 
-        boolean isPasswordValidated = Pattern.matches("[a-zA-Z\\s\\d]+", password);
+        boolean isPasswordValidated = Pattern.matches("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}", password);
         if (!isPasswordValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Password!").show();
+            new Alert(Alert.AlertType.ERROR, "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters").show();
+            return false;
+        }
+
+        String confirmPassword = txtConfirmPassword.getText();
+
+        boolean isconfirmPasswordValidated = Pattern.matches("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}", password);
+        if (!isconfirmPasswordValidated) {
+            new Alert(Alert.AlertType.ERROR, "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters").show();
             return false;
         }
 

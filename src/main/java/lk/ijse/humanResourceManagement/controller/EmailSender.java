@@ -25,7 +25,6 @@ public class EmailSender implements Runnable{
     private String subject;
     private WritableImage qrCodeImage;
 
-
     public void setMsg(String msg) {
         this.msg = msg;
     }
@@ -38,8 +37,11 @@ public class EmailSender implements Runnable{
         this.subject = subject;
     }
 
+    public void setImage(WritableImage qrCodeImage) {
+        this.qrCodeImage = qrCodeImage;
+    }
 
-    public void sendMail() throws MessagingException {
+    public void sendMail() throws MessagingException, IOException {
         String from = "glenalloy8@gmail.com";
         String password = "zmzs njnk qtkd mvmm";
         String host = "smtp.gmail.com";
@@ -60,11 +62,43 @@ public class EmailSender implements Runnable{
         mimeMessage.setFrom(new InternetAddress(from));
         mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
         mimeMessage.setSubject(this.subject);
-        mimeMessage.setText(this.msg);
-        setImage(qrCodeImage);
+
+        // Create a MimeMultipart object
+        MimeMultipart multipart = new MimeMultipart();
+
+        // Create the text part
+        BodyPart textPart = new MimeBodyPart();
+        textPart.setText(this.msg);
+
+        // Add the text part to the MimeMultipart
+        multipart.addBodyPart(textPart);
+
+        // Create the image part
+        if (qrCodeImage != null) {
+            BodyPart imagePart = new MimeBodyPart();
+            // Convert the WritableImage to InputStream
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            try {
+                ImageIO.write(SwingFXUtils.fromFXImage(qrCodeImage, null), "png", outputStream);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            InputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
+            DataSource dataSource = new ByteArrayDataSource(inputStream, "image/png");
+            imagePart.setDataHandler(new DataHandler(dataSource));
+            imagePart.setFileName("qrCode.png");
+
+            // Add the image part to the MimeMultipart
+            multipart.addBodyPart(imagePart);
+        }
+
+        // Set the content of the message to the MimeMultipart
+        mimeMessage.setContent(multipart);
+
+        // Send the message
         Transport.send(mimeMessage);
 
-        System.out.println("sent");
+        System.out.println("Email sent successfully");
     }
 
     @Override
@@ -72,16 +106,12 @@ public class EmailSender implements Runnable{
         if (msg != null) {
             try {
                 sendMail();
-            } catch (MessagingException e) {
+            } catch (MessagingException | IOException e) {
                 throw new RuntimeException(e);
             }
         } else {
-            System.out.println("not sent. empty msg!");
+            System.out.println("Email not sent. Empty message!");
         }
-    }
-
-    public void setImage(WritableImage qrCodeImage) {
-        this.qrCodeImage = qrCodeImage;
     }
 }
 

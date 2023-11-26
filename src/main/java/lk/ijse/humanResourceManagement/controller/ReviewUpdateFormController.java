@@ -63,7 +63,7 @@ public class ReviewUpdateFormController {
                 if (isUpdated) {
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.close();
-                    new Alert(Alert.AlertType.INFORMATION, "Review updated successfully").show();
+                    new Alert(Alert.AlertType.CONFIRMATION, "Review updated successfully").show();
                 } else {
                     new Alert(Alert.AlertType.ERROR, "Failed to update review").show();
                 }

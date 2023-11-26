@@ -47,7 +47,7 @@ public class LoginFormController {
                 primaryStage.setTitle("Human Resource Management System");
             }else{
                 clearFields();
-                new Alert(Alert.AlertType.INFORMATION,"Username or Password incorrect").show();
+                new Alert(Alert.AlertType.ERROR,"Username or Password incorrect").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

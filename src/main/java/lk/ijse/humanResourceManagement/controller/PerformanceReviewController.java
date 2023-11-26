@@ -120,7 +120,7 @@ public class PerformanceReviewController {
 
                 clearFields();
             } else {
-                new Alert(Alert.AlertType.INFORMATION, "Review not found").show();
+                new Alert(Alert.AlertType.ERROR, "Review not found").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

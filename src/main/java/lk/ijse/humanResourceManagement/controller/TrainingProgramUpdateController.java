@@ -72,7 +72,7 @@ public class TrainingProgramUpdateController {
                 if (isUpdated) {
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.close();
-                    new Alert(Alert.AlertType.INFORMATION, "Program updated successfully").show();
+                    new Alert(Alert.AlertType.CONFIRMATION, "Program updated successfully").show();
                 } else {
                     new Alert(Alert.AlertType.ERROR, "Failed to update Program").show();
                 }

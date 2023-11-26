@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,35 +13,30 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.SignUpFormController">
    <children>
-      <AnchorPane layoutX="599.0" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <AnchorPane layoutX="608.0" prefHeight="800.0" prefWidth="591.0" style="-fx-background-color: white;">
          <children>
-            <TextField fx:id="txtPosition" layoutX="54.0" layoutY="359.0" prefHeight="46.0" prefWidth="250.0" promptText="Enter Position" />
-            <Label layoutX="54.0" layoutY="214.0" text="First Name">
+            <TextField fx:id="txtPosition" layoutX="38.0" layoutY="359.0" prefHeight="46.0" prefWidth="257.0" promptText="Enter Position" style="-fx-background-radius: 20px;" />
+            <Label layoutX="55.0" layoutY="214.0" text="First Name">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="54.0" layoutY="342.0" text="Position">
+            <Label layoutX="55.0" layoutY="342.0" text="Position">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="59.0" layoutY="470.0" text="Password">
+            <Label layoutX="60.0" layoutY="470.0" text="Password">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="353.0" layoutY="470.0" text="Confirm Password">
+            <Label layoutX="340.0" layoutY="470.0" prefHeight="16.0" prefWidth="133.0" text="Confirm Password">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="261.0" layoutY="92.0" text="Sign Up" textFill="#12cbc4">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
-            </Label>
-            <JFXButton buttonType="RAISED" layoutX="155.0" layoutY="593.0" onAction="#btnSignUpOnAction" prefHeight="46.0" prefWidth="313.0" style="-fx-background-color: #1abc9c;" text="Sign Up" textFill="#f5f0f0">
+            <JFXButton buttonType="RAISED" layoutX="155.0" layoutY="593.0" onAction="#btnSignUpOnAction" prefHeight="46.0" prefWidth="313.0" style="-fx-background-color: #2e86de; -fx-background-radius: 20px;" text="Sign Up" textFill="#f5f0f0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -48,8 +44,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <Label layoutX="171.0" layoutY="662.0" text="Already have an account?" />
-            <JFXButton layoutX="358.0" layoutY="658.0" onAction="#btnSignInPageOnAction" text="Sign In" textFill="#e40ab8">
+            <Label layoutX="173.0" layoutY="650.0" text="Already have an account?" />
+            <JFXButton layoutX="349.0" layoutY="646.0" onAction="#btnSignInPageOnAction" text="Sign In" textFill="#e30b0f">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -57,32 +53,35 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <ImageView layoutX="275.0" layoutY="22.0">
+            <TextField fx:id="txtUsername" layoutX="323.0" layoutY="359.0" prefHeight="46.0" prefWidth="250.0" promptText="Enter Username" style="-fx-background-radius: 20px;" />
+            <Label layoutX="342.0" layoutY="342.0" text="Username">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtFirstName" layoutX="38.0" layoutY="231.0" prefHeight="46.0" prefWidth="250.0" promptText="Enter Firstname" style="-fx-background-radius: 20px;" />
+            <TextField fx:id="txtLastName" layoutX="323.0" layoutY="231.0" prefHeight="46.0" prefWidth="250.0" promptText="Enter Lastname" style="-fx-background-radius: 20px;" />
+            <Label layoutX="340.0" layoutY="214.0" text="Last Name">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="txtPassword" layoutX="38.0" layoutY="486.0" prefHeight="46.0" prefWidth="257.0" promptText="Enter Password" style="-fx-background-radius: 20px;" />
+            <PasswordField fx:id="txtConfirmPassword" layoutX="323.0" layoutY="486.0" prefHeight="46.0" prefWidth="250.0" promptText="Confirm Password" style="-fx-background-radius: 20px;" />
+            <ImageView fitHeight="213.0" fitWidth="597.0" layoutX="-2.0">
                <image>
-                  <Image url="@../assets/icons8-employee-50.png" />
+                  <Image url="@../assets/logo-black.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtUsername" layoutX="353.0" layoutY="359.0" prefHeight="46.0" prefWidth="233.0" promptText="Enter Username" />
-            <Label layoutX="355.0" layoutY="342.0" text="Username">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtFirstName" layoutX="54.0" layoutY="231.0" prefHeight="46.0" prefWidth="250.0" promptText="Enter Firstname" />
-            <TextField fx:id="txtLastName" layoutX="352.0" layoutY="231.0" prefHeight="46.0" prefWidth="233.0" promptText="Enter Lastname" />
-            <Label layoutX="353.0" layoutY="214.0" text="Last Name">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="txtPassword" layoutX="54.0" layoutY="486.0" prefHeight="46.0" prefWidth="257.0" promptText="Enter Password" />
-            <PasswordField fx:id="txtConfirmPassword" layoutX="353.0" layoutY="486.0" prefHeight="46.0" prefWidth="233.0" promptText="Confirm Password" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="800.0" fitWidth="609.0" layoutX="-1.0">
          <image>
             <Image url="@../assets/hr-navigator-high-resolution-logo.png" />
          </image>
+         <effect>
+            <DropShadow />
+         </effect>
       </ImageView>
    </children>
 </AnchorPane>

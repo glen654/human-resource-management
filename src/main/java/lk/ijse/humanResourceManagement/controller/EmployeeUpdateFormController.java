@@ -89,7 +89,7 @@ public class EmployeeUpdateFormController {
             if (isUpdated) {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.close();
-                new Alert(Alert.AlertType.INFORMATION, "Employee updated successfully").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Employee updated successfully").show();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Failed to update Employee").show();
             }

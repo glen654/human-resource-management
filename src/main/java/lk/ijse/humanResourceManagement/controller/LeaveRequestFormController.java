@@ -127,7 +127,7 @@ public class LeaveRequestFormController {
 
                 clearFields();
             } else {
-                new Alert(Alert.AlertType.INFORMATION, "Leave Request not found").show();
+                new Alert(Alert.AlertType.ERROR, "Leave Request not found").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

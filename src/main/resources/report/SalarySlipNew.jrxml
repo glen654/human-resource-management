@@ -13,8 +13,9 @@
 			<style mode="Opaque" backcolor="#F0EFEF"/>
 		</conditionalStyle>
 	</style>
+	<parameter name="compensation_id" class="java.lang.String"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT * FROM compensationAndBenefits WHERE compensation_id]]>
+		<![CDATA[SELECT * FROM compensationAndBenefits WHERE compensation_id = $P{compensation_id}]]>
 	</queryString>
 	<field name="compensation_id" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="compensation_id"/>
@@ -62,7 +63,7 @@
 		</band>
 	</background>
 	<title>
-		<band height="286" splitType="Stretch">
+		<band height="300" splitType="Stretch">
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="553" height="80" backcolor="#2980B9" uuid="6c6ca4e1-17cd-4913-93d6-5e670ea9ae8a"/>
 				<staticText>
@@ -136,15 +137,22 @@
 				</textElement>
 				<text><![CDATA[MIlleniumApperal@gmail.com]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="99" y="260" width="100" height="30" uuid="c6e332fa-a012-485e-af07-7742a72479cc"/>
+				<textFieldExpression><![CDATA[$P{compensation_id}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
 		<band splitType="Stretch"/>
 	</pageHeader>
-	<columnHeader>
-		<band height="275" splitType="Stretch">
+	<detail>
+		<band height="285" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="10" uuid="b50221b5-8254-440b-8c6f-1f0b138c9259"/>
+			</frame>
 			<staticText>
-				<reportElement style="Column header" x="10" y="25" width="130" height="35" forecolor="#000000" uuid="a685c4b1-a0a3-4667-baac-9426fd85ed1c">
+				<reportElement style="Column header" x="40" y="35" width="130" height="35" forecolor="#000000" uuid="a685c4b1-a0a3-4667-baac-9426fd85ed1c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c54378b2-8935-46d7-9df6-33bb78524f4e"/>
 				</reportElement>
 				<textElement>
@@ -153,7 +161,16 @@
 				<text><![CDATA[Salary]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="10" y="150" width="160" height="40" forecolor="#000000" uuid="e471dbc0-6b6f-499c-b17c-ceebf818db51">
+				<reportElement style="Column header" x="40" y="90" width="150" height="40" forecolor="#000000" uuid="ba352e97-1c0b-48a0-a058-9116e6f29d87">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cc930e92-4413-44df-91b3-000ff580e80f"/>
+				</reportElement>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[overTime]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="40" y="160" width="160" height="40" forecolor="#000000" uuid="e471dbc0-6b6f-499c-b17c-ceebf818db51">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3d36b8c8-f2c5-41e9-98ef-b829a7c11a4a"/>
 				</reportElement>
 				<textElement>
@@ -162,7 +179,7 @@
 				<text><![CDATA[salaryDeduction]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="10" y="220" width="160" height="40" forecolor="#000000" uuid="59626078-0c7d-4595-8772-3b9588cc260a">
+				<reportElement style="Column header" x="40" y="230" width="160" height="40" forecolor="#000000" uuid="59626078-0c7d-4595-8772-3b9588cc260a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f9cf602a-2978-4213-82a9-7cd3193df833"/>
 				</reportElement>
 				<textElement>
@@ -170,58 +187,42 @@
 				</textElement>
 				<text><![CDATA[epf]]></text>
 			</staticText>
-			<staticText>
-				<reportElement style="Column header" x="10" y="80" width="150" height="40" forecolor="#000000" uuid="ba352e97-1c0b-48a0-a058-9116e6f29d87">
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Detail" positionType="Float" x="320" y="30" width="124" height="35" uuid="0b3eebaf-ae0e-4485-ac6f-e57d65859b00">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c54378b2-8935-46d7-9df6-33bb78524f4e"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salary}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Detail" positionType="Float" x="320" y="80" width="124" height="30" uuid="9c97863c-ddb0-4994-8c98-b2ea5108e2a8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cc930e92-4413-44df-91b3-000ff580e80f"/>
 				</reportElement>
-				<textElement>
-					<font size="18" isBold="true"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
 				</textElement>
-				<text><![CDATA[overTime]]></text>
-			</staticText>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="144" splitType="Stretch">
-			<frame>
-				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="10" uuid="b50221b5-8254-440b-8c6f-1f0b138c9259"/>
-				<textField textAdjust="StretchHeight">
-					<reportElement style="Detail" positionType="Float" x="397" y="-250" width="124" height="35" uuid="0b3eebaf-ae0e-4485-ac6f-e57d65859b00">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c54378b2-8935-46d7-9df6-33bb78524f4e"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font size="16"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{salary}]]></textFieldExpression>
-				</textField>
-				<textField textAdjust="StretchHeight">
-					<reportElement style="Detail" positionType="Float" x="397" y="-125" width="133" height="25" uuid="5b149823-b299-4d93-87b3-7b391baa48df">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3d36b8c8-f2c5-41e9-98ef-b829a7c11a4a"/>
-					</reportElement>
-					<textElement textAlignment="Center">
-						<font size="16"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{salaryDeduction}]]></textFieldExpression>
-				</textField>
-				<textField textAdjust="StretchHeight">
-					<reportElement style="Detail" positionType="Float" x="397" y="-60" width="143" height="38" uuid="837ee80c-0645-4af3-ba9e-776871c69f0f">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f9cf602a-2978-4213-82a9-7cd3193df833"/>
-					</reportElement>
-					<textElement textAlignment="Center">
-						<font size="16"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{epf}]]></textFieldExpression>
-				</textField>
-				<textField textAdjust="StretchHeight">
-					<reportElement style="Detail" positionType="Float" x="397" y="-200" width="124" height="30" uuid="9c97863c-ddb0-4994-8c98-b2ea5108e2a8">
-						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cc930e92-4413-44df-91b3-000ff580e80f"/>
-					</reportElement>
-					<textElement textAlignment="Center">
-						<font size="16"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{overTime}]]></textFieldExpression>
-				</textField>
-			</frame>
+				<textFieldExpression><![CDATA[$F{overTime}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Detail" positionType="Float" x="320" y="155" width="133" height="25" uuid="5b149823-b299-4d93-87b3-7b391baa48df">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3d36b8c8-f2c5-41e9-98ef-b829a7c11a4a"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salaryDeduction}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement style="Detail" positionType="Float" x="320" y="220" width="143" height="38" uuid="837ee80c-0645-4af3-ba9e-776871c69f0f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f9cf602a-2978-4213-82a9-7cd3193df833"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{epf}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
@@ -255,7 +256,4 @@
 			</frame>
 		</band>
 	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
 </jasperReport>

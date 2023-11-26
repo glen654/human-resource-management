@@ -249,10 +249,10 @@ public class SalaryFormController {
 
                         clearFields();
                     } else {
-                        new Alert(Alert.AlertType.INFORMATION, "Employee not found").show();
+                        new Alert(Alert.AlertType.ERROR, "Employee not found").show();
                     }
                 } else {
-                    new Alert(Alert.AlertType.INFORMATION, "Salary not found").show();
+                    new Alert(Alert.AlertType.ERROR, "Salary not found").show();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

@@ -60,6 +60,8 @@ public class ReviewAddController {
                if(isSaved) {
                    clearFields();
                    new Alert(Alert.AlertType.CONFIRMATION, "Review Saved Successfully").show();
+               }else{
+                   new Alert(Alert.AlertType.ERROR,"Review Save Unsuccesfull").show();
                }
            } catch (SQLException e) {
                throw new RuntimeException(e);

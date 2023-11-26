@@ -119,7 +119,7 @@ public class OnBoardingChecklistFormController {
 
                 clearFields();
             } else {
-                new Alert(Alert.AlertType.INFORMATION, "Program not found").show();
+                new Alert(Alert.AlertType.ERROR, "Program not found").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

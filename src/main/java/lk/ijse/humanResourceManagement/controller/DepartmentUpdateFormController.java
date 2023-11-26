@@ -39,7 +39,7 @@ public class DepartmentUpdateFormController {
                if (isUpdated) {
                    Stage stage = (Stage) txtName.getScene().getWindow();
                    stage.close();
-                   new Alert(Alert.AlertType.INFORMATION, "Department updated successfully").show();
+                   new Alert(Alert.AlertType.CONFIRMATION, "Department updated successfully").show();
                } else {
                    new Alert(Alert.AlertType.ERROR, "Failed to update department").show();
                }

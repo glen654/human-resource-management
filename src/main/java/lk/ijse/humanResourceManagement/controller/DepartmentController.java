@@ -115,7 +115,7 @@ public class DepartmentController {
 
                 clearFields();
             } else {
-                new Alert(Alert.AlertType.INFORMATION, "Department not found").show();
+                new Alert(Alert.AlertType.ERROR, "Department not found").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

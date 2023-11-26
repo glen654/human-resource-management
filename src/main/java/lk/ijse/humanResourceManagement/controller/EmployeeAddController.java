@@ -1,5 +1,6 @@
 package lk.ijse.humanResourceManagement.controller;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -138,19 +139,23 @@ public class EmployeeAddController {
                     String employeeData = "ID: " + dto.getId() + "Name: " + dto.getFirstName() + " " + dto.getLastName();
                     WritableImage qrCodeImage = createQRCode(employeeData, 300, 300);
 
-                    EmailSender mail = new EmailSender();
-                    mail.setMsg("Congradulations! " + txtFirstName.getText() + txtLastName.getText() + "you are successfully added to the HR Navigator System of our company.");
-                    mail.setTo(dto.getEmail());
-                    mail.setSubject("Subject");
-                    mail.setImage(qrCodeImage);
+                    Platform.runLater(() -> {
+                        imageView.setImage(qrCodeImage);
 
-                    Thread thread = new Thread(mail);
-                    thread.start();
+                        EmailSender mail = new EmailSender();
+                        mail.setMsg("Congradulations! " + dto.getFirstName() + " " + dto.getLastName() + "you are successfully added to the HR Navigator System of our company.");
+                        mail.setTo(dto.getEmail());
+                        mail.setSubject("Millenium Apperal");
+                        mail.setImage(qrCodeImage);
+
+                        Thread thread = new Thread(mail);
+                        thread.start();
+                    });
                 }else{
                     System.out.println("qr code generate failed");
                 }
             } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                new Alert(Alert.AlertType.ERROR, "Employee Save Unsuccesfull").show();
             }
         }
 
@@ -185,7 +190,7 @@ public class EmployeeAddController {
 
         boolean islastNameValidated = Pattern.matches("[A-Z][a-zA-Z\\s]+", lastName);
         if (!islastNameValidated) {
-            new Alert(Alert.AlertType.ERROR, "Invalid First Name!").show();
+            new Alert(Alert.AlertType.ERROR, "Invalid Last Name!").show();
             return false;
         }
 

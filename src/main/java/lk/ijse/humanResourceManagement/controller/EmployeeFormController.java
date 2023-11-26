@@ -121,7 +121,7 @@ public class EmployeeFormController {
 
                 clearFields();
             } else {
-                new Alert(Alert.AlertType.INFORMATION, "Employee not found").show();
+                new Alert(Alert.AlertType.ERROR, "Employee not found").show();
             }
         } catch (SQLException | IOException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

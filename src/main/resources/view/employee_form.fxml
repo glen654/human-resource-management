@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +14,7 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="2000.0" prefWidth="2000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.EmployeeFormController">
    <children>
-      <AnchorPane prefHeight="247.0" prefWidth="2000.0" style="-fx-background-color: #273c75;">
+      <AnchorPane layoutX="9.0" layoutY="10.0" prefHeight="303.0" prefWidth="1892.0" style="-fx-background-color: #273c75; -fx-background-radius: 20px;">
          <children>
             <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="14.0" layoutY="14.0">
                <image>
@@ -25,17 +26,17 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="783.0" layoutY="146.0" prefHeight="84.0" prefWidth="370.0" text="    Employee" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="797.0" layoutY="147.0" prefHeight="84.0" prefWidth="370.0" text="    Employee" textFill="WHITE">
                <font>
-                  <Font name="System Bold Italic" size="36.0" />
+                  <Font name="System Bold Italic" size="48.0" />
                </font>
             </Label>
-            <ImageView fitHeight="77.0" fitWidth="83.0" layoutX="808.0" layoutY="156.0">
+            <ImageView fitHeight="77.0" fitWidth="83.0" layoutX="797.0" layoutY="151.0">
                <image>
                   <Image url="@../assets/icons8-employee-64.png" />
                </image>
             </ImageView>
-            <JFXButton buttonType="RAISED" layoutX="1696.0" layoutY="11.0" onAction="#btnLogOutOnAction" prefHeight="54.0" prefWidth="161.0" style="-fx-background-color: #c0392b;" text="Log Out" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="1696.0" layoutY="11.0" onAction="#btnLogOutOnAction" prefHeight="54.0" prefWidth="161.0" style="-fx-background-color: #c0392b; -fx-background-radius: 10px;" text="  Log Out" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -48,7 +49,7 @@
                   <Image url="@../assets/icons8-log-out-64.png" />
                </image>
             </ImageView>
-            <JFXButton buttonType="RAISED" layoutX="1503.0" layoutY="11.0" onAction="#btnBackOnAction" prefHeight="54.0" prefWidth="161.0" style="-fx-background-color: #006266;" text="  Back" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="1503.0" layoutY="11.0" onAction="#btnBackOnAction" prefHeight="54.0" prefWidth="161.0" style="-fx-background-color: #006266; -fx-background-radius: 10px;" text="    Back" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -62,8 +63,11 @@
                </image>
             </ImageView>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
-      <TableView fx:id="tblEmployee" layoutX="52.0" layoutY="425.0" prefHeight="569.0" prefWidth="1813.0">
+      <TableView fx:id="tblEmployee" layoutX="52.0" layoutY="425.0" prefHeight="569.0" prefWidth="1813.0" style="-fx-background-radius: 5px; -fx-background-color: white;">
         <columns>
           <TableColumn fx:id="colId" prefWidth="382.0" text="ID" />
           <TableColumn fx:id="colFirstName" prefWidth="362.0" text="First Name" />
@@ -72,8 +76,11 @@
             <TableColumn fx:id="colUpdateAction" prefWidth="190.0" text="Update" />
             <TableColumn fx:id="colDeleteAction" prefWidth="188.0" text="Delete" />
         </columns>
+         <effect>
+            <DropShadow />
+         </effect>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="1745.0" layoutY="372.0" onAction="#btnAddOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #26de81;" text=" Add" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="1745.0" layoutY="372.0" onAction="#btnAddOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #26de81; -fx-background-radius: 5px;" text=" Add" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
@@ -86,7 +93,7 @@
             <Image url="@../assets/icons8-plus-48.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="1628.0" layoutY="372.0" onAction="#btnSearchOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #fed330;" text="  Search" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="1628.0" layoutY="372.0" onAction="#btnSearchOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #fed330; -fx-background-radius: 5px;" text="  Search" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
@@ -99,6 +106,6 @@
             <Image url="@../assets/icons8-search-24.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtSearchId" layoutX="1386.0" layoutY="373.0" prefHeight="43.0" prefWidth="231.0" promptText="Enter Employee ID" />
+      <TextField fx:id="txtSearchId" layoutX="1386.0" layoutY="373.0" prefHeight="43.0" prefWidth="231.0" promptText="Enter Employee ID" style="-fx-background-radius: 10px;" />
    </children>
 </AnchorPane>
