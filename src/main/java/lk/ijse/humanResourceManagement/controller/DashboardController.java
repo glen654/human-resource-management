@@ -64,6 +64,7 @@ public class DashboardController {
 
         Stage primaryStage =(Stage) this.rootNode.getScene().getWindow();
         primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
         primaryStage.setTitle("Human Resource Management System");
     }
 

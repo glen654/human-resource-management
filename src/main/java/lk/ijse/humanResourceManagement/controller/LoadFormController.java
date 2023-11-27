@@ -4,29 +4,39 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoadFormController {
+public class LoadFormController{
     @FXML
     private ProgressBar progress;
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Task<Void> task = new Task<Void>() {
+    @FXML
+    private ImageView rootNode;
+
+    public void initialize() {
+        Task<Void> task = new Task<>() {
             @Override
             protected Void call() throws Exception {
                 for (int i = 0; i <= 10; i++) {
                     updateProgress(i, 100);
                     Thread.sleep(100);
                 }
-                Label label = null;
-                Platform.runLater(() -> label.setText("Loading modules..."));
+                Label label = new Label();
+                Platform.runLater(() -> {
+                    ((AnchorPane) progress.getParent()).getChildren().add(label);
+                    label.setText("Loading modules...");
+                });
                 updateProgress(10, 100);
                 Thread.sleep(500);
                 for (int i = 21; i <= 90; i++) {
@@ -47,19 +57,22 @@ public class LoadFormController {
         progress.progressProperty().bind(task.progressProperty());
         task.setOnSucceeded(event -> {
             try {
-                Stage stage1= (Stage) progress.getScene().getWindow();
+                Stage stage1 = (Stage) progress.getScene().getWindow();
                 stage1.close();
+
                 Stage stage = new Stage();
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/login_form.fxml"))));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login_form.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
                 stage.setTitle("Login");
-                //stage.getIcons().add(new Image("img/logo.png"));
-                // stage.setMaximized(true);
-                stage.centerOnScreen();
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
+
         new Thread(task).start();
     }
+
 }
