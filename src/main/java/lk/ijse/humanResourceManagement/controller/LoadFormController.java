@@ -65,7 +65,7 @@ public class LoadFormController{
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
-                stage.setTitle("Login");
+                stage.setTitle("Human Resource Management System");
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();

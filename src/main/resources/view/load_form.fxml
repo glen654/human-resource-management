@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.LoadFormController">
    <children>
       <ImageView fx:id="rootNode" fitHeight="800.0" fitWidth="1206.0" layoutX="-4.0">
@@ -11,6 +12,6 @@
             <Image url="@../assets/hr-navigator-high-resolution-logo.png" />
          </image>
       </ImageView>
-      <ProgressBar fx:id="progress" layoutY="776.0" prefHeight="25.0" prefWidth="1202.0" progress="0.0" />
+      <ProgressBar fx:id="progress" disable="true" layoutY="783.0" prefHeight="18.0" prefWidth="1202.0" progress="0.0" />
    </children>
 </AnchorPane>

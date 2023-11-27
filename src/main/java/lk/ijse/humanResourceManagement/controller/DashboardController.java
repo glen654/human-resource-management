@@ -133,12 +133,13 @@ public class DashboardController {
                     new PieChart.Data("Employees", employeeCount),
                     new PieChart.Data("Departments", departmentCount)
             );
-
             employeePieChart.setData(pieChartData);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
+
 
     public void setDepartmentBarChart() {
         int departmentEmployeeCount;
