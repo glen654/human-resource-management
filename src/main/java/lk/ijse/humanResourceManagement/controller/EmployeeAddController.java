@@ -137,20 +137,21 @@ public class EmployeeAddController {
                     new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved Successfully!").show();
 
                     String employeeData = "ID: " + dto.getId() + "Name: " + dto.getFirstName() + " " + dto.getLastName();
-                    WritableImage qrCodeImage = createQRCode(employeeData, 300, 300);
+                    WritableImage qrCodeImage = createQRCode(employeeData, 500, 500);
 
-                    Platform.runLater(() -> {
-                        imageView.setImage(qrCodeImage);
+                        Platform.runLater(() -> {
+                            imageView.setImage(qrCodeImage);
 
-                        EmailSender mail = new EmailSender();
-                        mail.setMsg("Congradulations! " + dto.getFirstName() + " " + dto.getLastName() + "you are successfully added to the HR Navigator System of our company.");
-                        mail.setTo(dto.getEmail());
-                        mail.setSubject("Millenium Apperal");
-                        mail.setImage(qrCodeImage);
+                            EmailSender mail = new EmailSender();
+                            mail.setMsg("Congradulations! " + dto.getFirstName() + " " + dto.getLastName() + " you are successfully added to the HR Navigator System of our company.");
+                            mail.setTo(dto.getEmail());
+                            mail.setSubject("Millenium Apperal");
+                            mail.setImage(qrCodeImage);
 
-                        Thread thread = new Thread(mail);
-                        thread.start();
-                    });
+                            Thread thread = new Thread(mail);
+                            thread.start();
+                        });
+
                 }else{
                     System.out.println("qr code generate failed");
                 }

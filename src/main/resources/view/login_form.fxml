@@ -34,8 +34,8 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </JFXButton>
-            <Label layoutX="98.0" layoutY="608.0" text="Don't have an account?" />
-            <JFXButton layoutX="253.0" layoutY="604.0" onAction="#btnSignUpPageOnAction" text="Sign Up" textFill="#e30b0b">
+            <Label layoutX="112.0" layoutY="608.0" text="Don't have an account?" />
+            <JFXButton layoutX="274.0" layoutY="604.0" onAction="#btnSignUpPageOnAction" text="Sign Up" textFill="#e30b0b">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>

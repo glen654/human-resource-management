@@ -1,7 +1,14 @@
 package lk.ijse.humanResourceManagement.controller;
 
+
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.WritableImage;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -12,6 +19,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -63,39 +71,48 @@ public class EmailSender implements Runnable{
         mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
         mimeMessage.setSubject(this.subject);
 
-        // Create a MimeMultipart object
         MimeMultipart multipart = new MimeMultipart();
 
-        // Create the text part
         BodyPart textPart = new MimeBodyPart();
         textPart.setText(this.msg);
 
-        // Add the text part to the MimeMultipart
         multipart.addBodyPart(textPart);
 
-        // Create the image part
         if (qrCodeImage != null) {
-            BodyPart imagePart = new MimeBodyPart();
-            // Convert the WritableImage to InputStream
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            try {
-                ImageIO.write(SwingFXUtils.fromFXImage(qrCodeImage, null), "png", outputStream);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            InputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
-            DataSource dataSource = new ByteArrayDataSource(inputStream, "image/png");
-            imagePart.setDataHandler(new DataHandler(dataSource));
-            imagePart.setFileName("qrCode.png");
 
-            // Add the image part to the MimeMultipart
-            multipart.addBodyPart(imagePart);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ImageIO.write(SwingFXUtils.fromFXImage(qrCodeImage, null), "png", byteArrayOutputStream);
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+
+            PDDocument document = new PDDocument();
+            PDPage page = new PDPage(PDRectangle.A4);
+            document.addPage(page);
+
+            PDImageXObject imageXObject = PDImageXObject.createFromByteArray(document, byteArrayOutputStream.toByteArray(), "qrCode");
+            PDPageContentStream contentStream = new PDPageContentStream(document, page);
+
+            float centerX = (PDRectangle.A4.getWidth() - imageXObject.getWidth()) / 2;
+            float centerY = (PDRectangle.A4.getHeight() - imageXObject.getHeight()) / 2;
+            contentStream.drawImage(imageXObject, centerX, centerY);
+
+            contentStream.close();
+
+
+            ByteArrayOutputStream byteArrayOutputStreamPdf = new ByteArrayOutputStream();
+            document.save(byteArrayOutputStreamPdf);
+            document.close();
+            DataSource dataSource = new ByteArrayDataSource(byteArrayOutputStreamPdf.toByteArray(), "application/pdf");
+
+            BodyPart pdfPart = new MimeBodyPart();
+            pdfPart.setDataHandler(new DataHandler(dataSource));
+            pdfPart.setFileName("qrCode.pdf");
+
+
+            multipart.addBodyPart(pdfPart);
         }
 
-        // Set the content of the message to the MimeMultipart
         mimeMessage.setContent(multipart);
 
-        // Send the message
         Transport.send(mimeMessage);
 
         System.out.println("Email sent successfully");
