@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="2000.0" prefWidth="2000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.humanResourceManagement.controller.AttendanceFormController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="302.0" prefWidth="1892.0" style="-fx-background-color: #273c75; -fx-background-radius: 20px;">
+         <children>
+            <ImageView layoutX="14.0" layoutY="14.0">
+               <image>
+                  <Image url="@../assets/icons8-user-64.png" />
+               </image>
+            </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="1685.0" layoutY="14.0" onAction="#btnLogOutOnAction" prefHeight="54.0" prefWidth="161.0" style="-fx-background-color: #c0392b; -fx-background-radius: 10px;" text="   Log Out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="1495.0" layoutY="14.0" onAction="#btnBackOnAction" prefHeight="54.0" prefWidth="161.0" style="-fx-background-color: #006266; -fx-background-radius: 10px;" text="   Back" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Label alignment="CENTER" layoutX="750.0" layoutY="145.0" prefHeight="84.0" prefWidth="484.0" text="  Attendance" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="48.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="54.0" fitWidth="50.0" layoutX="1692.0" layoutY="14.0">
+               <image>
+                  <Image url="@../assets/icons8-log-out-64.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="1509.0" layoutY="17.0">
+               <image>
+                  <Image url="@../assets/icons8-back-48.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="txtUserName" layoutX="78.0" layoutY="28.0" prefHeight="37.0" prefWidth="86.0" text="glenalloy" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView layoutX="782.0" layoutY="155.0">
+               <image>
+                  <Image url="@../assets/icons8-attendance-64.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="39.0" layoutY="366.0" prefHeight="621.0" prefWidth="1836.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <AnchorPane fx:id="miniPanel" layoutX="171.0" layoutY="461.0" prefHeight="390.0" prefWidth="462.0" style="-fx-border-color: #c8d6e5; -fx-border-radius: 10px;">
+         <children>
+            <ImageView fitHeight="336.0" fitWidth="381.0" layoutX="43.0" layoutY="26.0">
+               <image>
+                  <Image url="@../assets/hr-navigator-high-resolution-logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <JFXButton buttonType="RAISED" layoutX="256.0" layoutY="877.0" onAction="#btnStartOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #2e86de; -fx-background-radius: 5px;" text="Start" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="434.0" layoutY="877.0" onAction="#btnPauseOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #ff9f43; -fx-background-radius: 5px;" text="Pause" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextArea fx:id="txtArea" layoutX="895.0" layoutY="439.0" prefHeight="500.0" prefWidth="700.0" promptText="Employee Attendance Info">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <JFXButton buttonType="RAISED" layoutX="1609.0" layoutY="442.0" onAction="#btnClearOnAction" prefHeight="38.0" prefWidth="96.0" style="-fx-background-color: #10ac84; -fx-background-radius: 5px;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

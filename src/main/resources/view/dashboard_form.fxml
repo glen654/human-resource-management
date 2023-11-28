@@ -271,6 +271,22 @@
                   <Image url="@../assets/logo-no-background.png" />
                </image>
             </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="828.0" onAction="#btnAttendanceOnAction" prefHeight="72.0" prefWidth="260.0" text="  Attendance" textFill="#f2ebeb">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <Blend />
+               </effect>
+            </JFXButton>
+            <ImageView fitHeight="54.0" fitWidth="53.0" layoutX="68.0" layoutY="837.0">
+               <image>
+                  <Image url="@../assets/icons8-attendance-64.png" />
+               </image>
+            </ImageView>
          </children>
          <effect>
             <DropShadow />

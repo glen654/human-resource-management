@@ -245,4 +245,14 @@ public class DashboardController {
         primaryStage.setTitle("Human Resource Management System");
     }
 
+    @FXML
+    void btnAttendanceOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/attendance_form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage primaryStage =(Stage) this.rootNode.getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Human Resource Management System");
+    }
 }
