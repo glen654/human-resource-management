@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,12 +23,14 @@ import lk.ijse.humanResourceManagement.dto.tm.ReviewTm;
 import lk.ijse.humanResourceManagement.model.RequestModel;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class LeaveRequestFormController {
+public class LeaveRequestFormController implements Initializable {
 
     public AnchorPane rootNode;
     @FXML
@@ -138,7 +141,8 @@ public class LeaveRequestFormController {
         txtSearchId.setText("");
     }
 
-    public void initialize(){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         setCellValueFactory();
         loadAllRequest();
         tableListener();

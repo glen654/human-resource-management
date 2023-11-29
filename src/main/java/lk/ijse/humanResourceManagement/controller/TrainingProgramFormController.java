@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,11 +21,13 @@ import lk.ijse.humanResourceManagement.dto.tm.ReviewTm;
 import lk.ijse.humanResourceManagement.model.ProgramModel;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class TrainingProgramFormController {
+public class TrainingProgramFormController implements Initializable {
     @FXML
     private TableColumn<ProgramTm, JFXButton> colDelete;
 
@@ -60,7 +63,8 @@ public class TrainingProgramFormController {
 
     private ProgramModel programModel = new ProgramModel();
 
-    public void initialize(){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         setCellValueFactory();
         loadAllPrograms();
         tableListener();

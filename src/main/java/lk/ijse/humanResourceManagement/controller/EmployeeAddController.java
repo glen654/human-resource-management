@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
@@ -17,16 +18,18 @@ import lk.ijse.humanResourceManagement.model.EmployeeModel;
 
 import javax.mail.MessagingException;
 import java.awt.image.BufferedImage;
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.SimpleTimeZone;
 import java.util.regex.Pattern;
 
-public class EmployeeAddController {
+public class EmployeeAddController implements Initializable {
     @FXML
     private ComboBox<String> cmbDepartmentIds;
 
@@ -71,8 +74,9 @@ public class EmployeeAddController {
     private EmployeeModel empModel = new EmployeeModel();
    
     private DepartmentModel depModel = new DepartmentModel();
-    
-    public void initialize(){
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         loadAllDepartmentIds();
         loadGenders();
         generateNextEmployeeId();
@@ -136,7 +140,7 @@ public class EmployeeAddController {
                     clearFields();
                     new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved Successfully!").show();
 
-                    String employeeData = "ID: " + dto.getId() + "Name: " + dto.getFirstName() + " " + dto.getLastName();
+                    String employeeData = "ID: " + dto.getId() +  "Name: " + dto.getFirstName() + " " + dto.getLastName();
                     WritableImage qrCodeImage = createQRCode(employeeData, 500, 500);
 
                         Platform.runLater(() -> {

@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,12 +21,14 @@ import lk.ijse.humanResourceManagement.dto.tm.ProgramTm;
 import lk.ijse.humanResourceManagement.model.ChecklistModel;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class OnBoardingChecklistFormController {
+public class OnBoardingChecklistFormController implements Initializable {
     @FXML
     private TableColumn<ChecklistDto, String> colChecklistId;
 
@@ -130,7 +133,8 @@ public class OnBoardingChecklistFormController {
         txtobId.setText("");
     }
 
-    public void initialize(){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         setCellValueFactory();
         loadAllTask();
         tableListener();

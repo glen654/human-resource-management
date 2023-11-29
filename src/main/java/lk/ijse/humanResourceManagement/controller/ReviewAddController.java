@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import lk.ijse.humanResourceManagement.dto.DepartmentDto;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
@@ -12,15 +13,17 @@ import lk.ijse.humanResourceManagement.dto.ReviewDto;
 import lk.ijse.humanResourceManagement.model.EmployeeModel;
 import lk.ijse.humanResourceManagement.model.ReviewModel;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-public class ReviewAddController {
+public class ReviewAddController implements Initializable {
     @FXML
     private ComboBox<String> cmbRating;
 
@@ -38,7 +41,9 @@ public class ReviewAddController {
 
     private ReviewModel reviewModel = new ReviewModel();
     private EmployeeModel empModel = new EmployeeModel();
-    public void initialize(){
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         loadRating();
         loadAllEmployeeIds();
         generateNextReviewId();

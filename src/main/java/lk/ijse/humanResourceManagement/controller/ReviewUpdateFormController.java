@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -13,15 +14,17 @@ import lk.ijse.humanResourceManagement.dto.ReviewDto;
 import lk.ijse.humanResourceManagement.dto.tm.ReviewTm;
 import lk.ijse.humanResourceManagement.model.ReviewModel;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-public class ReviewUpdateFormController {
+public class ReviewUpdateFormController implements Initializable {
     public DatePicker txtDate;
 
     @FXML
@@ -44,7 +47,9 @@ public class ReviewUpdateFormController {
 
     private ReviewModel reviewModel = new ReviewModel();
 
-    public void initialize(){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
+
         loadRating();
     }
     @FXML

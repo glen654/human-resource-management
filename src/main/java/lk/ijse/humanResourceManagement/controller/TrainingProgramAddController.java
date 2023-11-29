@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
@@ -18,6 +19,7 @@ import lk.ijse.humanResourceManagement.model.EmployeeModel;
 import lk.ijse.humanResourceManagement.model.PlaceTrainingEnrollmentModel;
 import lk.ijse.humanResourceManagement.model.ProgramModel;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -25,9 +27,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-public class TrainingProgramAddController {
+public class TrainingProgramAddController implements Initializable {
     @FXML
     private ComboBox<String> cmbTrainers;
 
@@ -54,7 +57,9 @@ public class TrainingProgramAddController {
     private EmployeeModel employeeModel= new EmployeeModel();
 
     private PlaceTrainingEnrollmentModel enrollmentModel = new PlaceTrainingEnrollmentModel();
-    public void initialize(){
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         loadTrainers();
         generateNextProgramId();
         loadAllEmployeeIds();

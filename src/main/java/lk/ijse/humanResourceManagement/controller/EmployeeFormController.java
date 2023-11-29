@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,12 +22,14 @@ import lk.ijse.humanResourceManagement.model.EmployeeModel;
 
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 
-public class EmployeeFormController {
+public class EmployeeFormController implements Initializable {
 
     public Label txtUserName;
     public TextField txtSearchId;
@@ -128,7 +131,8 @@ public class EmployeeFormController {
         }
     }
 
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         setCellValueFactory();
         loadAllEmployee();
         tableListener();

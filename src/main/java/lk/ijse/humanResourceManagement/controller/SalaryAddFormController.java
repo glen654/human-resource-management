@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -13,12 +14,14 @@ import lk.ijse.humanResourceManagement.dto.SalaryDto;
 import lk.ijse.humanResourceManagement.model.EmployeeModel;
 import lk.ijse.humanResourceManagement.model.SalaryModel;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-public class SalaryAddFormController {
+public class SalaryAddFormController implements Initializable {
     @FXML
     private ComboBox<String> cmbEmpId;
 
@@ -47,7 +50,8 @@ public class SalaryAddFormController {
 
     private EmployeeModel employeeModel = new EmployeeModel();
 
-    public void initialize(){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         generateNextSalaryId();
         loadStatus();
         loadAllEmployeeIds();

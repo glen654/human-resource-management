@@ -28,7 +28,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AttendanceFormController implements Initializable {
     @FXML
@@ -124,7 +125,13 @@ public class AttendanceFormController implements Initializable {
                         Platform.runLater(() -> {
                             if (result != null) {
                                 webcam.close();
+
+                                LocalDateTime currentTime = LocalDateTime.now();
+                                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                                String formattedTime = currentTime.format(formatter);
+
                                 txtArea.appendText(result.getText() + "\n");
+                                txtArea.appendText("Scanned Time: " + formattedTime + "\n");
                                 new Alert(Alert.AlertType.INFORMATION, "Data Scanned Successfully!").showAndWait();
                             } else {
                                 new Alert(Alert.AlertType.ERROR, "No Data Found!").showAndWait();

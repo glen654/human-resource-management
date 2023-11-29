@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -15,13 +16,15 @@ import lk.ijse.humanResourceManagement.dto.tm.ProgramTm;
 import lk.ijse.humanResourceManagement.model.EmployeeModel;
 import lk.ijse.humanResourceManagement.model.ProgramModel;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-public class TrainingProgramUpdateController {
+public class TrainingProgramUpdateController implements Initializable {
     @FXML
     private ComboBox<String> cmbTrainers;
 
@@ -50,7 +53,8 @@ public class TrainingProgramUpdateController {
 
     private EmployeeModel employeeModel = new EmployeeModel();
 
-    public void initialize(){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         loadTrainers();
         loadAllEmployeeIds();
     }

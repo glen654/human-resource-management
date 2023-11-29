@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,11 +22,13 @@ import lk.ijse.humanResourceManagement.dto.tm.TrainingEnrollmentTm;
 import lk.ijse.humanResourceManagement.model.TrainingEnrollmentModel;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class EnrollmentFormController {
+public class EnrollmentFormController implements Initializable {
     @FXML
     private TableColumn<TrainingEnrollmentTm, JFXButton> colDelete;
 
@@ -57,7 +60,8 @@ public class EnrollmentFormController {
     private AnchorPane rootNode;
 
     private TrainingEnrollmentModel enrollmentModel = new TrainingEnrollmentModel();
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         setCellValueFactory();
         loadAllEnrollment();
         tableListener();

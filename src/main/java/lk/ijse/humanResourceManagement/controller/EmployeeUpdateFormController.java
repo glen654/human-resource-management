@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -13,12 +14,14 @@ import lk.ijse.humanResourceManagement.dto.tm.EmployeeTm;
 import lk.ijse.humanResourceManagement.model.DepartmentModel;
 import lk.ijse.humanResourceManagement.model.EmployeeModel;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class EmployeeUpdateFormController {
+public class EmployeeUpdateFormController implements Initializable {
     @FXML
     private ComboBox<String> cmbDepatment;
 
@@ -62,7 +65,8 @@ public class EmployeeUpdateFormController {
 
     private DepartmentModel depModel = new DepartmentModel();
 
-    public void initialize(){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         loadGenders();
         loadAllDepartmentIds();
     }

@@ -44,8 +44,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <Label layoutX="173.0" layoutY="650.0" text="Already have an account?" />
-            <JFXButton layoutX="349.0" layoutY="646.0" onAction="#btnSignInPageOnAction" text="Sign In" textFill="#e30b0f">
+            <Label layoutX="194.0" layoutY="650.0" text="Already have an account?" />
+            <JFXButton layoutX="363.0" layoutY="646.0" onAction="#btnSignInPageOnAction" text="Sign In" textFill="#e30b0f">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

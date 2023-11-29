@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,14 +29,12 @@ import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
-public class SalaryFormController {
+public class SalaryFormController implements Initializable {
     @FXML
     private TableColumn<SalaryTm, JFXButton> colDelete;
 
@@ -75,7 +74,9 @@ public class SalaryFormController {
 
     private SalaryModel salaryModel = new SalaryModel();
     private EmployeeModel employeeModel = new EmployeeModel();
-    public void initialize(){
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         setCellValueFactory();
         loadAllSalary();
         tableListener();

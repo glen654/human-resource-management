@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -14,17 +15,19 @@ import lk.ijse.humanResourceManagement.dto.tm.LeaveRequestTm;
 import lk.ijse.humanResourceManagement.model.EmployeeModel;
 import lk.ijse.humanResourceManagement.model.RequestModel;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 import static javafx.fxml.FXMLLoader.loadType;
 
-public class LeaveRequestUpdate {
+public class LeaveRequestUpdate implements Initializable {
     @FXML
     private ComboBox<String> cmbEmpId;
 
@@ -54,7 +57,9 @@ public class LeaveRequestUpdate {
 
     private EmployeeModel empModel = new EmployeeModel();
     private RequestModel requestModel = new RequestModel();
-    public void initialize(){
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         loadStatus();
         loadType();
         loadAllEmployeeIds();

@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -23,11 +24,13 @@ import lk.ijse.humanResourceManagement.dto.tm.DepartmentTm;
 import lk.ijse.humanResourceManagement.model.DepartmentModel;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class DepartmentController {
+public class DepartmentController implements Initializable {
     public TextField txtSearchId;
     @FXML
     private TableColumn<DepartmentTm,JFXButton> colDeleteAction;
@@ -124,8 +127,8 @@ public class DepartmentController {
 
 
 
-
-    public void initialize(){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
         setCellValueFactory();
         loadAllDepartments();
         tableListener();
