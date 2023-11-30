@@ -22,11 +22,23 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.db.DbConnection;
+import lk.ijse.humanResourceManagement.model.AttendanceModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
+import javafx.scene.control.TextField;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -42,10 +54,16 @@ public class AttendanceFormController implements Initializable {
     private Label txtUserName;
 
     @FXML
+    private TextField txtEmpId;
+
+    @FXML
     private AnchorPane rootNode;
     private Webcam webcam;
     private WebcamPanel webcamPanel;
     private boolean isReading = false;
+
+    private AttendanceModel attendanceModel = new AttendanceModel();
+
 
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
@@ -132,14 +150,26 @@ public class AttendanceFormController implements Initializable {
 
                                 txtArea.appendText(result.getText() + "\n");
                                 txtArea.appendText("Scanned Time: " + formattedTime + "\n");
-                                new Alert(Alert.AlertType.INFORMATION, "Data Scanned Successfully!").showAndWait();
+                                try {
+                                    LocalDateTime scannedTime = LocalDateTime.now();
+
+                                    boolean isSaved = attendanceModel.saveAttendnace(scannedTime, result.getText());
+                                    if (isSaved) {
+                                        txtArea.appendText("Attendance record saved successfully!\n");
+                                    } else {
+                                        txtArea.appendText("Failed to save attendance record.\n");
+                                    }
+                                } catch (SQLException e) {
+                                    txtArea.appendText("Error saving attendance: " + e.getMessage() + "\n");
+                                }
+                                new Alert(Alert.AlertType.CONFIRMATION, "Data Scanned Successfully!").showAndWait();
                             } else {
                                 new Alert(Alert.AlertType.ERROR, "No Data Found!").showAndWait();
                             }
                         });
                     }
                 } catch (NotFoundException | InterruptedException | RuntimeException ignored) {
-                    // ignored
+
                 }
             }
         });
@@ -147,6 +177,11 @@ public class AttendanceFormController implements Initializable {
         return true;
     }
 
+
+    @FXML
+    void btnSearchOnAction(ActionEvent event){
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

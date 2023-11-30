@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="Qr code reader done">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/AttendanceDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/AttendanceModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2e28f76c-58db-4149-a773-f87d73712a41.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2e28f76c-58db-4149-a773-f87d73712a41.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2e28f76c-58db-4149-a773-f87d73712a41/storage_v2/_src_/schema/humanResourceManagement._uqBaA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2e28f76c-58db-4149-a773-f87d73712a41/storage_v2/_src_/schema/humanResourceManagement._uqBaA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/AttendanceFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/AttendanceFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeAddController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/signUp_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/signUp_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/tm/DepartmentTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/tm/DepartmentTm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/attendance_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/attendance_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,28 +46,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/glen/Downloads/QR-Code-Reader-main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/glen/Documents/HR Management system/human-resource-management/src/main/resources/report",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="lk.ijse.humanResourceManagement.controller" />
@@ -182,7 +188,9 @@
       <workItem from="1701172777045" duration="652000" />
       <workItem from="1701185764328" duration="3599000" />
       <workItem from="1701239288992" duration="2201000" />
-      <workItem from="1701264926402" duration="893000" />
+      <workItem from="1701264926402" duration="7895000" />
+      <workItem from="1701322200478" duration="6490000" />
+      <workItem from="1701349983361" duration="7994000" />
     </task>
     <task id="LOCAL-00001" summary="completed the login and created the signup from">
       <option name="closed" value="true" />
@@ -400,7 +408,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701188653747</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Qr code reader done">
+      <option name="closed" value="true" />
+      <created>1701267742127</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1701267742128</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

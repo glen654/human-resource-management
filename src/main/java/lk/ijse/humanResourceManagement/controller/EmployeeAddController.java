@@ -140,7 +140,7 @@ public class EmployeeAddController implements Initializable {
                     clearFields();
                     new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved Successfully!").show();
 
-                    String employeeData = "ID: " + dto.getId() +  "Name: " + dto.getFirstName() + " " + dto.getLastName();
+                    String employeeData = dto.getId();
                     WritableImage qrCodeImage = createQRCode(employeeData, 500, 500);
 
                         Platform.runLater(() -> {

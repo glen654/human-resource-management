@@ -2,6 +2,7 @@ package lk.ijse.humanResourceManagement.dto.tm;
 
 
 import com.jfoenix.controls.JFXButton;
+import javafx.beans.property.SimpleStringProperty;
 
 public class DepartmentTm {
     private String id;

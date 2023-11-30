@@ -279,9 +279,9 @@ public class DepartmentController implements Initializable {
 
                 ));
             }
-
             tblDepartment.setItems(obList);
             tblDepartment.refresh();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
