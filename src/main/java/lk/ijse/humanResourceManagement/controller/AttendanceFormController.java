@@ -179,11 +179,31 @@ public class AttendanceFormController implements Initializable {
 
 
     @FXML
-    void btnSearchOnAction(ActionEvent event){
+    void btnSearchOnAction(ActionEvent event) throws SQLException, JRException {
+        String emp_id = txtEmpId.getText();
+        clearFields();
+        Connection connection = DbConnection.getInstance().getConnection();;
 
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/attendanceReport.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+
+        System.out.println("SQL Query: " + jasperReport.getQuery().getText());
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("emp_id", emp_id);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,connection);
+
+
+        JasperViewer.viewReport(jasperPrint, false);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    public void clearFields(){
+        txtEmpId.setText("");
     }
 }
