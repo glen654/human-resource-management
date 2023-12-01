@@ -265,7 +265,7 @@ public class SalaryFormController implements Initializable {
     @FXML
     void btnReportOnAction(ActionEvent event) throws JRException, SQLException {
         String compensation_id = txtSalaryId.getText();
-
+        clearFields();
         Connection connection = DbConnection.getInstance().getConnection();;
 
         InputStream resourceAsStream = getClass().getResourceAsStream("/report/SalarySlipNew.jrxml");

@@ -58,7 +58,6 @@ public class AttendanceModel {
         } finally {
             try {
                 if (preparedStatement != null) preparedStatement.close();
-                if (connection != null) connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
