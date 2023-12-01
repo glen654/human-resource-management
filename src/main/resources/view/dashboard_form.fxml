@@ -297,7 +297,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="406.0" layoutY="57.0" prefHeight="29.0" prefWidth="113.0" text="glenalloy">
+      <Label layoutX="406.0" layoutY="57.0" prefHeight="29.0" prefWidth="113.0" text="Admin">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

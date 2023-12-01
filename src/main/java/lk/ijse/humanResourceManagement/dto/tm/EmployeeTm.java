@@ -21,15 +21,23 @@ public class EmployeeTm {
     private JFXButton btnUpdate;
     private JFXButton btnDelete;
 
-    public EmployeeTm(String lastName,int salary,String email,String history,String qualification,int contact,String firstName, String jobRole){
-        this.lastName = lastName;
-        this.salary = salary;
-        this.email = email;
-        this.history = history;
-        this.qualification = qualification;
-        this.contact = contact;
+    public EmployeeTm() {
+    }
+
+    public EmployeeTm(String id, String firstName, String lastName, int contact, String qualification, String history, String depId, LocalDate dateOfBirth, String gender, String email, double salary, String jobRole) {
+        this.id = id;
         this.firstName = firstName;
+        this.lastName = lastName;
+        this.contact = contact;
+        this.qualification = qualification;
+        this.history = history;
+        this.depId = depId;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.email = email;
+        this.salary = salary;
         this.jobRole = jobRole;
+
     }
 
     public EmployeeTm(String id, String firstName, String jobRole, String depId, JFXButton updateButton , JFXButton deleteButton) {

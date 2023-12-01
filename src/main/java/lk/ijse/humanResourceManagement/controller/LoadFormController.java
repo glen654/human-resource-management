@@ -37,7 +37,7 @@ public class LoadFormController implements Initializable {
                 Label label = new Label();
                 Platform.runLater(() -> {
                     ((AnchorPane) progress.getParent()).getChildren().add(label);
-                    label.setText("Loading modules...");
+                    label.setText("Loading HR Navigator...");
                 });
                 updateProgress(10, 100);
                 Thread.sleep(500);
@@ -45,7 +45,7 @@ public class LoadFormController implements Initializable {
                     updateProgress(i, 100);
                     Thread.sleep(20);
                 }
-                Platform.runLater(() -> label.setText("Opening Login Page..."));
+                Platform.runLater(() -> label.setText("Opening SignIn Page..."));
                 updateProgress(90, 100);
                 Thread.sleep(500);
                 for (int i = 91; i <= 100; i++) {

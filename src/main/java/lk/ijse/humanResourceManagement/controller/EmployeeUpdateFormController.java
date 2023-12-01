@@ -104,20 +104,21 @@ public class EmployeeUpdateFormController implements Initializable {
 
 
     public void setEmployeeData(EmployeeTm employee) {
-       lblName.setText(employee.getFirstName());
-       txtEmpId.setText(employee.getId());
-       txtFirstName.setText(employee.getFirstName());
-       txtLastName.setText(employee.getLastName());
-       txtDateOfBirth.setValue(employee.getDateOfBirth());
-       cmbDepatment.setValue(employee.getDepId());
-       cmbGender.setValue(employee.getGender());
-       txtContact.setText(String.valueOf(employee.getContact()));
-       txtEmail.setText(employee.getEmail());
-       txtHistory.setText(employee.getHistory());
-       txtJobRole.setText(employee.getJobRole());
-       txtQualification.setText(employee.getQualification());
-       txtSalary.setText(String.valueOf(employee.getSalary()));
-
+        if(employee != null) {
+            lblName.setText(employee.getFirstName());
+            txtEmpId.setText(employee.getId());
+            txtFirstName.setText(employee.getFirstName());
+            txtLastName.setText(employee.getLastName());
+            txtDateOfBirth.setValue(employee.getDateOfBirth());
+            cmbDepatment.setValue(employee.getDepId());
+            cmbGender.setValue(employee.getGender());
+            txtContact.setText(String.valueOf(employee.getContact()));
+            txtEmail.setText(employee.getEmail());
+            txtHistory.setText(employee.getHistory());
+            txtJobRole.setText(employee.getJobRole());
+            txtQualification.setText(employee.getQualification());
+            txtSalary.setText(String.valueOf(employee.getSalary()));
+        }
     }
 
     private void loadGenders() {

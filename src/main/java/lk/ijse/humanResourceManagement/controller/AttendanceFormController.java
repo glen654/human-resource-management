@@ -116,7 +116,7 @@ public class AttendanceFormController implements Initializable {
 
     private boolean startWebcam() {
         if (webcam == null) {
-            Dimension size = WebcamResolution.QVGA.getSize();
+            Dimension size = new Dimension(640,480);
             webcam = Webcam.getDefault();
             webcam.setViewSize(size);
 

@@ -259,4 +259,5 @@ public class DashboardController implements Initializable {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Human Resource Management System");
     }
+
 }

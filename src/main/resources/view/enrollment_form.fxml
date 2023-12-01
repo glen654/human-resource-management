@@ -16,7 +16,7 @@
    <children>
       <AnchorPane layoutX="14.0" layoutY="8.0" prefHeight="302.0" prefWidth="1892.0" style="-fx-background-color: #273c75; -fx-background-radius: 20px;">
          <children>
-            <Label fx:id="txtUserName" layoutX="78.0" layoutY="29.0" prefHeight="33.0" prefWidth="92.0" text="glenalloy" textFill="WHITE">
+            <Label fx:id="txtUserName" layoutX="78.0" layoutY="29.0" prefHeight="33.0" prefWidth="92.0" text="Admin" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

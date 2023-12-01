@@ -278,6 +278,7 @@ public class DepartmentController implements Initializable {
                         deleteButton
 
                 ));
+
             }
             tblDepartment.setItems(obList);
             tblDepartment.refresh();

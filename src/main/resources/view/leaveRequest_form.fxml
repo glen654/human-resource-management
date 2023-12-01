@@ -62,7 +62,7 @@
             <Image url="@../assets/icons8-user-64.png" />
          </image>
       </ImageView>
-      <Label fx:id="txtUserName" layoutX="90.0" layoutY="40.0" prefHeight="33.0" prefWidth="92.0" text="glenalloy" textFill="WHITE">
+      <Label fx:id="txtUserName" layoutX="90.0" layoutY="40.0" prefHeight="33.0" prefWidth="92.0" text="Admin" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
