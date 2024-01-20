@@ -1,27 +1,24 @@
 package lk.ijse.humanResourceManagement.controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.mysql.cj.x.protobuf.MysqlxCrud;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.stage.Stage;
-import javafx.util.Callback;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.DepartmentBO;
 import lk.ijse.humanResourceManagement.dto.DepartmentDto;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.tm.DepartmentTm;
-import lk.ijse.humanResourceManagement.model.DepartmentModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -56,8 +53,7 @@ public class DepartmentController implements Initializable {
     @FXML
     private Label txtUserName;
 
-    private DepartmentModel depModel = new DepartmentModel();
-
+    DepartmentBO departmentBO = (DepartmentBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.DEPARTMENT);
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws IOException {
@@ -99,7 +95,7 @@ public class DepartmentController implements Initializable {
         String id = txtSearchId.getText();
 
         try {
-            DepartmentDto departmentDto = depModel.searchDepartment(id);
+            DepartmentDto departmentDto = departmentBO.searchDepartment(id);
 
             if (departmentDto != null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/department_details.fxml"));
@@ -229,7 +225,7 @@ public class DepartmentController implements Initializable {
             Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
             if (type.orElse(no) == yes) {
-                boolean deleted = depModel.deleteDepartment(id);
+                boolean deleted = departmentBO.deleteDepartment(id);
                 if (deleted) {
                     loadAllDepartments();
                     new Alert(Alert.AlertType.CONFIRMATION, "Department Deleted Successfully").show();
@@ -255,7 +251,7 @@ public class DepartmentController implements Initializable {
     private void loadAllDepartments() {
         ObservableList<DepartmentTm> obList = FXCollections.observableArrayList();
         try {
-            List<DepartmentDto> dtoList = depModel.loadAllDepartments();
+            List<DepartmentDto> dtoList = departmentBO.loadAllDepartments();
 
             for (DepartmentDto dto : dtoList) {
                 JFXButton updateButton = new JFXButton("Update");

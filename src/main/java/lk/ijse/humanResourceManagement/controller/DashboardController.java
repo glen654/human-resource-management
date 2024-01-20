@@ -6,30 +6,25 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.humanResourceManagement.dto.tm.DepartmentTm;
-import lk.ijse.humanResourceManagement.model.DepartmentModel;
-import lk.ijse.humanResourceManagement.model.EmployeeModel;
-import lk.ijse.humanResourceManagement.model.ProgramModel;
-import lk.ijse.humanResourceManagement.model.RequestModel;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.DepartmentBO;
+import lk.ijse.humanResourceManagement.bo.custom.EmployeeBO;
+import lk.ijse.humanResourceManagement.bo.custom.ProgramBO;
+import lk.ijse.humanResourceManagement.bo.custom.RequestBO;
 
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 
 
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
@@ -50,15 +45,10 @@ public class DashboardController implements Initializable {
 
     public BarChart requestBarChart;
 
-
-
-    private EmployeeModel empModel = new EmployeeModel();
-
-    private DepartmentModel depModel = new DepartmentModel();
-
-    private ProgramModel programModel = new ProgramModel();
-
-    private RequestModel requestModel = new RequestModel();
+    EmployeeBO employeeBO = (EmployeeBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.EMPLOYEE);
+    DepartmentBO departmentBO = (DepartmentBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.DEPARTMENT);
+    ProgramBO programBO = (ProgramBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.PROGRAM);
+    RequestBO requestBO = (RequestBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.REQUEST);
 
     public void btnLogOutOnAction(ActionEvent actionEvent) throws IOException {
         Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/login_form.fxml"));
@@ -99,25 +89,25 @@ public class DashboardController implements Initializable {
 
         int employeeCount = 0;
         try {
-            employeeCount = empModel.getEmployeeCount();
+            employeeCount = employeeBO.getEmployeeCount();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         int departmentCount = 0;
         try {
-            departmentCount = depModel.getDepartmentCount();
+            departmentCount = departmentBO.getDepartmentCount();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         int programCount = 0;
         try {
-            programCount = programModel.getProgramCount();
+            programCount = programBO.getProgramCount();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         int requestCount = 0;
         try {
-            requestCount = requestModel.getRequestCount();
+            requestCount = requestBO.getRequestCount();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -130,8 +120,8 @@ public class DashboardController implements Initializable {
 
     public void setEmployeePieChart(){
         try {
-            int employeeCount = empModel.getEmployeeCount();
-            int departmentCount = depModel.getDepartmentCount();
+            int employeeCount = employeeBO.getEmployeeCount();
+            int departmentCount = departmentBO.getDepartmentCount();
 
             ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
                     new PieChart.Data("Employees", employeeCount),
@@ -149,8 +139,8 @@ public class DashboardController implements Initializable {
         int departmentEmployeeCount;
         int employeeCount;
         try {
-            departmentEmployeeCount = depModel.getDepartmentCount();
-            employeeCount = empModel.getEmployeeCount();
+            departmentEmployeeCount = departmentBO.getDepartmentCount();
+            employeeCount = employeeBO.getEmployeeCount();
         } catch (SQLException e) {
             e.printStackTrace();
             return;
@@ -174,8 +164,8 @@ public class DashboardController implements Initializable {
         int programCount;
         int employeeCount;
         try {
-            programCount = programModel.getProgramCount();
-            employeeCount = empModel.getEmployeeCount();
+            programCount = programBO.getProgramCount();
+            employeeCount = employeeBO.getEmployeeCount();
         } catch (SQLException e) {
             e.printStackTrace();
             return;

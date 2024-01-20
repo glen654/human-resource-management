@@ -3,7 +3,6 @@ package lk.ijse.humanResourceManagement.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -12,8 +11,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.LoginBO;
 import lk.ijse.humanResourceManagement.dto.LoginDto;
-import lk.ijse.humanResourceManagement.model.LoginModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -23,18 +23,15 @@ public class LoginFormController {
   
     public AnchorPane rootNode;
     public PasswordField txtPassword;
-
+    LoginBO loginBO = (LoginBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.LOGIN);
 
     public void btnSignInOnAction(ActionEvent actionEvent) throws IOException {
         String userName = txtUsername.getText();
         String password = txtPassword.getText();
 
 
-
-        LoginModel loginModel = new LoginModel();
-
         try {
-            LoginDto loginDto = loginModel.searchUser(userName,password);
+            LoginDto loginDto = loginBO.searchUser(userName,password);
 
             if(loginDto != null){
                 clearFields();

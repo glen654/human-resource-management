@@ -1,12 +1,9 @@
 package lk.ijse.humanResourceManagement.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.SalaryDto;
-import lk.ijse.humanResourceManagement.model.EmployeeModel;
-import lk.ijse.humanResourceManagement.model.SalaryModel;
 
 public class SalaryDetailsFormController {
     @FXML
@@ -39,8 +36,6 @@ public class SalaryDetailsFormController {
     @FXML
     private Label lblTotalDeduction;
 
-    private SalaryModel salaryModel = new SalaryModel();
-    private EmployeeModel employeeModel = new EmployeeModel();
 
 
     public void searchSalaryDetails(SalaryDto salaryDto,EmployeeDto employeeDto) {

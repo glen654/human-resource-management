@@ -1,17 +1,17 @@
 package lk.ijse.humanResourceManagement.controller;
 
-import com.jfoenix.controls.JFXCheckBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import lk.ijse.humanResourceManagement.dto.DepartmentDto;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.EmployeeBO;
+import lk.ijse.humanResourceManagement.bo.custom.ReviewBO;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.ReviewDto;
-import lk.ijse.humanResourceManagement.model.EmployeeModel;
-import lk.ijse.humanResourceManagement.model.ReviewModel;
+
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -39,8 +39,8 @@ public class ReviewAddController implements Initializable {
     @FXML
     private TextField txtReviewId;
 
-    private ReviewModel reviewModel = new ReviewModel();
-    private EmployeeModel empModel = new EmployeeModel();
+    ReviewBO reviewBO = (ReviewBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.REVIEW);
+    EmployeeBO employeeBO = (EmployeeBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.EMPLOYEE);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -60,7 +60,7 @@ public class ReviewAddController implements Initializable {
            var dto = new ReviewDto(reviewId,empId,comments,rating,date);
 
            try {
-               boolean isSaved = reviewModel.saveReview(dto);
+               boolean isSaved = reviewBO.saveReview(dto);
 
                if(isSaved) {
                    clearFields();
@@ -129,7 +129,7 @@ public class ReviewAddController implements Initializable {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<EmployeeDto> idList = empModel.loadAllEmployee();
+            List<EmployeeDto> idList = employeeBO.loadAllEmployee();
 
             for (EmployeeDto dto : idList) {
                 obList.add(dto.getId());
@@ -143,7 +143,7 @@ public class ReviewAddController implements Initializable {
 
     private void generateNextReviewId() {
         try {
-            String review_Id = reviewModel.generateNextReviewId();
+            String review_Id = reviewBO.generateNextReviewId();
             txtReviewId.setText(review_Id);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

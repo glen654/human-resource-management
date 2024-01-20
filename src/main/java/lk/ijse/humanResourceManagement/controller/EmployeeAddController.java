@@ -3,7 +3,6 @@ package lk.ijse.humanResourceManagement.controller;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,13 +10,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.DepartmentBO;
+import lk.ijse.humanResourceManagement.bo.custom.EmployeeBO;
 import lk.ijse.humanResourceManagement.dto.DepartmentDto;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
-import lk.ijse.humanResourceManagement.model.DepartmentModel;
-import lk.ijse.humanResourceManagement.model.EmployeeModel;
 
-import javax.mail.MessagingException;
-import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -26,7 +24,6 @@ import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.SimpleTimeZone;
 import java.util.regex.Pattern;
 
 public class EmployeeAddController implements Initializable {
@@ -71,9 +68,8 @@ public class EmployeeAddController implements Initializable {
 
     @FXML
     private ImageView imageView;
-    private EmployeeModel empModel = new EmployeeModel();
-   
-    private DepartmentModel depModel = new DepartmentModel();
+    EmployeeBO employeeBO = (EmployeeBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.EMPLOYEE);
+    DepartmentBO departmentBO = (DepartmentBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.DEPARTMENT);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -84,7 +80,7 @@ public class EmployeeAddController implements Initializable {
 
     private void generateNextEmployeeId() {
         try {
-            String empId = empModel.generateNextEmployeeId();
+            String empId = employeeBO.generateNextEmployeeId();
             txtId.setText(empId);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -101,7 +97,7 @@ public class EmployeeAddController implements Initializable {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<DepartmentDto> idList = depModel.loadAllDepartments();
+            List<DepartmentDto> idList = departmentBO.loadAllDepartments();
 
             for (DepartmentDto dto : idList) {
                 obList.add(dto.getId());
@@ -134,7 +130,7 @@ public class EmployeeAddController implements Initializable {
             var dto = new EmployeeDto(id, firstName, lastName, contact,qualification,history,depId,dob,gender,email,salary,role);
 
             try {
-                boolean isSaved = empModel.saveEmployee(dto);
+                boolean isSaved = employeeBO.saveEmployee(dto);
 
                 if (isSaved) {
                     clearFields();

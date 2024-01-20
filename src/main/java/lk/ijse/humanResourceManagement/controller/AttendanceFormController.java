@@ -2,7 +2,6 @@ package lk.ijse.humanResourceManagement.controller;
 
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
-import com.github.sarxos.webcam.WebcamResolution;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.MultiFormatReader;
 import com.google.zxing.NotFoundException;
@@ -22,8 +21,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.AttendacenBO;
 import lk.ijse.humanResourceManagement.db.DbConnection;
-import lk.ijse.humanResourceManagement.model.AttendanceModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
@@ -62,9 +62,7 @@ public class AttendanceFormController implements Initializable {
     private WebcamPanel webcamPanel;
     private boolean isReading = false;
 
-    private AttendanceModel attendanceModel = new AttendanceModel();
-
-
+    AttendacenBO attendacenBO = (AttendacenBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.ATTENDANCE);
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
@@ -153,7 +151,7 @@ public class AttendanceFormController implements Initializable {
                                 try {
                                     LocalDateTime scannedTime = LocalDateTime.now();
 
-                                    boolean isSaved = attendanceModel.saveAttendnace(scannedTime, result.getText());
+                                    boolean isSaved = attendacenBO.saveAttendnace(scannedTime, result.getText());
                                     if (isSaved) {
                                         txtArea.appendText("Attendance record saved successfully!\n");
                                     } else {

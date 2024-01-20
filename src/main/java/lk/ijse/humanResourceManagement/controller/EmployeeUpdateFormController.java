@@ -8,11 +8,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.DepartmentBO;
+import lk.ijse.humanResourceManagement.bo.custom.EmployeeBO;
 import lk.ijse.humanResourceManagement.dto.DepartmentDto;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.tm.EmployeeTm;
-import lk.ijse.humanResourceManagement.model.DepartmentModel;
-import lk.ijse.humanResourceManagement.model.EmployeeModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -61,9 +62,8 @@ public class EmployeeUpdateFormController implements Initializable {
     @FXML
     private DatePicker txtDateOfBirth;
 
-    private EmployeeModel empModel = new EmployeeModel();
-
-    private DepartmentModel depModel = new DepartmentModel();
+    EmployeeBO employeeBO = (EmployeeBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.EMPLOYEE);
+    DepartmentBO departmentBO = (DepartmentBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.DEPARTMENT);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -88,7 +88,7 @@ public class EmployeeUpdateFormController implements Initializable {
 
         EmployeeDto updatedEmployee = new EmployeeDto(id,firstName,lastName,contact,qualification,history,depId,dob,gender,email,salary,role);
         try {
-            boolean isUpdated = empModel.updateEmployee(updatedEmployee);
+            boolean isUpdated = employeeBO.updateEmployee(updatedEmployee);
 
             if (isUpdated) {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -131,7 +131,7 @@ public class EmployeeUpdateFormController implements Initializable {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<DepartmentDto> idList = depModel.loadAllDepartments();
+            List<DepartmentDto> idList = departmentBO.loadAllDepartments();
 
             for (DepartmentDto dto : idList) {
                 obList.add(dto.getId());

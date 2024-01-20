@@ -14,13 +14,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.humanResourceManagement.dto.EmployeeDto;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.RequestBO;
 import lk.ijse.humanResourceManagement.dto.LeaveRequestDto;
-import lk.ijse.humanResourceManagement.dto.ReviewDto;
-import lk.ijse.humanResourceManagement.dto.tm.EmployeeTm;
 import lk.ijse.humanResourceManagement.dto.tm.LeaveRequestTm;
-import lk.ijse.humanResourceManagement.dto.tm.ReviewTm;
-import lk.ijse.humanResourceManagement.model.RequestModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -69,7 +66,7 @@ public class LeaveRequestFormController implements Initializable {
     @FXML
     private TableView<LeaveRequestTm> tblLeaveRequest;
 
-    private RequestModel requestModel = new RequestModel();
+    RequestBO requestBO = (RequestBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.REQUEST);
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws IOException {
@@ -111,7 +108,7 @@ public class LeaveRequestFormController implements Initializable {
         String id = txtSearchId.getText();
 
         try {
-            LeaveRequestDto requestDto = requestModel.searchRequest(id);
+            LeaveRequestDto requestDto = requestBO.searchRequest(id);
 
             if (requestDto != null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/leaveRequestDetails.fxml"));
@@ -216,7 +213,7 @@ public class LeaveRequestFormController implements Initializable {
             Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
             if (type.orElse(no) == yes) {
-                boolean deleted = requestModel.deleteRequest(requestId);
+                boolean deleted = requestBO.deleteRequest(requestId);
                 if (deleted) {
                     loadAllRequest();
                     new Alert(Alert.AlertType.CONFIRMATION, "Leave Request Deleted Successfully").show();
@@ -265,7 +262,7 @@ public class LeaveRequestFormController implements Initializable {
     private void loadAllRequest() {
         ObservableList<LeaveRequestTm> obList = FXCollections.observableArrayList();
         try {
-            List<LeaveRequestDto> dtoList = requestModel.loadAllRequest();
+            List<LeaveRequestDto> dtoList = requestBO.loadAllRequest();
 
             for (LeaveRequestDto dto : dtoList) {
                 JFXButton updateButton = new JFXButton("Update");

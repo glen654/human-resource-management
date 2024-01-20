@@ -9,11 +9,12 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.EmployeeBO;
+import lk.ijse.humanResourceManagement.bo.custom.RequestBO;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.LeaveRequestDto;
 import lk.ijse.humanResourceManagement.dto.tm.LeaveRequestTm;
-import lk.ijse.humanResourceManagement.model.EmployeeModel;
-import lk.ijse.humanResourceManagement.model.RequestModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -55,8 +56,8 @@ public class LeaveRequestUpdate implements Initializable {
     @FXML
     private DatePicker txtStartDate;
 
-    private EmployeeModel empModel = new EmployeeModel();
-    private RequestModel requestModel = new RequestModel();
+    RequestBO requestBO = (RequestBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.REQUEST);
+    EmployeeBO employeeBO = (EmployeeBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.EMPLOYEE);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -69,7 +70,7 @@ public class LeaveRequestUpdate implements Initializable {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<EmployeeDto> idList = empModel.loadAllEmployee();
+            List<EmployeeDto> idList = employeeBO.loadAllEmployee();
 
             for (EmployeeDto dto : idList) {
                 obList.add(dto.getId());
@@ -107,7 +108,7 @@ public class LeaveRequestUpdate implements Initializable {
             LeaveRequestDto updatedRequest = new LeaveRequestDto(request_id,emp_id,leaveType,startDate,endDate,status,requestDate);
 
             try {
-                boolean isUpdated = requestModel.updateRequest(updatedRequest);
+                boolean isUpdated = requestBO.updateRequest(updatedRequest);
 
                 if (isUpdated) {
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

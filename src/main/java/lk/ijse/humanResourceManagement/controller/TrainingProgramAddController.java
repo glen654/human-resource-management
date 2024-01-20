@@ -12,19 +12,15 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.humanResourceManagement.db.DbConnection;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.EmployeeBO;
+import lk.ijse.humanResourceManagement.bo.custom.PlaceEnrollmentBO;
+import lk.ijse.humanResourceManagement.bo.custom.ProgramBO;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.ProgramDto;
-import lk.ijse.humanResourceManagement.model.EmployeeModel;
-import lk.ijse.humanResourceManagement.model.PlaceTrainingEnrollmentModel;
-import lk.ijse.humanResourceManagement.model.ProgramModel;
 
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -52,11 +48,9 @@ public class TrainingProgramAddController implements Initializable {
     @FXML
     private TextField txtProgramName;
 
-    private ProgramModel programModel = new ProgramModel();
-
-    private EmployeeModel employeeModel= new EmployeeModel();
-
-    private PlaceTrainingEnrollmentModel enrollmentModel = new PlaceTrainingEnrollmentModel();
+    ProgramBO programBO = (ProgramBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.PROGRAM);
+    EmployeeBO employeeBO = (EmployeeBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.EMPLOYEE);
+    PlaceEnrollmentBO placeEnrollmentBO = (PlaceEnrollmentBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.PLACE_ENROLLMENT);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -72,14 +66,14 @@ public class TrainingProgramAddController implements Initializable {
     }
     private void generateNextProgramId() {
         try {
-            String program_Id = programModel.generateNextProgramId();
+            String program_Id = programBO.generateNextProgramId();
             txtProgramId.setText(program_Id);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
     @FXML
-     void btnSaveOnAction(ActionEvent event) {
+     void btnSaveOnAction(ActionEvent event) throws SQLException {
         if(validateProgram()){
             String program_id = txtProgramId.getText();
             String name = txtProgramName.getText();
@@ -90,7 +84,7 @@ public class TrainingProgramAddController implements Initializable {
 
             var dto = new ProgramDto(program_id,name,desc,trainers,duration,emp_id);
 
-            boolean isSaved = enrollmentModel.placeEnrollment(dto);
+            boolean isSaved = placeEnrollmentBO.placeEnrollment(dto);
 
             if(isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION,"Program And Enrollment Saved").show();
@@ -158,7 +152,7 @@ public class TrainingProgramAddController implements Initializable {
             ObservableList<String> obList = FXCollections.observableArrayList();
 
             try {
-                List<EmployeeDto> idList = employeeModel.loadAllEmployee();
+                List<EmployeeDto> idList = employeeBO.loadAllEmployee();
 
                 for (EmployeeDto dto : idList) {
                     obList.add(dto.getId());

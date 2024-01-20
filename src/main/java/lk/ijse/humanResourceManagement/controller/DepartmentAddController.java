@@ -2,20 +2,15 @@ package lk.ijse.humanResourceManagement.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.DepartmentBO;
 import lk.ijse.humanResourceManagement.dto.DepartmentDto;
-import lk.ijse.humanResourceManagement.dto.tm.DepartmentTm;
-import lk.ijse.humanResourceManagement.model.DepartmentModel;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.regex.Pattern;
 
 
@@ -31,9 +26,7 @@ public class DepartmentAddController {
 
     @FXML
     private TextField txtName;
-
-    private DepartmentModel deModel = new DepartmentModel();
-
+    DepartmentBO departmentBO = (DepartmentBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.DEPARTMENT);
     @FXML
     void btnSaveOnAction(ActionEvent event){
         if(validateDepartment()) {
@@ -44,7 +37,7 @@ public class DepartmentAddController {
             var dto = new DepartmentDto(id,name,desc);
 
             try {
-                boolean isSaved = deModel.saveDepartment(dto);
+                boolean isSaved = departmentBO.saveDepartment(dto);
 
                 if(isSaved){
                     clearFields();

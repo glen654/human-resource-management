@@ -14,14 +14,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.SalaryBO;
 import lk.ijse.humanResourceManagement.db.DbConnection;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
-import lk.ijse.humanResourceManagement.dto.ProgramDto;
 import lk.ijse.humanResourceManagement.dto.SalaryDto;
-import lk.ijse.humanResourceManagement.dto.tm.ProgramTm;
 import lk.ijse.humanResourceManagement.dto.tm.SalaryTm;
-import lk.ijse.humanResourceManagement.model.EmployeeModel;
-import lk.ijse.humanResourceManagement.model.SalaryModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
@@ -72,8 +70,7 @@ public class SalaryFormController implements Initializable {
     @FXML
     private Label txtUserName;
 
-    private SalaryModel salaryModel = new SalaryModel();
-    private EmployeeModel employeeModel = new EmployeeModel();
+    SalaryBO salaryBO = (SalaryBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.SALARY);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -124,7 +121,7 @@ public class SalaryFormController implements Initializable {
             Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
             if (type.orElse(no) == yes) {
-                boolean deleted = salaryModel.deleteSalary(compensationId);
+                boolean deleted = salaryBO.deleteSalary(compensationId);
                 if (deleted) {
                     loadAllSalary();
                     new Alert(Alert.AlertType.CONFIRMATION, "Salary Deleted Successfully").show();
@@ -147,7 +144,7 @@ public class SalaryFormController implements Initializable {
     private void loadAllSalary() {
         ObservableList<SalaryTm> obList = FXCollections.observableArrayList();
         try {
-            List<SalaryDto> dtoList = salaryModel.loadAllSalary();
+            List<SalaryDto> dtoList = salaryBO.loadAllSalary();
 
             for (SalaryDto dto : dtoList) {
                 JFXButton deleteButton = new JFXButton("Delete");
@@ -227,11 +224,11 @@ public class SalaryFormController implements Initializable {
         String id = txtSalaryId.getText();
 
         try {
-            SalaryDto salaryDto = salaryModel.searchSalary(id);
+            SalaryDto salaryDto = salaryBO.searchSalary(id);
 
                 if (salaryDto != null) {
 
-                    EmployeeDto employeeDto = salaryModel.searchEmployeeBySalaryId(id);
+                    EmployeeDto employeeDto = salaryBO.searchEmployeeBySalaryId(id);
 
                     if (employeeDto != null) {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/salaryDetails_form.fxml"));

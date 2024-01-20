@@ -10,8 +10,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.SignUpBO;
 import lk.ijse.humanResourceManagement.dto.SignUpDto;
-import lk.ijse.humanResourceManagement.model.SignUpModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -26,8 +27,7 @@ public class SignUpFormController {
     public PasswordField txtPassword;
     public PasswordField txtConfirmPassword;
     public TextField txtUsername;
-
-    private SignUpModel signUpModel = new SignUpModel();
+    SignUpBO signUpBO = (SignUpBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.SIGN_UP);
     @FXML
     void btnSignUpOnAction(ActionEvent event) {
         if(validateUser()){
@@ -41,7 +41,7 @@ public class SignUpFormController {
             var dto = new SignUpDto(firstName, lastName, position, userName,password);
 
             try {
-                boolean isSaved = signUpModel.saveUser(dto);
+                boolean isSaved = signUpBO.saveUser(dto);
 
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Successfully Created An Account!").show();

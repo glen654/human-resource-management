@@ -5,25 +5,110 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8bd32d7-b486-4f10-9672-ea066ff9e9d9" name="Changes" comment="completed">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/BOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/SuperBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/AttendacenBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/ChecklistBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/DepartmentBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/EmployeeBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/LoginBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/PlaceEnrollmentBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/ProgramBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/RequestBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/ReviewBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/SalaryBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/SignUpBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/TrainingEnrollmentBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/AttendanceBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/ChecklistBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/DepartmentBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/EmployeeBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/LoginBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/PlaceEnrollmentBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/ProgramBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/RequestBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/ReviewBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/SIgnUpBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/SalaryBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/bo/custom/impl/TrainingEnrollmentBOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/CrudDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/DAOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/SQLUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/SuperDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/AttendanceDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/ChecklistDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/DepartmentDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/EmployeeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/ProgramDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/QueryDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/RequestDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/ReviewDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/SalaryDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/TrainingEnrollmentDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/impl/AttendanceDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/impl/ChecklistDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/impl/DepartmentDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/impl/ProgramDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/impl/QueryDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/impl/RequestDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/impl/ReviewDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/impl/SalaryDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/impl/TrainingEnrollmentDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/impl/UserDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/entity/Attendance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/entity/Checklist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/entity/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/entity/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/entity/LeaveRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/entity/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/entity/Program.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/entity/Review.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/entity/Salary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/entity/TrainingEnrollment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2e28f76c-58db-4149-a773-f87d73712a41.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2e28f76c-58db-4149-a773-f87d73712a41.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2e28f76c-58db-4149-a773-f87d73712a41/storage_v2/_src_/schema/humanResourceManagement._uqBaA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2e28f76c-58db-4149-a773-f87d73712a41/storage_v2/_src_/schema/humanResourceManagement._uqBaA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/AttendanceFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/AttendanceFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentAddController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentUpdateFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/DepartmentUpdateFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeAddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeUpdateFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EmployeeUpdateFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LoadFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LoadFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/tm/EmployeeTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/tm/EmployeeTm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/attendance_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/attendance_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/department.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/department.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/enrollment_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/enrollment_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/leaveRequest_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/leaveRequest_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/onboardingChecklist_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/onboardingChecklist_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/performanceReview_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/performanceReview_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/salary_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/salary_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/trainingProgram_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/trainingProgram_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EnrollmentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/EnrollmentFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LeaveRequestAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LeaveRequestAddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LeaveRequestFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LeaveRequestFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LeaveRequestUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LeaveRequestUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/LoginFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/OnBoardingChecklistFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/OnBoardingChecklistFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/PerformanceReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/PerformanceReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/ReviewAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/ReviewAddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/ReviewUpdateFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/ReviewUpdateFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SalaryAddFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SalaryAddFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SalaryDetailsFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SalaryDetailsFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SalaryFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SalaryFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SignUpFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/SignUpFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/TrainingProgramAddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/TrainingProgramAddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/TrainingProgramFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/TrainingProgramFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/TrainingProgramUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/TrainingProgramUpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/checklistAddFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/controller/checklistAddFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/AttendanceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dto/AttendanceDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/AttendanceModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/ChecklistModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/DepartmentModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/EmployeeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/dao/custom/impl/EmployeeDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/LoginModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/PlaceTrainingEnrollmentModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/ProgramModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/RequestModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/ReviewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/SalaryModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/SignUpModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/humanResourceManagement/model/TrainingEnrollmentModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +119,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -63,12 +149,12 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/glen/Documents/HR Management system/human-resource-management/src/main/resources/report&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/glen/Documents/2nd sem proejct/Layerd Architecture/Working/layered-architecture&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -86,6 +172,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="AppInitializerWrapper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lk.ijse.humanResourceManagement.AppInitializerWrapper" />
+      <module name="human-resource-management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lk.ijse.humanResourceManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppInitializerWrapper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lk.ijse.humanResourceManagement.AppInitializerWrapper" />
       <module name="human-resource-management" />
@@ -202,7 +301,61 @@
       <workItem from="1701349983361" duration="8297000" />
       <workItem from="1701408291833" duration="7540000" />
       <workItem from="1701431191470" duration="2090000" />
-      <workItem from="1701437374742" duration="6740000" />
+      <workItem from="1701437374742" duration="7054000" />
+      <workItem from="1701535182975" duration="962000" />
+      <workItem from="1701587435185" duration="1665000" />
+      <workItem from="1701590892305" duration="1419000" />
+      <workItem from="1701594014486" duration="941000" />
+      <workItem from="1701697574179" duration="161000" />
+      <workItem from="1701708268736" duration="53000" />
+      <workItem from="1701754484035" duration="17000" />
+      <workItem from="1701777769183" duration="168000" />
+      <workItem from="1701782847880" duration="1608000" />
+      <workItem from="1701791048897" duration="45000" />
+      <workItem from="1701792005171" duration="49000" />
+      <workItem from="1701794064697" duration="46000" />
+      <workItem from="1701839321091" duration="49000" />
+      <workItem from="1701839740569" duration="1252000" />
+      <workItem from="1702358419419" duration="2049000" />
+      <workItem from="1702379901966" duration="327000" />
+      <workItem from="1702445799460" duration="820000" />
+      <workItem from="1702620354137" duration="2967000" />
+      <workItem from="1703141840241" duration="674000" />
+      <workItem from="1703232867918" duration="22000" />
+      <workItem from="1703235335630" duration="25000" />
+      <workItem from="1703568937056" duration="2237000" />
+      <workItem from="1703598410654" duration="634000" />
+      <workItem from="1703599162702" duration="5845000" />
+      <workItem from="1703655245037" duration="4404000" />
+      <workItem from="1703741035506" duration="6281000" />
+      <workItem from="1703747546404" duration="219000" />
+      <workItem from="1703770707151" duration="7043000" />
+      <workItem from="1703828194271" duration="6046000" />
+      <workItem from="1703857058031" duration="7462000" />
+      <workItem from="1703914367850" duration="5992000" />
+      <workItem from="1703949323934" duration="4280000" />
+      <workItem from="1704001500777" duration="6268000" />
+      <workItem from="1704029776500" duration="9576000" />
+      <workItem from="1704085086906" duration="7781000" />
+      <workItem from="1704116275607" duration="5786000" />
+      <workItem from="1704604344972" duration="8797000" />
+      <workItem from="1704689856129" duration="7146000" />
+      <workItem from="1704892653051" duration="967000" />
+      <workItem from="1704902604497" duration="1544000" />
+      <workItem from="1704955383349" duration="240000" />
+      <workItem from="1704982649429" duration="2332000" />
+      <workItem from="1705027597802" duration="1266000" />
+      <workItem from="1705029105815" duration="63000" />
+      <workItem from="1705031843230" duration="1368000" />
+      <workItem from="1705043488958" duration="144000" />
+      <workItem from="1705160891059" duration="525000" />
+      <workItem from="1705202365293" duration="1640000" />
+      <workItem from="1705414872644" duration="130000" />
+      <workItem from="1705415226016" duration="49000" />
+      <workItem from="1705508805140" duration="329000" />
+      <workItem from="1705509535445" duration="290000" />
+      <workItem from="1705645045365" duration="631000" />
+      <workItem from="1705648473463" duration="290000" />
     </task>
     <task id="LOCAL-00001" summary="completed the login and created the signup from">
       <option name="closed" value="true" />
@@ -452,7 +605,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701417032364</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="completed">
+      <option name="closed" value="true" />
+      <created>1701446914959</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1701446914959</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

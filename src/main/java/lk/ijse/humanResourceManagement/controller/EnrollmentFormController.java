@@ -14,12 +14,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.humanResourceManagement.dto.ProgramDto;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.TrainingEnrollmentBO;
 import lk.ijse.humanResourceManagement.dto.TrainingEnrollmentDto;
-import lk.ijse.humanResourceManagement.dto.tm.ChecklistTm;
-import lk.ijse.humanResourceManagement.dto.tm.ProgramTm;
 import lk.ijse.humanResourceManagement.dto.tm.TrainingEnrollmentTm;
-import lk.ijse.humanResourceManagement.model.TrainingEnrollmentModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,7 +57,7 @@ public class EnrollmentFormController implements Initializable {
     @FXML
     private AnchorPane rootNode;
 
-    private TrainingEnrollmentModel enrollmentModel = new TrainingEnrollmentModel();
+    TrainingEnrollmentBO trainingEnrollmentBO = (TrainingEnrollmentBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.TRAINING_ENROLLMENT);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setCellValueFactory();
@@ -129,7 +127,7 @@ public class EnrollmentFormController implements Initializable {
             Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
             if (type.orElse(no) == yes) {
-                boolean deleted = enrollmentModel.deleteEnrollment(enrollmentId);
+                boolean deleted = trainingEnrollmentBO.deleteEnrollment(enrollmentId);
                 if (deleted) {
                     loadAllEnrollment();
                     new Alert(Alert.AlertType.CONFIRMATION, "Enrollment Deleted Successfully").show();
@@ -156,7 +154,7 @@ public class EnrollmentFormController implements Initializable {
 
     private void handleUpdateAction(TrainingEnrollmentTm enrollmentList) {
         try {
-            boolean isUpdated = enrollmentModel.updateEnrollment(enrollmentList.getEnrollment_id(), "Complete");
+            boolean isUpdated = trainingEnrollmentBO.updateEnrollment(enrollmentList.getEnrollment_id(), "Complete");
 
             if (isUpdated) {
                 enrollmentList.getBtnUpdate().setText("Complete");
@@ -183,7 +181,7 @@ public class EnrollmentFormController implements Initializable {
     private void loadAllEnrollment() {
         ObservableList<TrainingEnrollmentTm> obList = FXCollections.observableArrayList();
         try {
-            List<TrainingEnrollmentDto> dtoList = enrollmentModel.loadAllEnrollment();
+            List<TrainingEnrollmentDto> dtoList = trainingEnrollmentBO.loadAllEnrollment();
 
             for (TrainingEnrollmentDto dto : dtoList) {
                 JFXButton updateButton = new JFXButton("Complete");

@@ -16,9 +16,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.EmployeeBO;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.tm.EmployeeTm;
-import lk.ijse.humanResourceManagement.model.EmployeeModel;
 
 
 import java.io.IOException;
@@ -59,8 +60,7 @@ public class EmployeeFormController implements Initializable {
     @FXML
     private TableView<EmployeeTm> tblEmployee;
 
-    private EmployeeModel empModel = new EmployeeModel();
-
+    EmployeeBO employeeBO = (EmployeeBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.EMPLOYEE);
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws IOException {
@@ -105,7 +105,7 @@ public class EmployeeFormController implements Initializable {
         String id = txtSearchId.getText();
 
         try {
-            EmployeeDto employeeDto = empModel.searchEmployee(id);
+            EmployeeDto employeeDto = employeeBO.searchEmployee(id);
 
             if (employeeDto != null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/employeeDetails_form.fxml"));
@@ -234,7 +234,7 @@ public class EmployeeFormController implements Initializable {
             Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
             if (type.orElse(no) == yes) {
-                boolean deleted = empModel.deleteEmployee(id);
+                boolean deleted = employeeBO.deleteEmployee(id);
                 if (deleted) {
                     loadAllEmployee();
                     new Alert(Alert.AlertType.CONFIRMATION, "Employee Deleted Successfully").show();
@@ -261,7 +261,7 @@ public class EmployeeFormController implements Initializable {
     private void loadAllEmployee() {
         ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
         try {
-            List<EmployeeDto> dtoList = empModel.loadAllEmployee();
+            List<EmployeeDto> dtoList = employeeBO.loadAllEmployee();
 
             for (EmployeeDto dto : dtoList) {
                 JFXButton updateButton = new JFXButton("Update");

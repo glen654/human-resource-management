@@ -6,9 +6,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.DepartmentBO;
 import lk.ijse.humanResourceManagement.dto.DepartmentDto;
 import lk.ijse.humanResourceManagement.dto.tm.DepartmentTm;
-import lk.ijse.humanResourceManagement.model.DepartmentModel;
 
 import java.sql.SQLException;
 import java.util.regex.Pattern;
@@ -23,8 +24,7 @@ public class DepartmentUpdateFormController {
     @FXML
     private TextField txtName;
 
-    private DepartmentModel depModel = new DepartmentModel();
-
+    DepartmentBO departmentBO = (DepartmentBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.DEPARTMENT);
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
        if(validateDepartment()){
@@ -34,7 +34,7 @@ public class DepartmentUpdateFormController {
 
            DepartmentDto updatedDepartment = new DepartmentDto(id, name, desc);
            try {
-               boolean isUpdated = depModel.updateDepartment(updatedDepartment);
+               boolean isUpdated = departmentBO.updateDepartment(updatedDepartment);
 
                if (isUpdated) {
                    Stage stage = (Stage) txtName.getScene().getWindow();

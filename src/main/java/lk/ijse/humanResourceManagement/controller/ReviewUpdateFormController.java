@@ -9,10 +9,10 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.humanResourceManagement.dto.DepartmentDto;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.ReviewBO;
 import lk.ijse.humanResourceManagement.dto.ReviewDto;
 import lk.ijse.humanResourceManagement.dto.tm.ReviewTm;
-import lk.ijse.humanResourceManagement.model.ReviewModel;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -45,7 +45,7 @@ public class ReviewUpdateFormController implements Initializable {
     @FXML
     private TextField txtReviewId;
 
-    private ReviewModel reviewModel = new ReviewModel();
+    ReviewBO reviewBO = (ReviewBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.REVIEW);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -63,7 +63,7 @@ public class ReviewUpdateFormController implements Initializable {
 
             ReviewDto updatedReview = new ReviewDto(review_id,emp_id,comment, rating,date);
             try {
-                boolean isUpdated = reviewModel.updateReview(updatedReview);
+                boolean isUpdated = reviewBO.updateReview(updatedReview);
 
                 if (isUpdated) {
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -14,11 +14,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.ProgramBO;
 import lk.ijse.humanResourceManagement.dto.ProgramDto;
-import lk.ijse.humanResourceManagement.dto.ReviewDto;
 import lk.ijse.humanResourceManagement.dto.tm.ProgramTm;
-import lk.ijse.humanResourceManagement.dto.tm.ReviewTm;
-import lk.ijse.humanResourceManagement.model.ProgramModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -61,7 +60,7 @@ public class TrainingProgramFormController implements Initializable {
     @FXML
     private Label txtUserName;
 
-    private ProgramModel programModel = new ProgramModel();
+    ProgramBO programBO = (ProgramBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.PROGRAM);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -138,7 +137,7 @@ public class TrainingProgramFormController implements Initializable {
             Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
             if (type.orElse(no) == yes) {
-                boolean deleted = programModel.deleteProgram(programId);
+                boolean deleted = programBO.deleteProgram(programId);
                 if (deleted) {
                     loadAllPrograms();
                     new Alert(Alert.AlertType.CONFIRMATION, "Program Deleted Successfully").show();
@@ -187,7 +186,7 @@ public class TrainingProgramFormController implements Initializable {
     private void loadAllPrograms() {
         ObservableList<ProgramTm> obList = FXCollections.observableArrayList();
         try {
-            List<ProgramDto> dtoList = programModel.loadAllPrograms();
+            List<ProgramDto> dtoList = programBO.loadAllPrograms();
 
             for (ProgramDto dto : dtoList) {
                 JFXButton updateButton = new JFXButton("Update");
@@ -271,7 +270,7 @@ public class TrainingProgramFormController implements Initializable {
         String id = txtProgramId.getText();
 
         try {
-            ProgramDto programDto = programModel.searchProgram(id);
+            ProgramDto programDto = programBO.searchProgram(id);
 
             if (programDto != null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/trainingProgramDetail.fxml"));

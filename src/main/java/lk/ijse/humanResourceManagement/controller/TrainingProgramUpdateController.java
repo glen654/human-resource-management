@@ -9,16 +9,15 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.EmployeeBO;
+import lk.ijse.humanResourceManagement.bo.custom.ProgramBO;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.ProgramDto;
-import lk.ijse.humanResourceManagement.dto.ReviewDto;
 import lk.ijse.humanResourceManagement.dto.tm.ProgramTm;
-import lk.ijse.humanResourceManagement.model.EmployeeModel;
-import lk.ijse.humanResourceManagement.model.ProgramModel;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -49,9 +48,8 @@ public class TrainingProgramUpdateController implements Initializable {
     @FXML
     private TextField txtProgramName;
 
-    private ProgramModel programModel = new ProgramModel();
-
-    private EmployeeModel employeeModel = new EmployeeModel();
+    ProgramBO programBO = (ProgramBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.PROGRAM);
+    EmployeeBO employeeBO = (EmployeeBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.EMPLOYEE);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -71,7 +69,7 @@ public class TrainingProgramUpdateController implements Initializable {
 
             ProgramDto updatedProgram = new ProgramDto(program_id,name,description,trainers,duration,emp_id);
             try {
-                boolean isUpdated = programModel.updateProgram(updatedProgram);
+                boolean isUpdated = programBO.updateProgram(updatedProgram);
 
                 if (isUpdated) {
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -153,7 +151,7 @@ public class TrainingProgramUpdateController implements Initializable {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<EmployeeDto> idList = employeeModel.loadAllEmployee();
+            List<EmployeeDto> idList = employeeBO.loadAllEmployee();
 
             for (EmployeeDto dto : idList) {
                 obList.add(dto.getId());

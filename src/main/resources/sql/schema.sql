@@ -70,15 +70,6 @@ CREATE TABLE compensationAndBenefits(
                                         FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE exitInterview(
-                              interview_id VARCHAR(10) PRIMARY KEY,
-                              emp_id VARCHAR(10),
-                              reasonForLeaving VARCHAR(100) NOT NULL,
-                              feedBack VARCHAR(50) NOT NULL,
-                              interviewer VARCHAR(20) NOT NULL,
-                              interviewDate DATE NOT NULL,
-                              FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE
-);
 
 CREATE TABLE trainingProgram(
                                 program_id VARCHAR(10) PRIMARY KEY,
@@ -106,12 +97,3 @@ CREATE TABLE onboardingChecklist(
                                     status ENUM('Completed','Incompleted') NOT NULL
 );
 
-CREATE TABLE employeeOnboardingChecklist(
-                                            empOnboarding_id VARCHAR(10) PRIMARY KEY,
-                                            emp_id VARCHAR(10),
-                                            checklist_id VARCHAR(10),
-                                            dueDate DATE NOT NULL,
-                                            status ENUM('Completed','Incompleted') NOT NULL,
-                                            FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON UPDATE CASCADE ON DELETE CASCADE,
-                                            FOREIGN KEY (checklist_id) REFERENCES onboardingChecklist(checklist_id) ON UPDATE CASCADE ON DELETE CASCADE
-);

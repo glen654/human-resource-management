@@ -14,11 +14,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.humanResourceManagement.dto.DepartmentDto;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.ReviewBO;
 import lk.ijse.humanResourceManagement.dto.ReviewDto;
-import lk.ijse.humanResourceManagement.dto.tm.DepartmentTm;
 import lk.ijse.humanResourceManagement.dto.tm.ReviewTm;
-import lk.ijse.humanResourceManagement.model.ReviewModel;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -62,7 +62,7 @@ public class PerformanceReviewController implements Initializable {
     @FXML
     private Label txtUserName;
 
-    private ReviewModel reviewModel = new ReviewModel();
+    ReviewBO reviewBO = (ReviewBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.REVIEW);
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws IOException {
@@ -104,7 +104,7 @@ public class PerformanceReviewController implements Initializable {
         String id = txtSearchId.getText();
 
         try {
-            ReviewDto reviewDto = reviewModel.searchReview(id);
+            ReviewDto reviewDto = reviewBO.searchReview(id);
 
             if (reviewDto != null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/reviewDetail_form.fxml"));
@@ -209,7 +209,7 @@ public class PerformanceReviewController implements Initializable {
             Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
             if (type.orElse(no) == yes) {
-                boolean deleted = reviewModel.deleteReview(id);
+                boolean deleted = reviewBO.deleteReview(id);
                 if (deleted) {
                     loadAllReviews();
                     new Alert(Alert.AlertType.CONFIRMATION, "Review Deleted Successfully").show();
@@ -258,7 +258,7 @@ public class PerformanceReviewController implements Initializable {
     private void loadAllReviews() {
         ObservableList<ReviewTm> obList = FXCollections.observableArrayList();
         try {
-            List<ReviewDto> dtoList = reviewModel.loadAllReviews();
+            List<ReviewDto> dtoList = reviewBO.loadAllReviews();
 
             for (ReviewDto dto : dtoList) {
                 JFXButton updateButton = new JFXButton("Update");

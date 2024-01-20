@@ -14,11 +14,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.ChecklistBO;
 import lk.ijse.humanResourceManagement.dto.ChecklistDto;
-import lk.ijse.humanResourceManagement.dto.ProgramDto;
 import lk.ijse.humanResourceManagement.dto.tm.ChecklistTm;
-import lk.ijse.humanResourceManagement.dto.tm.ProgramTm;
-import lk.ijse.humanResourceManagement.model.ChecklistModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,9 +58,8 @@ public class OnBoardingChecklistFormController implements Initializable {
     @FXML
     private TextField txtobId;
 
-    private ChecklistModel checklistModel = new ChecklistModel();
+    ChecklistBO checklistBO = (ChecklistBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.CHECKLIST);
 
-    private ChecklistDto dto = new ChecklistDto();
     @FXML
     void btnAddOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/checklistAdd_form.fxml"));
@@ -103,7 +101,7 @@ public class OnBoardingChecklistFormController implements Initializable {
         String id = txtobId.getText();
 
         try {
-            ChecklistDto checklistDto = checklistModel.searchTask(id);
+            ChecklistDto checklistDto = checklistBO.searchTask(id);
 
             if (checklistDto != null) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/checklistDetail.fxml"));
@@ -198,12 +196,10 @@ public class OnBoardingChecklistFormController implements Initializable {
 
     private void handleUpdateAction(ChecklistTm checkList) {
         try {
-            boolean isUpdated = checklistModel.updateTask(checkList.getChecklist_id(), "Completed");
+            boolean isUpdated = checklistBO.updateTask(checkList.getChecklist_id(), "Completed");
 
             if (isUpdated) {
-                // Change button text to Complete
                 checkList.getBtnIncomplete().setText("Completed");
-                // Update the status in the TableView
                 checkList.setStatus("Completed");
                 setButtonStyles(checkList.getBtnIncomplete(), "Completed");
                 tblOnBoarding.refresh();
@@ -238,7 +234,7 @@ public class OnBoardingChecklistFormController implements Initializable {
             Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
             if (type.orElse(no) == yes) {
-                boolean deleted = checklistModel.deleteTask(checklistId);
+                boolean deleted = checklistBO.deleteTask(checklistId);
                 if (deleted) {
                     loadAllTask();
                     new Alert(Alert.AlertType.CONFIRMATION, "Task Deleted Successfully").show();
@@ -261,7 +257,7 @@ public class OnBoardingChecklistFormController implements Initializable {
     private void loadAllTask() {
         ObservableList<ChecklistTm> obList = FXCollections.observableArrayList();
         try {
-            List<ChecklistDto> dtoList = checklistModel.loadAllTasks();
+            List<ChecklistDto> dtoList = checklistBO.loadAllTasks();
 
             for (ChecklistDto dto : dtoList) {
                 JFXButton updateButton = new JFXButton("Incomplete");

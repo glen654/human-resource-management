@@ -9,9 +9,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.ChecklistBO;
 import lk.ijse.humanResourceManagement.dto.ChecklistDto;
-import lk.ijse.humanResourceManagement.model.ChecklistModel;
-
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -35,8 +35,7 @@ public class checklistAddFormController implements Initializable {
     @FXML
     private TextField txtTask;
 
-    private ChecklistModel checklistModel = new ChecklistModel();
-
+    ChecklistBO checklistBO = (ChecklistBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.CHECKLIST);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         loadStatus();
@@ -53,7 +52,7 @@ public class checklistAddFormController implements Initializable {
             var dto = new ChecklistDto(checklist_id,onboardingTasks,dueDate,status);
 
             try {
-                boolean isSaved = checklistModel.saveChecklist(dto);
+                boolean isSaved = checklistBO.saveChecklist(dto);
 
                 if(isSaved){
                     clearFields();
@@ -122,7 +121,7 @@ public class checklistAddFormController implements Initializable {
 
     private void generateNextTaskId() {
         try {
-            String checklist_Id = checklistModel.generateNextChecklistId();
+            String checklist_Id = checklistBO.generateNextChecklistId();
             txtChecklistId.setText(checklist_Id);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

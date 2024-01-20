@@ -9,10 +9,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.humanResourceManagement.bo.BOFactory;
+import lk.ijse.humanResourceManagement.bo.custom.EmployeeBO;
+import lk.ijse.humanResourceManagement.bo.custom.SalaryBO;
 import lk.ijse.humanResourceManagement.dto.EmployeeDto;
 import lk.ijse.humanResourceManagement.dto.SalaryDto;
-import lk.ijse.humanResourceManagement.model.EmployeeModel;
-import lk.ijse.humanResourceManagement.model.SalaryModel;
+
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -46,9 +48,8 @@ public class SalaryAddFormController implements Initializable {
     @FXML
     private TextField txtSalaryId;
 
-    private SalaryModel salaryModel = new SalaryModel();
-
-    private EmployeeModel employeeModel = new EmployeeModel();
+    SalaryBO salaryBO = (SalaryBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.SALARY);
+    EmployeeBO employeeBO = (EmployeeBO) BOFactory.getBOFactory().getBo(BOFactory.BOTypes.EMPLOYEE);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -70,7 +71,7 @@ public class SalaryAddFormController implements Initializable {
             var dto = new SalaryDto(compensation_id,emp_id,salary,status,salaryDeduction,epf,overTime);
 
             try {
-                boolean isSaved = salaryModel.saveSalary(dto);
+                boolean isSaved = salaryBO.saveSalary(dto);
 
                 if(isSaved){
                     clearFields();
@@ -96,7 +97,7 @@ public class SalaryAddFormController implements Initializable {
 
     private void generateNextSalaryId() {
         try {
-            String salary_Id = salaryModel.generateNextSalaryId();
+            String salary_Id = salaryBO.generateNextSalaryId();
             txtSalaryId.setText(salary_Id);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -113,7 +114,7 @@ public class SalaryAddFormController implements Initializable {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<EmployeeDto> idList = employeeModel.loadAllEmployee();
+            List<EmployeeDto> idList = employeeBO.loadAllEmployee();
 
             for (EmployeeDto dto : idList) {
                 obList.add(dto.getId());

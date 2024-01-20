@@ -2,6 +2,7 @@ package lk.ijse.humanResourceManagement.dto;
 
 import java.time.LocalDate;
 
+
 public class AttendanceDto {
     private String attendance_id;
     private LocalDate date;
